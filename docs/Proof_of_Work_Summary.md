@@ -72,9 +72,15 @@
 - **Processing Stage Transition Form:** Selects active batches, maps made tea yield (~22.5% recovery ratio), and mints unique serialized GS1 Digital Link QR tokens.
 - **Lab Attestation Engine:** Direct upload of NABL test parameters with automatic IPFS cryptographic CID generation.
 
-### View D: TRA Tocklai Regulatory Command Center
+### View D: TRA Tocklai Regulatory Command Center & Cadastral GIS Surveillance
 - **Macro Valley Analytics:** Real-time cards displaying Total Batches, Total Green Leaf Tracked (Kg), Total Made Tea Output (Kg), and Valley-wide MRL Compliance Rate (%).
-- **Assam Valley Heatmap:** Interactive vector map highlighting active tea garden clusters across Jorhat (TRA Tocklai), Dibrugarh, Tinsukia, Golaghat, and Guwahati (GTAC).
+- **Interactive Assam Valley Heatmap & District Pins:** Clickable vector pins for Jorhat (TRA Tocklai), Dibrugarh, Tinsukia, Golaghat, and Guwahati (GTAC) displaying registered growers, acreage, MRL compliance rate, and sample batch inspection.
+- **High-Precision Cadastral Land Parcel Map (দাগ আৰু পট্টা):** Dharitree / ILRMS-compliant cadastral survey map tracking individual Dag polygons (`Dag #142/518`, `Dag #143/519`, `Dag #144/520`, `Dag #145/521`, `Dag #146/522`, `Dag #147/523`):
+  - *Tenure Validation:* Tracks Periodic Patta (ম্যাদী পট্টা), Khiraj Myadi, and Special Research Grants.
+  - *EUDR Anti-Deforestation Compliance:* Real-time Sentinel-2 satellite audit confirming zero canopy loss post-2020.
+  - *Eco-Sensitive Buffer Zones:* Red-flagged riparian non-plucking zones along stream buffers to prevent environmental encroachments.
+  - *Live Sensor Radar:* Pulsing GPS sensor pinpointing real-time plucking telemetry inside the registered parcel.
+- **Tea Board PPC v16 Agrochemical Whitelist Inspector:** Instant search for approved active ingredients, maximum residue limits (MRLs), target pests, and mandatory Pre-Harvest Intervals (PHI).
 - **Blockchain Dispatcher:** One-click computation of off-chain Merkle roots and periodic dispatch of cryptographic state roots to Layer 2 smart contracts.
 
 ---

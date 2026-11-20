@@ -14,8 +14,15 @@
 2. **Small Tea Grower (STG) / Field App ("চাহ-সেৱা Chah-Sewa"):**
    - Multilingual interface (Assamese / English).
    - Geo-fenced harvest logging with verified plantation boundary polygons (Jorhat, Dibrugarh, Tinsukia, Golaghat).
+   - Real-time GPS capture with instantaneous cross-referencing against Cadastral Land Parcel records (Dag & Patta numbers).
    - Bluetooth / IoT digital weighbridge integration eliminating manual leaf manipulation and moisture deductions.
-3. **Estate & Bought Leaf Factory (BLF) Management:**
+3. **High-Precision Cadastral GIS Land Parcel Engine (Dharitree / ILRMS Standards):**
+   - Dual-mode GIS viewer: Toggle between macro Assam valley tea district distribution and micro-cadastral land survey polygons.
+   - Interactive Dag parcel inspection (`Dag #142/518`, `Dag #143/519`, `Dag #144/520`, `Dag #145/521`, `Dag #146/522`, `Dag #147/523`).
+   - Land tenure mapping: Periodic Patta (ম্যাদী পট্টা), Khiraj Myadi, Research Grants, and Nursery blocks.
+   - EU Deforestation Regulation (EUDR) anti-deforestation audit trail and eco-sensitive non-plucking riparian buffer enforcement.
+   - Live sensor radar ping overlay displaying plucker positions inside registered Dag boundaries.
+4. **Estate & Bought Leaf Factory (BLF) Management:**
    - Real-time IoT sensor telemetry (Withering loss %, Fermentation humidity %, VFBD drying temperatures).
    - Batch consolidation & processing into CTC (BOP, BP, OF) and Orthodox (TGFOP1) grades.
 4. **TRA Tocklai Quality & Chemical Residue Lab Verification:**

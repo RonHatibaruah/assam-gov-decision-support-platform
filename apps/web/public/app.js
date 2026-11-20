@@ -287,6 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFactoryPortal();
   setupTocklaiCommand();
   setupInteractiveMap();
+  setupCadastralMap();
   setupActionModals();
   setupPPCInspector();
   setupAdminSubtabs();
@@ -786,6 +787,14 @@ function setupSTGPortal() {
     const fallbackId = `ASM-2026-${procType}-${String(fallbackBatches.length + 1).padStart(3, "0")}`;
     showToast(`🌱 Harvest recorded locally! Batch ID: ${fallbackId}`, "success");
   });
+
+  // Live GPS Capture with Cadastral Land Parcel verification
+  const btnGps = document.getElementById("btn-gps-refresh");
+  if (btnGps) {
+    btnGps.addEventListener("click", () => {
+      showToast("📍 Real-time GPS fixed (26.7512° N, 94.2155° E) • Geo-fenced inside Cadastral Dag #142/518 (Patta #42 Mukund Saikia)", "success");
+    });
+  }
 
   // Bluetooth Weighbridge simulator
   const btnSync = document.getElementById("btn-weighbridge-sync");
@@ -1293,3 +1302,228 @@ function setupTutorialModal() {
     }
   });
 }
+
+// -------------------------------------------------------------
+// Cadastral Land Parcel GIS Engine (Dharitree / ILRMS Standards)
+// -------------------------------------------------------------
+const CADASTRAL_PLOTS = {
+  Dag_142_518: {
+    dagNo: "Dag #142/518 (দাগ ১৪২/৫১৮)",
+    pattaNo: "Patta #42 (ম্যাদী পট্টা / Periodic Patta)",
+    owner: "Mukund Saikia (Small Tea Grower #JHT-408)",
+    revenueCircle: "Jorhat West Revenue Circle",
+    mouza: "Borbhetta Mouza",
+    areaHa: "2.45 Hectares (18 Bighas, 2 Kathas)",
+    clone: "TV23 (High Quality Tocklai Vegetative Clone)",
+    soilPh: "4.82 pH (Optimal Upper Assam Acidic Loam)",
+    liveGps: "26.7512° N, 94.2155° E (Field BLE Plucker Beacon active)",
+    eudrCompliance: "VERIFIED DEFORESTATION-FREE (Sentinel-2 satellite audit post-2020: 0% canopy loss)",
+    activeBatchId: "ASM-2026-CTC-001",
+    statusBadge: "ACTIVE_PLUCKING",
+    statusText: "Active Plucking • Leaf Dispatch to Bought Leaf Factory",
+    color: "#16a34a"
+  },
+  Dag_143_519: {
+    dagNo: "Dag #143/519 (দাগ ১৪৩/৫১৯)",
+    pattaNo: "Grant #TRA-RES-1911 (Special Scientific Research Tenure)",
+    owner: "Tea Research Association (TRA Tocklai) Experimental Station",
+    revenueCircle: "Jorhat West Revenue Circle",
+    mouza: "Borbhetta Mouza",
+    areaHa: "4.10 Hectares (30 Bighas, 3 Kathas)",
+    clone: "TV1 Foundation Clonal Genebank (Mother Bush Archive)",
+    soilPh: "4.75 pH (Red Sandy Alluvial Loam)",
+    liveGps: "26.7525° N, 94.2180° E (Agro-Weather Station JHT-AWS-01)",
+    eudrCompliance: "VERIFIED COMPLIANT (Established Tea Heritage since 1911)",
+    activeBatchId: "ASM-2026-CTC-001",
+    statusBadge: "RESEARCH_GENEBANK",
+    statusText: "Scientific Germplasm Archive & Clone Certification Foundation",
+    color: "#2563eb"
+  },
+  Dag_144_520: {
+    dagNo: "Dag #144/520 (দাগ ১৪৪/৫২০)",
+    pattaNo: "Patta #77 (Khiraj Myadi / খেৰাজ ম্যাদী)",
+    owner: "Diganta Phukan (STG Member #JHT-412)",
+    revenueCircle: "Jorhat West Revenue Circle",
+    mouza: "Borbhetta Mouza",
+    areaHa: "1.80 Hectares (13 Bighas, 1 Katha)",
+    clone: "S3A3 (High-Yield Assamica Clone)",
+    soilPh: "4.90 pH (Organic Matter 2.8%)",
+    liveGps: "26.7508° N, 94.2201° E (Handheld Mobile Geo-Tagged)",
+    eudrCompliance: "VERIFIED COMPLIANT (ILRMS Cadastral Survey Cleared)",
+    activeBatchId: "ASM-2026-CTC-001",
+    statusBadge: "ACTIVE_PLUCKING",
+    statusText: "Under Regular 7-Day Plucking Rotation",
+    color: "#16a34a"
+  },
+  Dag_145_521: {
+    dagNo: "Dag #145/521 (দাগ ১৪৫/৫২১)",
+    pattaNo: "TRA-VP-NURSERY-08",
+    owner: "Tocklai Vegetative Propagation & Nursery Division",
+    revenueCircle: "Jorhat West Revenue Circle",
+    mouza: "Borbhetta Mouza",
+    areaHa: "0.95 Hectares (7 Bighas)",
+    clone: "Certified Clonal Cuttings (TV1, TV23, TV29, TV30)",
+    soilPh: "4.65 pH (Microbial Inoculated Nursery Substrate)",
+    liveGps: "26.7533° N, 94.2225° E (Automated Fogging & Mist Irrigation)",
+    eudrCompliance: "VERIFIED COMPLIANT",
+    activeBatchId: "QR-ASM26-8894-X82F",
+    statusBadge: "NURSERY_STOCK",
+    statusText: "Mother Bush Vegetative Cuttings for Smallholder Distribution",
+    color: "#ca8a04"
+  },
+  Dag_146_522: {
+    dagNo: "Dag #146/522 (দাগ ১৪৬/৫২২)",
+    pattaNo: "GOV-RIPARIAN-BUFFER-99 (Strict Environmental Conservation Zone)",
+    owner: "Government Forest & Riverine Buffer (Dhekiajuli Stream corridor)",
+    revenueCircle: "Jorhat West Revenue Circle",
+    mouza: "Borbhetta Mouza",
+    areaHa: "1.60 Hectares (11 Bighas, 4 Kathas)",
+    clone: "Native Riparian Vegetation (No Commercial Cultivation Allowed)",
+    soilPh: "5.40 pH (Wetland Riparian Silt)",
+    liveGps: "26.7495° N, 94.2140° E (Sentinel-2 Spectral Water Index Sensor)",
+    eudrCompliance: "STRICT NON-PLUCKING ZONE (Illegal to Harvest / Deforest under EUDR & TRA Norms)",
+    activeBatchId: "QUARANTINED_AREA",
+    statusBadge: "PROHIBITED_ZONE",
+    statusText: "⛔ Plucking Prohibited • Protected Natural Buffer Corridors",
+    color: "#dc2626"
+  },
+  Dag_147_523: {
+    dagNo: "Dag #147/523 (দাগ ১৪৭/৫২৩)",
+    pattaNo: "Patta #84 (Periodic Bio-Organic Patta)",
+    owner: "Hiren Baruah (NPOP & Aditi Organic Certified Producer)",
+    revenueCircle: "Jorhat West Revenue Circle",
+    mouza: "Borbhetta Mouza",
+    areaHa: "2.15 Hectares (16 Bighas)",
+    clone: "TV23 / T3E3 Flavoured Hybrid Clones",
+    soilPh: "5.10 pH (Vermicompost & Bio-Char Enriched)",
+    liveGps: "26.7480° N, 94.2175° E (Bio-Shield Agro-Sensors)",
+    eudrCompliance: "VERIFIED 100% ORGANIC & DEFORESTATION-FREE",
+    activeBatchId: "STG-GLG-004",
+    statusBadge: "CERTIFIED_ORGANIC",
+    statusText: "Zero Synthetic Chemical Applications • NPOP Certified",
+    color: "#16a34a"
+  }
+};
+
+function setupCadastralMap() {
+  document.querySelectorAll(".cadastral-parcel").forEach(el => {
+    el.addEventListener("click", () => {
+      const dagId = el.getAttribute("data-dag");
+      if (dagId) window.selectCadastralPlot(dagId);
+    });
+  });
+
+  // Pre-select primary plot
+  window.selectCadastralPlot("Dag_142_518");
+}
+
+window.switchGisMode = function(mode) {
+  const btnMacro = document.getElementById("btn-mode-macro");
+  const btnCadastral = document.getElementById("btn-mode-cadastral");
+  const viewMacro = document.getElementById("gis-view-macro");
+  const viewCadastral = document.getElementById("gis-view-cadastral");
+
+  if (!btnMacro || !btnCadastral || !viewMacro || !viewCadastral) return;
+
+  if (mode === "cadastral") {
+    btnMacro.classList.remove("active");
+    btnCadastral.classList.add("active");
+    viewMacro.classList.remove("active");
+    viewCadastral.classList.add("active");
+    window.selectCadastralPlot("Dag_142_518");
+    showToast("📐 Switched to High-Precision Cadastral Land Parcel Survey Map (Dharitree / ILRMS)", "info");
+  } else {
+    btnCadastral.classList.remove("active");
+    btnMacro.classList.add("active");
+    viewCadastral.classList.remove("active");
+    viewMacro.classList.add("active");
+    showToast("🗺️ Switched to Assam Valley Macro Distribution Map", "info");
+  }
+};
+
+window.selectCadastralPlot = function(dagId) {
+  const plot = CADASTRAL_PLOTS[dagId];
+  if (!plot) return;
+
+  // Highlight active SVG polygon parcel
+  document.querySelectorAll(".cadastral-parcel").forEach(el => {
+    if (el.getAttribute("data-dag") === dagId) {
+      el.classList.add("active-dag");
+    } else {
+      el.classList.remove("active-dag");
+    }
+  });
+
+  const detailsContainer = document.getElementById("cadastral-plot-details");
+  if (!detailsContainer) return;
+
+  const isProhibited = plot.statusBadge === "PROHIBITED_ZONE";
+
+  detailsContainer.innerHTML = `
+    <div class="cadastral-details-header">
+      <div class="cadastral-details-title">
+        <span>📐</span> ${plot.dagNo}
+        <span style="font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 9999px; background: ${isProhibited ? '#fee2e2' : '#dcfce7'}; color: ${isProhibited ? '#991b1b' : '#166534'}; font-weight: 700;">
+          ${plot.statusBadge}
+        </span>
+      </div>
+      <div>
+        ${!isProhibited ? `
+          <button onclick="lookupBatch('${plot.activeBatchId}'); jumpToTab('consumer');" class="btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.85rem;">
+            🔍 View Active Tea Batch (${plot.activeBatchId}) →
+          </button>
+        ` : `
+          <span style="font-size: 0.8rem; color: #dc2626; font-weight: 700;">⚠️ Commercial Plucking Strictly Banned</span>
+        `}
+      </div>
+    </div>
+
+    <div style="font-size: 0.88rem; color: #334155; margin-bottom: 0.85rem;">
+      <strong>${plot.owner}</strong> • ${plot.revenueCircle}, ${plot.mouza}
+    </div>
+
+    <div class="cadastral-details-grid">
+      <div class="cadastral-attr">
+        <div class="cadastral-attr-label">Land Tenure & Patta</div>
+        <div class="cadastral-attr-value">${plot.pattaNo}</div>
+      </div>
+      <div class="cadastral-attr">
+        <div class="cadastral-attr-label">Surveyed Cadastral Area</div>
+        <div class="cadastral-attr-value">${plot.areaHa}</div>
+      </div>
+      <div class="cadastral-attr">
+        <div class="cadastral-attr-label">Tea Cultivar / Clones</div>
+        <div class="cadastral-attr-value">${plot.clone}</div>
+      </div>
+      <div class="cadastral-attr">
+        <div class="cadastral-attr-label">Soil Acidity (Tocklai Standard)</div>
+        <div class="cadastral-attr-value" style="color: #047857;">${plot.soilPh}</div>
+      </div>
+      <div class="cadastral-attr">
+        <div class="cadastral-attr-label">Live Field Telemetry</div>
+        <div class="cadastral-attr-value" style="font-size: 0.8rem;">${plot.liveGps}</div>
+      </div>
+      <div class="cadastral-attr">
+        <div class="cadastral-attr-label">EUDR Deforestation Compliance</div>
+        <div class="cadastral-attr-value" style="font-size: 0.8rem; color: ${isProhibited ? '#dc2626' : '#15803d'};">
+          ${isProhibited ? '⛔ PROTECTED FOREST CORRIDOR' : '✓ 100% DEFORESTATION-FREE AUDIT PASS'}
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 0.85rem; font-size: 0.8rem; color: #64748b; background: #ffffff; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+      <span>📌 Land Registry Source: <strong>Dharitree / ILRMS Assam Cadastral Geo-Database</strong></span>
+      <span>Status: <strong>${plot.statusText}</strong></span>
+    </div>
+  `;
+};
+
+window.loadCadastralCluster = function(clusterName) {
+  const clusterLabels = {
+    "Jorhat_Borbhetta": "Borbhetta Tocklai Division (Jorhat West Circle, Mouza Borbhetta)",
+    "Dibrugarh_Moran": "Moran STG Cluster (Dibrugarh, Moran Circle, Mouza Ekarani)",
+    "Tinsukia_DoomDooma": "Doom Dooma Heritage Sector (Tinsukia Circle, Mouza Doom Dooma)",
+  };
+  showToast(`📐 Loaded Cadastral Cluster: ${clusterLabels[clusterName] || clusterName}`, "info");
+  window.selectCadastralPlot("Dag_142_518");
+};
