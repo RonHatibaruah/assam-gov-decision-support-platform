@@ -348,5 +348,142 @@ export async function onRequest(context) {
     });
   }
 
+  // 6. Harvest Plucking (STG)
+  if (path === "/api/batches/harvest" && method === "POST") {
+    let body = {};
+    try {
+      body = await request.json();
+    } catch (e) {}
+
+    const newId = `ASM-2026-${body.procType || "CTC"}-${String(SEED_BATCHES.length + 1).padStart(3, "0")}`;
+    const newBatch = {
+      id: newId,
+      stage: "PLUCKED",
+      plucking: {
+        growerId: body.growerId || "STG-JHT-001",
+        growerName: body.growerName || "Assam Small Tea Grower",
+        gardenName: body.gardenName || "Borbhetta Smallholding Cluster #4",
+        district: body.district || "Jorhat",
+        sectionId: body.sectionId || "Sec-A1",
+        gps: body.gps || { lat: 26.7512, lng: 94.2155 },
+        estimatedWeightKg: body.estimatedWeightKg || 250.0,
+        pluckingTime: new Date().toISOString(),
+      },
+      custodian: body.growerName || "Assam Small Tea Grower",
+      serializedQrCode: `QR-ASM26-${Math.random().toString(36).substring(2, 7).toUpperCase()}`,
+      giTagAuthorized: true,
+      giCertNumber: "GI-IN-ASM-TEA-PENDING",
+      blockchainTxHash: "0x" + Array.from({length: 64}, () => Math.floor(Math.random()*16).toString(16)).join(""),
+    };
+    SEED_BATCHES.unshift(newBatch);
+    return jsonResponse({ success: true, message: "Harvest recorded on Cloudflare Edge", data: newBatch }, 201);
+  }
+
+  // 7. Weighbridge Receipt
+  const wbMatch = path.match(/^\/api\/batches\/([^/]+)\/weighbridge$/);
+  if (wbMatch && method === "POST") {
+    const batchId = wbMatch[1];
+    const batch = SEED_BATCHES.find(b => b.id === batchId);
+    if (!batch) return jsonResponse({ success: false, error: "Batch not found" }, 404);
+
+    let body = {};
+    try { body = await request.json(); } catch(e) {}
+
+    batch.stage = "WEIGHED_AT_COLLECTION";
+    batch.plucking.verifiedWeightKg = body.verifiedWeightKg || 248.8;
+    batch.plucking.weighbridgeId = body.scaleId || "WB-JHT-BLF-02";
+    return jsonResponse({ success: true, message: "Weighbridge sync verified", data: batch });
+  }
+
+  // 8. Factory Process
+  const procMatch = path.match(/^\/api\/batches\/([^/]+)\/process$/);
+  if (procMatch && method === "POST") {
+    const batchId = procMatch[1];
+    const batch = SEED_BATCHES.find(b => b.id === batchId);
+    if (!batch) return jsonResponse({ success: false, error: "Batch not found" }, 404);
+
+    let body = {};
+    try { body = await request.json(); } catch(e) {}
+
+    batch.stage = "FACTORY_PROCESSED";
+    batch.processing = {
+      factoryId: body.factoryId || "FAC-JHT-01",
+      factoryName: body.factoryName || "Tocklai Valley Bought Leaf Factory",
+      procType: body.procType || "CTC",
+      grade: body.grade || "BOP (Broken Orange Pekoe)",
+      madeTeaWeightKg: body.madeTeaWeightKg || 55.0,
+      completedTime: new Date().toISOString(),
+    };
+    return jsonResponse({ success: true, message: "Factory processing logged", data: batch });
+  }
+
+  // 9. Lab MRL Test
+  const labMatch = path.match(/^\/api\/batches\/([^/]+)\/lab-test$/);
+  if (labMatch && method === "POST") {
+    const batchId = labMatch[1];
+    const batch = SEED_BATCHES.find(b => b.id === batchId);
+    if (!batch) return jsonResponse({ success: false, error: "Batch not found" }, 404);
+
+    batch.stage = "LAB_CERTIFIED";
+    batch.labTest = {
+      certifierId: "LAB-NABL-088",
+      labName: "TRA Tocklai Quality & Chemical Residue Lab",
+      accreditationNo: "NABL TC-5421",
+      ipfsHash: "Qm" + Math.random().toString(36).substring(2, 15) + "PassCert",
+      testDate: new Date().toISOString(),
+      pesticideMRLStatus: "COMPLIANT",
+      moisturePercentage: 3.2,
+      fssaiStandardMet: true,
+    };
+    return jsonResponse({ success: true, message: "NABL lab test issued", data: batch });
+  }
+
+  // 10. Admin GI Toggle
+  if (path === "/api/admin/gi/toggle" && method === "POST") {
+    let body = {};
+    try { body = await request.json(); } catch(e) {}
+    const { batchId, isAuthorized, reason } = body;
+    const batch = SEED_BATCHES.find(b => b.id === batchId);
+    if (!batch) return jsonResponse({ success: false, error: "Batch not found" }, 404);
+
+    batch.giTagAuthorized = isAuthorized;
+    if (!isAuthorized) batch.revocationReason = reason || "Suspended by TRA Tocklai administrator";
+    else delete batch.revocationReason;
+
+    return jsonResponse({ success: true, message: `GI status updated to ${isAuthorized ? 'AUTHORIZED' : 'SUSPENDED'}`, data: batch });
+  }
+
+  // 11. Blockchain Merkle Root Anchor
+  if (path === "/api/blockchain/anchor" && method === "POST") {
+    const mockRoot = "0x" + Array.from({length: 64}, () => Math.floor(Math.random()*16).toString(16)).join("");
+    return jsonResponse({
+      success: true,
+      message: "Off-chain state anchored to Layer 2 blockchain",
+      merkleRoot: mockRoot,
+      totalBatchesAnchored: SEED_BATCHES.length,
+      txHash: "0x" + Array.from({length: 64}, () => Math.floor(Math.random()*16).toString(16)).join(""),
+      gasCostMatic: "0.00018 MATIC (~₹0.015)",
+    });
+  }
+
+  // 12. Plant Protection Code (PPC v16) Whitelist
+  if (path === "/api/ppc/whitelist") {
+    return jsonResponse({
+      success: true,
+      version: "Plant Protection Code (PPC) v16 - Tea Board of India",
+      compounds: [
+        { chemical: "Emamectin Benzoate 5% SG", category: "Insecticide", maxPpm: 0.05, phiDays: 7, status: "APPROVED_PPC" },
+        { chemical: "Hexaconazole 5% EC", category: "Fungicide", maxPpm: 0.10, phiDays: 7, status: "APPROVED_PPC" },
+        { chemical: "Quinalphos 25% EC", category: "Insecticide", maxPpm: 0.01, phiDays: 14, status: "RESTRICTED_LOW_MRL" },
+        { chemical: "Thiamethoxam 25% WG", category: "Insecticide", maxPpm: 0.05, phiDays: 7, status: "APPROVED_PPC" },
+        { chemical: "Propargite 57% EC", category: "Acaricide", maxPpm: 5.00, phiDays: 7, status: "APPROVED_PPC" },
+        { chemical: "Azoxystrobin 23% SC", category: "Fungicide", maxPpm: 0.10, phiDays: 7, status: "APPROVED_PPC" },
+        { chemical: "Copper Oxychloride 50% WP", category: "Fungicide", maxPpm: 20.00, phiDays: 5, status: "ORGANIC_COMPATIBLE" },
+        { chemical: "Bacillus thuringiensis (Bt)", category: "Bio-Control", maxPpm: "Exempt", phiDays: 0, status: "ORGANIC_COMPATIBLE" },
+        { chemical: "Neem Seed Extract (Azadirachtin)", category: "Bio-Control", maxPpm: "Exempt", phiDays: 0, status: "ORGANIC_COMPATIBLE" },
+      ]
+    });
+  }
+
   return jsonResponse({ success: false, error: "Endpoint not found" }, 404);
 }
