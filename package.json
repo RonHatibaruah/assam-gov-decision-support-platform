@@ -12,7 +12,9 @@
     "test": "npm run --workspaces --if-present test",
     "start": "npm run --workspace=apps/api start",
     "dev:api": "npm run --workspace=apps/api dev",
-    "dev:web": "npm run --workspace=apps/web dev"
+    "dev:web": "npm run --workspace=apps/web dev",
+    "deploy:cloudflare": "npx wrangler pages deploy apps/web/public --project-name=chah-praman",
+    "dev:cloudflare": "npx wrangler pages dev apps/web/public"
   },
   "keywords": [
     "assam-tea",

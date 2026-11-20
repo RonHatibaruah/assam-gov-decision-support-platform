@@ -581,11 +581,46 @@ main.content-area {
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem 2rem;
   color: var(--text-muted);
   font-size: 0.85rem;
   border-top: 1px solid var(--border-color);
   margin-top: 3rem;
   background: #ffffff;
   line-height: 1.6;
+}
+
+.footer-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f8fafc;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+}
+
+.footer-email-link {
+  color: var(--primary-tea);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-email-link:hover {
+  color: var(--accent-gold);
+  text-decoration: underline;
+}
+
+.footer-disclaimer {
+  max-width: 860px;
+  margin: 1.25rem auto 0;
+  padding: 0.85rem 1.2rem;
+  background: #fafaf9;
+  border: 1px solid #e7e5e4;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: #57534e;
+  line-height: 1.55;
+  text-align: left;
 }

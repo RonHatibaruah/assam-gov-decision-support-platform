@@ -2,7 +2,10 @@
  * Frontend Application Logic for Assam Tea Digital Traceability (NESFIC-I-08)
  */
 
-const API_BASE = "http://localhost:4000/api";
+// Dynamically detect local dev vs Cloudflare production deployment
+const API_BASE = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") && window.location.port !== "3000"
+  ? "http://localhost:4000/api"
+  : (window.location.port === "3000" ? "http://localhost:4000/api" : "/api");
 
 // Fallback in-memory state in case web UI is opened directly as a file or without API
 let fallbackBatches = [
