@@ -75,8 +75,45 @@ test("Merkle Tree root generation and anchor calculation", () => {
 
 test("Analytics correctly computes regional breakdown", () => {
   const stats = db.getAnalytics();
-  assert.ok(stats.totalBatches >= 2);
+  assert.ok(stats.totalBatches >= 6, "Expected at least 6 pre-seeded batches");
   assert.ok(stats.totalGreenLeafKg > 0);
   assert.ok(stats.totalMadeTeaKg > 0);
   assert.ok(stats.districtBreakdown["Jorhat"] >= 1);
+});
+
+test("Intercepts chemical safety violations and blocks packaging", () => {
+  const flagged = db.getBatchById("ASM-2026-FLG-006");
+  assert.ok(flagged, "Flagged batch ASM-2026-FLG-006 must exist");
+  assert.equal(flagged.labTest.pesticideMRLStatus, "NON_COMPLIANT");
+  assert.equal(flagged.giTagAuthorized, false);
+  assert.ok(flagged.revocationReason.includes("Quinalphos"));
+
+  // Verify packaging is blocked
+  assert.throws(() => {
+    db.updatePackaging("ASM-2026-FLG-006", { serializedQrCode: "FORGED_QR" });
+  }, /Chemical MRL non-compliance violation/);
+});
+
+test("Admin GI revocation and alert feed functions", () => {
+  const alerts = db.getAdminAlerts();
+  assert.ok(alerts.length >= 1, "Must have active alerts");
+  assert.equal(alerts[0].severity, "CRITICAL");
+
+  // Test toggling GI
+  const toggled = db.toggleGICertification("ASM-2026-CTC-001", false, "Random Audit Quarantine");
+  assert.equal(toggled.giTagAuthorized, false);
+  assert.equal(toggled.revocationReason, "Random Audit Quarantine");
+
+  // Re-authorize
+  const restored = db.toggleGICertification("ASM-2026-CTC-001", true);
+  assert.equal(restored.giTagAuthorized, true);
+  assert.equal(restored.revocationReason, undefined);
+});
+
+test("PPC Agrochemical Whitelist returns approved reference compounds", () => {
+  const whitelist = db.getAgrochemicalWhitelist();
+  assert.ok(whitelist.length >= 10);
+  const quinalphos = whitelist.find(c => c.chemical === "Quinalphos");
+  assert.equal(quinalphos.maxPpm, 0.01);
+  assert.equal(quinalphos.phiDays, 14);
 });

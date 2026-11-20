@@ -17,6 +17,6 @@ test("HTTP API endpoints respond accurately", async () => {
 
   // Test analytics
   const analytics = db.getAnalytics();
-  assert.equal(analytics.mrlComplianceRatePct, 100);
+  assert.equal(analytics.mrlComplianceRatePct, 75); // 3 of 4 tested batches compliant (1 flagged violation)
   assert.ok(analytics.latestMerkleRoot.startsWith("0x"));
 });

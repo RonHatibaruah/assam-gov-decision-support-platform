@@ -199,7 +199,28 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, { success: true, data: telemetry });
     }
 
-    // 14. Single batch by ID
+    // 14. Admin: Toggle GI Certification Authority
+    if (pathname === "/api/admin/gi/toggle" && method === "POST") {
+      const body = await parseBody(req);
+      if (!body.batchId || typeof body.isAuthorized !== "boolean") {
+        return sendJson(res, 400, { success: false, error: "Missing batchId or isAuthorized boolean" });
+      }
+      const updated = db.toggleGICertification(body.batchId, body.isAuthorized, body.reason);
+      if (!updated) return sendJson(res, 404, { success: false, error: "Batch not found" });
+      return sendJson(res, 200, { success: true, data: updated });
+    }
+
+    // 15. Admin: List Chemical Safety & MRL Violation Alerts
+    if (pathname === "/api/admin/alerts" && method === "GET") {
+      return sendJson(res, 200, { success: true, data: db.getAdminAlerts() });
+    }
+
+    // 16. Agrochemical Whitelist (Tea Board PPC v16)
+    if (pathname === "/api/ppc/whitelist" && method === "GET") {
+      return sendJson(res, 200, { success: true, data: db.getAgrochemicalWhitelist() });
+    }
+
+    // 17. Single batch by ID
     const singleBatchMatch = pathname.match(/^\/api\/batches\/([^\/]+)$/);
     if (singleBatchMatch && method === "GET") {
       const batchId = decodeURIComponent(singleBatchMatch[1]);
