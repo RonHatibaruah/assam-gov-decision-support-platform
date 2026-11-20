@@ -49,25 +49,30 @@ We propose **Chah-Praman (চাহ-প্ৰমাণ)**: a comprehensive, prod
    - **Geo-Fenced Plucking Logs:** Captures GPS coordinates during harvest, validating that plucking occurs strictly inside verified Assam tea estate/smallholding polygons.
    - **Agrochemical Whitelist Advisory:** Directly integrates TRA Tocklai's Plant Protection Code (PPC), alerting growers against non-approved pesticides.
 
-2. **Automated IoT Weighbridge Ingestion:**
+2. **High-Precision Cadastral GIS Engine (Dharitree / ILRMS):**
+   - Integrates surveyed land parcel boundaries across Assam Revenue Circles.
+   - Validates individual Dag numbers (e.g. Dag #142/518) and Patta tenure classifications (Periodic Patta / ম্যাদী পট্টা, Khiraj Myadi, Research Grants).
+   - Enforces European Union Deforestation Regulation (EUDR) compliance via Sentinel-2 satellite audit checks and establishes red-flagged zero-plucking riparian eco-buffers along stream corridors.
+
+3. **Automated IoT Weighbridge Ingestion:**
    - Connects to digital collection scales via Bluetooth/RS232 serial telemetry.
    - Automatically locks gross weight, tare deduction, and timestamp into immutable digital intake receipts, eliminating middleman manipulation.
 
-3. **Factory & BLF Processing Engine:**
+4. **Factory & BLF Processing Engine:**
    - Real-time IoT sensor telemetry monitoring withering moisture loss (target ~32%), fermentation room humidity (>90%), and Vibro-Fluidized Bed Dryer (VFBD) temperatures (98°C–115°C).
    - Dynamic batch lineage: maps raw green leaf intake to finished tea grades (CTC: BOP, BP, OF; Orthodox: TGFOP1).
 
-4. **NABL Lab & MRL Quality Gatekeeper:**
+5. **NABL Lab & MRL Quality Gatekeeper:**
    - Ingestion portal for TRA Tocklai Quality & Chemical Residue Lab and NABL-accredited test reports.
    - Cryptographically validates GC-MS/MS pesticide residue limits (Emamectin Benzoate, Quinalphos, Hexaconazole, Thiamethoxam).
    - Generates and pins immutable IPFS certificate hashes.
 
-5. **Blockchain Anchoring & GI Provenance Shield:**
+6. **Blockchain Anchoring & GI Provenance Shield:**
    - Implements a gas-efficient **Merkle Tree Aggregation Engine**. High-frequency plucking and intake transactions are aggregated into cryptographic Merkle trees, committing periodic state root hashes to EVM Layer 2 (Polygon/Base) and smart contracts (`TeaRegistry.sol`, `TeaBatchProvenance.sol`).
    - Mints GS1 Digital Link compliant, anti-counterfeit dynamic serialized QR codes for consumer packaging.
 
-6. **TRA Tocklai Regulatory Command Center:**
-   - Real-time valley heatmap displaying yield, district distribution (Jorhat, Dibrugarh, Tinsukia, Golaghat), PPC violation alerts, and live blockchain anchor logs.
+7. **TRA Tocklai Regulatory Command Center & Admin Login Gateway:**
+   - Features institutional access control (`admin@tocklai.res.in`), interactive valley heatmap, cadastral parcel inspection, real-time GI authorization toggles, and chemical hazard quarantine feeds.
 
 **User Interaction & Workflow Transformation:**
 Instead of untracked physical receipts, growers receive instant SMS/app confirmations with immutable weighbridge timestamps. Factories accept leaf batches linked to authenticated GPS polygons rather than unidentified bulk trucks. Lab certificates are cryptographically bound to physical lot serials.
@@ -413,8 +418,19 @@ The pilot will be executed in a structured 8-week deployment across two distinct
 
 ---
 
-### 03 Supporting Material
-**Upload Proof of Work / Solution Evidence:**
-- File uploaded: `NESFIC_I08_Proof_of_Work_Ron_Hatibaruah.pdf` (Comprehensive technical document compiled from `docs/Proof_of_Work_Summary.md`, under 10 MB, including system wireframes, smart contract listings, API endpoints, test execution logs, and architectural diagrams).
-- **Demo / Product Video URL:** `https://example.com/demo-nesfic-i08` *(or local prototype demonstration video)*
-- **Product / Website Prototype URL:** `https://github.com/RonHatibaruah/chah-praman` *(Live Repository & Staged Cloudflare Deployment)*
+### 03 Supporting Material (Submission Form Fields)
+
+1. **Upload Proof of Work / Solution Evidence (PDF only · Maximum 10 MB):**
+   - Upload File: `NESFIC_I08_Proof_of_Work_Ron_Hatibaruah.pdf` *(13 KB, under 10 MB)*
+   - *Contents:* Comprehensive technical evidence compiling system wireframes, Cadastral GIS land parcel survey mappings, Solidity smart contract listings, automated test suite execution logs, and Cloudflare Edge deployment records.
+
+2. **Demo / Product Video URL (optional):**
+   - `https://github.com/RonHatibaruah/chah-praman` *(GitHub Codebase with Interactive UI walkthroughs and reproduction steps)*
+
+3. **Product / Website URL (optional):**
+   - `https://chah-praman.pages.dev` *(Production Cloudflare Pages Edge Deployment)*
+   - `http://localhost:3000` *(Local Deployment)*
+
+4. **Additional Supporting Material (optional · PDF only · Maximum 10 MB):**
+   - Upload File: `NESFIC_I08_Proposal_Ron_Hatibaruah.pdf` *(43 KB, under 10 MB)*
+   - *Contents:* Complete, formatted 12-section technical proposal with full word-count compliance and detailed operational diagrams.
