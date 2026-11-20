@@ -5,9 +5,9 @@
 **Lead Applicant & Innovator:** Ron Hatibaruah  
 **Date:** November 2026  
 **Working Prototype Repositories & URLs:**  
+- **GitHub Repository:** [https://github.com/RonHatibaruah/chah-praman](https://github.com/RonHatibaruah/chah-praman)  
 - **Web Prototype:** `http://localhost:3000` (Active Live Deployment)  
 - **API Engine:** `http://localhost:4000/api`  
-- **Source Code Base:** Monorepo `Blockchain-nesfic-i-08`  
 
 ---
 

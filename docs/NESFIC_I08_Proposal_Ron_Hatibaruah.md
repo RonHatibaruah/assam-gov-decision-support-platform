@@ -3,7 +3,8 @@
 **Challenge Title:** End-to-End Digital Traceability of Tea Across the Assam Tea Value Chain  
 **Sponsoring Body:** Tea Research Association (TRA) – Tocklai (New Technology Committee) & DIIS, Government of Assam  
 **Lead Applicant / Innovator:** Ron Hatibaruah  
-**Project Repository & Prototype:** `Blockchain-nesfic-i-08`  
+**Project GitHub Repository:** [https://github.com/RonHatibaruah/chah-praman](https://github.com/RonHatibaruah/chah-praman)  
+**Project Local Working Directory:** `Blockchain-nesfic-i-08`  
 
 ---
 
@@ -416,4 +417,4 @@ The pilot will be executed in a structured 8-week deployment across two distinct
 **Upload Proof of Work / Solution Evidence:**
 - File uploaded: `NESFIC_I08_Proof_of_Work_Ron_Hatibaruah.pdf` (Comprehensive technical document compiled from `docs/Proof_of_Work_Summary.md`, under 10 MB, including system wireframes, smart contract listings, API endpoints, test execution logs, and architectural diagrams).
 - **Demo / Product Video URL:** `https://example.com/demo-nesfic-i08` *(or local prototype demonstration video)*
-- **Product / Website Prototype URL:** `http://localhost:3000` *(Active live local deployment)*
+- **Product / Website Prototype URL:** `https://github.com/RonHatibaruah/chah-praman` *(Live Repository & Staged Cloudflare Deployment)*
