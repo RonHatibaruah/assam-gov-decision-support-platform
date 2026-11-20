@@ -104,12 +104,24 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSTGPortal();
   setupFactoryPortal();
   setupTocklaiCommand();
+  setupInteractiveMap();
 
   // Load initial demo batch
   lookupBatch("QR-ASM26-8894-X82F");
   fetchIoTTelemetry();
   fetchAnalytics();
 });
+
+function setupInteractiveMap() {
+  document.querySelectorAll(".garden-pin-group").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      const dist = el.getAttribute("data-district");
+      if (dist) window.selectDistrict(dist);
+    });
+  });
+  // Default to Jorhat (TRA Tocklai) on start
+  window.selectDistrict("Jorhat");
+}
 
 // Tab Navigation
 function setupTabs() {
@@ -575,9 +587,139 @@ async function fetchAnalytics() {
   `;
 }
 
-window.showDistrictInfo = function(district, details) {
+// Comprehensive Assam Regional Tea Data for Heatmap Pins
+const ASSAM_REGIONAL_DATA = {
+  Jorhat: {
+    name: "Jorhat Tea District (Upper Assam)",
+    subtitle: "Headquarters of Tea Research Association (TRA) Tocklai & Borbhetta Experimental Estate",
+    tag: "TRA Headquarters & Premier CTC Zone",
+    stgCount: "12,450 Registered Smallholders",
+    acreage: "18,200 Hectares",
+    mrlCompliance: "99.6% (Strict PPC Adherence)",
+    primaryGrades: "CTC BOP, BP, OF & Orthodox Broken",
+    notableEstates: "Tocklai Experimental Station, Borbhetta Cluster #4, Cinnamara (India's 1st Commercial Estate est. 1850 by Maniram Dewan)",
+    sampleBatchId: "ASM-2026-CTC-001",
+    sampleBatchName: "Borbhetta Smallholding Cluster #4 (CTC BOP)",
+    giCert: "GI-IN-ASM-TEA-00441",
+  },
+  Dibrugarh: {
+    name: "Dibrugarh Tea District (Moran & Halmari Belt)",
+    subtitle: "World-Renowned Specialty Orthodox & Golden Flowery Orange Pekoe Belt",
+    tag: "Specialty Orthodox & Second Flush Hub",
+    stgCount: "18,920 Registered Smallholders",
+    acreage: "26,400 Hectares",
+    mrlCompliance: "99.2% (Export NABL Grade)",
+    primaryGrades: "TGFOP1, FTGFOP1 & Premium CTC",
+    notableEstates: "Halmari Tea Estate (Record All-India GTAC Price), Moran STG Co-Operative, Chabua, Tingrai",
+    sampleBatchId: "ASM-2026-ORT-002",
+    sampleBatchName: "Moran Specialty Orthodox (TGFOP1)",
+    giCert: "GI-IN-ASM-TEA-00442",
+  },
+  Tinsukia: {
+    name: "Tinsukia Tea District (Doom Dooma & Margherita)",
+    subtitle: "Historic High-Yield High-Strength Bold Liquor Tea Division",
+    tag: "High-Strength Bold Liquor Belt",
+    stgCount: "22,100 Registered Smallholders",
+    acreage: "31,500 Hectares",
+    mrlCompliance: "98.9% (Verified under TRA Audits)",
+    primaryGrades: "CTC BP, CTC Dust, Single-Estate Orthodox",
+    notableEstates: "Doom Dooma Heritage Estate, Margherita Division, Makum, Samdang",
+    sampleBatchId: "EST-TIN-003",
+    sampleBatchName: "Doom Dooma Heritage Estate (CTC BP)",
+    giCert: "GI-IN-ASM-TEA-00443",
+  },
+  Golaghat: {
+    name: "Golaghat Tea District (Bokakhat & Kaziranga Foothills)",
+    subtitle: "Cooperative Smallholder Epicenter & Bio-Organic Handcrafted Cultivation",
+    tag: "Organic & Smallholder Cooperative Hub",
+    stgCount: "15,300 Registered Smallholders",
+    acreage: "19,800 Hectares",
+    mrlCompliance: "99.4% (Bio-Pesticide Adherent)",
+    primaryGrades: "CTC OF, PD & Handcrafted Green Tea",
+    notableEstates: "Bokakhat STG Producer Co., Numaligarh, Behora Organic Gardens",
+    sampleBatchId: "STG-GLG-004",
+    sampleBatchName: "Bokakhat Organic Smallholder Lot",
+    giCert: "GI-IN-ASM-TEA-00444",
+  },
+  Guwahati: {
+    name: "Guwahati Tea Auction Centre (GTAC) & Export Hub",
+    subtitle: "Central Electronic Trading Gateway & Inland Container Depot for Global Exports",
+    tag: "World's Premier CTC Electronic Auction",
+    stgCount: "34 Warehouses & 180 Registered Brokers",
+    acreage: "Handling >200 Million Kg Annually",
+    mrlCompliance: "100% Pre-Auction Mandatory Clearance",
+    primaryGrades: "All Commercial & Specialty Assam Lots",
+    notableEstates: "Guwahati Tea Auction Centre (GTAC), Amingaon Inland Container Depot (ICD)",
+    sampleBatchId: "QR-ASM26-8894-X82F",
+    sampleBatchName: "GTAC Lot #402 (Export Handover)",
+    giCert: "GI-IN-ASM-TEA-00441",
+  },
+};
+
+window.selectDistrict = function(districtName) {
+  const data = ASSAM_REGIONAL_DATA[districtName];
+  if (!data) return;
+
+  // Highlight active pin on SVG
+  document.querySelectorAll(".garden-pin-group").forEach((el) => {
+    if (el.getAttribute("data-district") === districtName) {
+      el.classList.add("active-pin");
+    } else {
+      el.classList.remove("active-pin");
+    }
+  });
+
   const box = document.getElementById("district-info-box");
-  box.innerHTML = `📍 <strong>${district}</strong>: ${details} • GI Authentication Status: <span style="color: #166534;">Active ✓</span>`;
+  if (!box) return;
+
+  box.innerHTML = `
+    <div class="district-card">
+      <div class="district-header">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 0.35rem; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; margin-bottom: 0.25rem;">
+            <span>🛡️</span> ${data.giCert} • Assam GI Certified
+          </div>
+          <div class="district-title">📍 ${data.name}</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">${data.subtitle}</div>
+        </div>
+        <button onclick="lookupBatch('${data.sampleBatchId}'); jumpToTab('consumer');" class="btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.9rem; white-space: nowrap;">
+          🔍 Inspect Batch in Explorer →
+        </button>
+      </div>
+
+      <div class="district-metrics-grid">
+        <div class="metric-pill">
+          <div class="metric-pill-label">Registered Growers</div>
+          <div class="metric-pill-val">${data.stgCount.split(" ")[0]}</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">STGs on ledger</div>
+        </div>
+        <div class="metric-pill">
+          <div class="metric-pill-label">Tracked Acreage</div>
+          <div class="metric-pill-val">${data.acreage.split(" ")[0]}</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">${data.acreage.split(" ").slice(1).join(" ")}</div>
+        </div>
+        <div class="metric-pill">
+          <div class="metric-pill-label">MRL Compliance</div>
+          <div class="metric-pill-val" style="color: #059669;">${data.mrlCompliance.split(" ")[0]}</div>
+          <div style="font-size: 0.72rem; color: #059669;">PPC Whitelist Pass</div>
+        </div>
+        <div class="metric-pill">
+          <div class="metric-pill-label">Primary Grades</div>
+          <div class="metric-pill-val" style="font-size: 0.85rem; line-height: 1.3;">${data.primaryGrades}</div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.84rem; color: #374151; line-height: 1.5; background: #fafaf9; padding: 0.6rem 0.8rem; border-radius: 6px; border: 1px solid #e7e5e4;">
+        <strong>Notable Gardens & Hubs:</strong> ${data.notableEstates}<br>
+        <span style="color: var(--text-muted); font-size: 0.78rem;">Active Verified Batch: <code>${data.sampleBatchId}</code> (${data.sampleBatchName})</span>
+      </div>
+    </div>
+  `;
+};
+
+// Backward-compatible alias
+window.showDistrictInfo = function(district, details) {
+  window.selectDistrict(district);
 };
 
 // Tutorial Modal Controls
