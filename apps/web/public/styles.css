@@ -64,6 +64,29 @@ header {
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Tutorial Button */
+.tutorial-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid #fbbf24;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.tutorial-btn:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-1px);
 }
 
 .gi-tag-pill {
@@ -71,7 +94,7 @@ header {
   color: #92400e;
   font-size: 0.8rem;
   font-weight: 700;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
@@ -84,11 +107,177 @@ header {
   color: #fff;
   font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+/* Modal Styles */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(17, 24, 39, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 780px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafaf9;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.modal-close-btn:hover {
+  color: #111827;
+  background: #e5e7eb;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background: #fafaf9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tutorial-intro-box {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.tutorial-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tutorial-pills span {
+  background: #ffffff;
+  color: #065f46;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid #6ee7b7;
+}
+
+.tutorial-role-card {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.85rem;
+  background: #ffffff;
+  transition: border-color 0.15s ease;
+}
+
+.tutorial-role-card:hover {
+  border-color: var(--primary-light);
+}
+
+.tutorial-role-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.role-icon {
+  font-size: 1.4rem;
+}
+
+.btn-tutorial-jump {
+  margin-left: auto;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-tutorial-jump:hover {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.tutorial-steps {
+  list-style: none;
+  padding-left: 0.5rem;
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.tutorial-steps li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.tutorial-steps li::before {
+  content: "•";
+  position: absolute;
+  left: 0.3rem;
+  color: var(--primary-tea);
+  font-weight: bold;
+}
+
+/* Nav */
 nav.tab-nav {
   display: flex;
   background: #fff;
@@ -392,10 +581,11 @@ main.content-area {
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   color: var(--text-muted);
   font-size: 0.85rem;
   border-top: 1px solid var(--border-color);
   margin-top: 3rem;
-  background: #fff;
+  background: #ffffff;
+  line-height: 1.6;
 }

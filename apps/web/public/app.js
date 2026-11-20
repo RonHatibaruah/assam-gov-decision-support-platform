@@ -96,6 +96,7 @@ let isAssamese = false;
 // Initialize on DOM load
 document.addEventListener("DOMContentLoaded", () => {
   setupTabs();
+  setupTutorialModal();
   setupConsumerVerification();
   setupSTGPortal();
   setupFactoryPortal();
@@ -575,3 +576,53 @@ window.showDistrictInfo = function(district, details) {
   const box = document.getElementById("district-info-box");
   box.innerHTML = `📍 <strong>${district}</strong>: ${details} • GI Authentication Status: <span style="color: #166534;">Active ✓</span>`;
 };
+
+// Tutorial Modal Controls
+function setupTutorialModal() {
+  const modal = document.getElementById("tutorial-modal");
+  const openBtn = document.getElementById("btn-open-tutorial");
+  const closeBtn = document.getElementById("btn-close-tutorial");
+  const closeBottomBtn = document.getElementById("btn-close-tutorial-bottom");
+
+  function openModal() {
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  if (openBtn) openBtn.addEventListener("click", openModal);
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (closeBottomBtn) closeBottomBtn.addEventListener("click", closeModal);
+
+  // Close when clicking outside dialog
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+}
+
+// Quick jump to tab from tutorial
+window.jumpToTab = function(tabName) {
+  const modal = document.getElementById("tutorial-modal");
+  if (modal) {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  const targetTabBtn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+  if (targetTabBtn) {
+    targetTabBtn.click();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
+
