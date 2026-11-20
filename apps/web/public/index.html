@@ -21,8 +21,9 @@
       </div>
     </div>
     <div class="header-badges">
-      <button id="btn-open-tutorial" class="tutorial-btn" title="Click to learn what the app does and how to use it">
-        <span>📖</span> How It Works / Tutorial
+      <button id="btn-open-tutorial" class="tutorial-btn" title="Learn what the application does and how to use each feature">
+        <span class="tutorial-pulse-dot"></span>
+        <span>📖 Tutorial: What It Does & How to Use It</span>
       </button>
       <div class="gi-tag-pill">
         <span>🛡️</span> Assam GI Tag #GI-IN-ASM-TEA
@@ -39,7 +40,7 @@
       <div class="modal-header">
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="font-size: 1.5rem;">🍵</span>
-          <h2 style="margin: 0; color: var(--primary-tea); font-size: 1.3rem;">Platform Tutorial & Guide</h2>
+          <h2 style="margin: 0; color: var(--primary-tea); font-size: 1.3rem;">Platform Tutorial: What It Does & How to Use It</h2>
         </div>
         <button id="btn-close-tutorial" class="modal-close-btn" aria-label="Close tutorial">&times;</button>
       </div>
@@ -48,11 +49,13 @@
         <div class="tutorial-intro-box">
           <h3 style="color: #065f46; font-size: 1.05rem; margin-bottom: 0.35rem;">What is this Application?</h3>
           <p style="font-size: 0.9rem; color: #1f2937; line-height: 1.5;">
-            This system provides <strong>End-to-End Cryptographic Traceability</strong> across the Assam Tea Value Chain for the <strong>NESFIC-I-08 Challenge (TRA Tocklai)</strong>. It connects 100,000+ Small Tea Growers (STGs) directly to Bought Leaf Factories (BLFs), NABL chemical residue testing labs, Guwahati Tea Auction Centre (GTAC), and global consumers.
+            This system provides <strong>End-to-End Cryptographic Traceability</strong> across the Assam Tea Value Chain for the <strong>NESFIC-I-08 Challenge (Tea Research Association – Tocklai & DIIS, Govt. of Assam)</strong>. It connects 100,000+ Small Tea Growers (STGs) directly to Bought Leaf Factories (BLFs), NABL chemical residue testing labs, Guwahati Tea Auction Centre (GTAC), and global consumers.
           </p>
           <div class="tutorial-pills">
             <span>🛡️ Assam GI Tag Protection</span>
             <span>🧪 FSSAI & EU MRL Pesticide Compliance</span>
+            <span>📐 Cadastral GIS (Dag & Patta Surveys)</span>
+            <span>🌿 EUDR Deforestation-Free Audits</span>
             <span>⚖️ Bluetooth Digital Weighbridge</span>
             <span>🔗 Polygon Layer 2 Merkle Anchoring</span>
           </div>
@@ -77,7 +80,8 @@
             <li><strong>Step 2:</strong> View the verified <strong>Assam GI Authenticity Seal</strong> and <strong>TRA Tocklai Certification</strong>.</li>
             <li><strong>Step 3:</strong> Explore the interactive chronological timeline from harvest GPS in Jorhat to retail packaging.</li>
             <li><strong>Step 4:</strong> Click <strong>"Export Official Provenance Certificate"</strong> to generate a print/PDF certificate.</li>
-            <li><strong>Step 5:</strong> Test the flagged non-compliant batch (<code>ASM-2026-FLG-006</code>) to see automated chemical safety interception.</li>
+            <li><strong>Step 5:</strong> Click <strong>"Print Retail Packaging QR Stamp"</strong> to preview the GS1 Digital Link sticker.</li>
+            <li><strong>Step 6:</strong> Test the flagged non-compliant batch (<code>ASM-2026-FLG-006</code>) to see automated chemical safety interception.</li>
           </ul>
         </div>
 
@@ -93,9 +97,9 @@
           </div>
           <ul class="tutorial-steps">
             <li><strong>Language Switch:</strong> Click <strong>"অসমীয়া / EN"</strong> to switch between Assamese and English.</li>
-            <li><strong>Geo-Fencing:</strong> Captures garden GPS coordinates; validates that plucking occurs strictly within registered Assam estate boundaries.</li>
-            <li><strong>Bluetooth Weighbridge:</strong> Click <strong>"Sync Weighbridge Receipt"</strong> to simulate automated digital scale ingestion.</li>
-            <li><strong>PPC Chemical Search:</strong> Search pesticides under the Tea Board Plant Protection Code (PPC v16) for safety advisory.</li>
+            <li><strong>Cadastral Geo-Fencing:</strong> Click <strong>"📍 Capture GPS"</strong> to lock harvest coordinates; cross-references against registered Cadastral Dag #142/518 (Patta #42).</li>
+            <li><strong>Bluetooth Weighbridge:</strong> Click <strong>"Sync Weighbridge Receipt"</strong> to simulate automated digital scale ingestion with tare compensation.</li>
+            <li><strong>PPC Agrochemical Whitelist:</strong> Search pesticides under the Tea Board Plant Protection Code (PPC v16) for permissible MRLs and pre-harvest intervals.</li>
           </ul>
         </div>
 
@@ -111,7 +115,7 @@
           </div>
           <ul class="tutorial-steps">
             <li><strong>IoT Telemetry:</strong> Monitor live withering trough loss, fermentation humidity, and VFBD drying temperature curves.</li>
-            <li><strong>Grading:</strong> Select processed tea grade (CTC BOP/BP/OF, Orthodox TGFOP1, or White Tea) and record recovery yields.</li>
+            <li><strong>Grading:</strong> Select processed tea grade (CTC BOP/BP/OF, Orthodox TGFOP1, or White Tea) and record recovery yields (~22.5%).</li>
             <li><strong>Lab Attestation:</strong> Issue NABL MRL pesticide compliance certificates with cryptographic IPFS pinning.</li>
           </ul>
         </div>
@@ -121,16 +125,17 @@
           <div class="tutorial-role-header">
             <span class="role-icon">🏛️</span>
             <div>
-              <strong>4. TRA Tocklai Regulatory Command Center & Admin</strong>
+              <strong>4. TRA Tocklai Regulatory Command Center & Admin Panel</strong>
               <div style="font-size: 0.8rem; color: var(--text-muted);">For TRA scientists, Tea Board officers, and Govt of Assam regulators</div>
             </div>
             <button class="btn-tutorial-jump" onclick="jumpToTab('tocklai')">Try Demo →</button>
           </div>
           <ul class="tutorial-steps">
-            <li><strong>Valley Heatmap:</strong> Click any pin on the Assam map to inspect regional smallholder and estate metrics.</li>
-            <li><strong>GI Authority Manager:</strong> Authorize, suspend, or revoke Assam GI Tag certification for any batch with real-time audit logs.</li>
+            <li><strong>🔒 Authentication Gateway:</strong> Access requires institutional login. Use demo credentials: <code>admin@tocklai.res.in</code> / <code>tocklai2026</code> (or click <strong>"⚡ Auto-Fill Demo Login"</strong>).</li>
+            <li><strong>Cadastral Land Parcel Map (দাগ আৰু পট্টা):</strong> Toggle between Macro Valley Overview and micro Cadastral survey polygons (Dag #142 to #147), viewing land tenure, soil pH, and EUDR anti-deforestation status.</li>
+            <li><strong>GI Certification Authority Registry:</strong> Authorize, suspend, or revoke Assam GI Tag credentials for any batch with immutable audit logs.</li>
             <li><strong>MRL Alert Feed:</strong> Intercept and quarantine batches failing pesticide thresholds.</li>
-            <li><strong>Merkle Root Anchoring:</strong> Aggregate batches and dispatch cryptographic state roots to Layer 2 ledger.</li>
+            <li><strong>Merkle Root Anchoring:</strong> Aggregate batches and dispatch cryptographic state roots to Layer 2 smart contracts with 99.82% gas savings.</li>
           </ul>
         </div>
       </div>
@@ -480,9 +485,80 @@
 
     <!-- 4. TRA Tocklai Command Center & Regulatory Admin Panel -->
     <section id="pane-tocklai" class="tab-pane">
-      
-      <!-- Top Macro Valley Stats -->
-      <div class="card">
+
+      <!-- Admin Login Panel (Restricted Access) -->
+      <div id="admin-login-view" class="admin-login-card">
+        <div class="login-header">
+          <div class="login-icon-bubble">🔒</div>
+          <h2>TRA Tocklai Regulatory Admin Gateway</h2>
+          <p>Institutional access restricted to Tea Research Association (TRA) Tocklai Directorate, Tea Board of India, and GI Certification Authority auditors.</p>
+        </div>
+
+        <!-- Demo Credentials Callout -->
+        <div class="demo-creds-banner">
+          <div class="demo-creds-header">
+            <span class="demo-creds-title">🔑 Evaluator & Demo Access Credentials</span>
+            <button type="button" id="btn-autofill-admin" class="btn-sm-autofill">⚡ Auto-Fill Demo Login</button>
+          </div>
+          <div class="demo-creds-body">
+            <div>Username / Email: <code>admin@tocklai.res.in</code></div>
+            <div>Password: <code>tocklai2026</code></div>
+            <div style="font-size: 0.76rem; color: #92400e; margin-top: 0.25rem;">Role: Senior Quality & GI Compliance Officer (Level 3 Clearance)</div>
+          </div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="form-admin-login">
+          <div id="admin-login-error" class="login-error-alert" style="display: none;"></div>
+
+          <div class="form-group">
+            <label for="admin-username">Institutional Email / Username</label>
+            <input type="text" id="admin-username" class="form-control" placeholder="e.g. admin@tocklai.res.in" required autocomplete="username">
+          </div>
+
+          <div class="form-group">
+            <label for="admin-password">Password</label>
+            <div style="position: relative;">
+              <input type="password" id="admin-password" class="form-control" placeholder="••••••••••••" required autocomplete="current-password" style="padding-right: 2.5rem;">
+              <button type="button" id="btn-toggle-password" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1rem; color: #64748b;" title="Show/Hide password">👁️</button>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; font-size: 0.85rem;">
+            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: #475569;">
+              <input type="checkbox" id="admin-remember" checked> Remember session
+            </label>
+            <span style="color: #059669; font-weight: 600; font-size: 0.8rem;">✓ 256-Bit SSL Encrypted</span>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; font-weight: 700;">
+            🏛️ Authenticate & Access Admin Command Center
+          </button>
+        </form>
+      </div>
+
+      <!-- Authenticated View (Visible after login) -->
+      <div id="admin-authenticated-view" style="display: none;">
+        
+        <!-- Session Identity Bar -->
+        <div class="admin-session-bar">
+          <div class="session-user-info">
+            <div class="session-avatar">🏛️</div>
+            <div>
+              <div class="session-name">
+                <span>Dr. Ron Hatibaruah</span>
+                <span class="session-role-badge">TRA Quality Director</span>
+              </div>
+              <div class="session-meta">Tea Research Association (TRA) Tocklai • Session Active • 2FA Cleared</div>
+            </div>
+          </div>
+          <button id="btn-admin-logout" class="btn-logout" title="Log out of regulatory administration">
+            <span>🔒</span> Sign Out
+          </button>
+        </div>
+
+        <!-- Top Macro Valley Stats -->
+        <div class="card">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
           <div>
             <h2 style="margin-bottom: 0.25rem;">🏛️ TRA Tocklai Command Center & Regulatory Governance</h2>
@@ -773,6 +849,8 @@
           </div>
         </div>
       </div>
+
+      </div> <!-- /admin-authenticated-view -->
 
     </section>
 

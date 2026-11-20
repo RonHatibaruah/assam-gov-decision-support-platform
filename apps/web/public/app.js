@@ -916,6 +916,88 @@ async function fetchIoTTelemetry() {
 
 // 4. TRA Tocklai Command Center & Regulatory Admin Panel
 function setupTocklaiCommand() {
+  const loginView = document.getElementById("admin-login-view");
+  const authView = document.getElementById("admin-authenticated-view");
+  const formLogin = document.getElementById("form-admin-login");
+  const btnAutofill = document.getElementById("btn-autofill-admin");
+  const btnTogglePwd = document.getElementById("btn-toggle-password");
+  const pwdInput = document.getElementById("admin-password");
+  const userInput = document.getElementById("admin-username");
+  const loginError = document.getElementById("admin-login-error");
+  const btnLogout = document.getElementById("btn-admin-logout");
+
+  function updateAdminAuthUI() {
+    const isAuth = sessionStorage.getItem("chah_praman_admin_auth") === "true";
+    if (loginView && authView) {
+      if (isAuth) {
+        loginView.style.display = "none";
+        authView.style.display = "block";
+      } else {
+        loginView.style.display = "block";
+        authView.style.display = "none";
+      }
+    }
+  }
+
+  // Initial check on load
+  updateAdminAuthUI();
+
+  // Auto-fill demo credentials
+  if (btnAutofill) {
+    btnAutofill.addEventListener("click", () => {
+      if (userInput) userInput.value = "admin@tocklai.res.in";
+      if (pwdInput) pwdInput.value = "tocklai2026";
+      if (loginError) loginError.style.display = "none";
+      showToast("🔑 Demo credentials auto-filled! Click 'Authenticate' to enter.", "info");
+    });
+  }
+
+  // Toggle password visibility
+  if (btnTogglePwd && pwdInput) {
+    btnTogglePwd.addEventListener("click", () => {
+      const isPwd = pwdInput.type === "password";
+      pwdInput.type = isPwd ? "text" : "password";
+      btnTogglePwd.textContent = isPwd ? "🙈" : "👁️";
+    });
+  }
+
+  // Submit login form
+  if (formLogin) {
+    formLogin.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const user = (userInput ? userInput.value : "").trim().toLowerCase();
+      const pass = (pwdInput ? pwdInput.value : "").trim();
+
+      const validUsers = ["admin@tocklai.res.in", "admin", "ron.hatibaruah@gmail.com", "tocklai.admin"];
+      const validPass = "tocklai2026";
+
+      if (validUsers.includes(user) && pass === validPass) {
+        sessionStorage.setItem("chah_praman_admin_auth", "true");
+        if (loginError) loginError.style.display = "none";
+        updateAdminAuthUI();
+        showToast("🏛️ Authenticated successfully! Welcome to TRA Tocklai Admin Command Center.", "success");
+      } else {
+        if (loginError) {
+          loginError.style.display = "flex";
+          loginError.innerHTML = "<span>⚠️</span> Invalid credentials. Please use demo credentials: <code>admin@tocklai.res.in</code> / <code>tocklai2026</code> (or click 'Auto-Fill Demo Login').";
+        }
+        showToast("⚠️ Authentication failed. Check demo credentials.", "error");
+      }
+    });
+  }
+
+  // Logout button
+  if (btnLogout) {
+    btnLogout.addEventListener("click", () => {
+      sessionStorage.removeItem("chah_praman_admin_auth");
+      updateAdminAuthUI();
+      if (userInput) userInput.value = "";
+      if (pwdInput) pwdInput.value = "";
+      if (loginError) loginError.style.display = "none";
+      showToast("🔒 Logged out of TRA Tocklai Regulatory Admin Panel.", "info");
+    });
+  }
+
   const btnAnchor = document.getElementById("btn-trigger-anchor");
   btnAnchor.addEventListener("click", async () => {
     const resDiv = document.getElementById("anchor-dispatch-result");
