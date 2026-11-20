@@ -1,0 +1,28 @@
+{
+  "name": "nesfic-i08-tea-traceability",
+  "version": "1.0.0",
+  "private": true,
+  "description": "End-to-End Digital Traceability of Tea Across the Assam Tea Value Chain (NESFIC-I-08)",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run --workspaces --if-present build",
+    "test": "npm run --workspaces --if-present test",
+    "start": "npm run --workspace=apps/api start",
+    "dev:api": "npm run --workspace=apps/api dev",
+    "dev:web": "npm run --workspace=apps/web dev"
+  },
+  "keywords": [
+    "assam-tea",
+    "nesfic-2026",
+    "blockchain",
+    "traceability",
+    "tocklai",
+    "iot",
+    "gi-tag"
+  ],
+  "author": "NESFIC Innovators",
+  "license": "Apache-2.0"
+}
