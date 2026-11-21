@@ -2,7 +2,12 @@
   "name": "@nesfic/shared",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/index.ts",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./merkle.js": "./src/merkle.js",
+    "./constants.js": "./src/constants.js"
+  },
   "scripts": {
     "test": "node --test"
   }
