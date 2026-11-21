@@ -1360,7 +1360,8 @@ function setupTutorialModal() {
   const closeBtn = document.getElementById("btn-close-tutorial");
   const closeBottomBtn = document.getElementById("btn-close-tutorial-bottom");
 
-  function openModal() {
+  function openModal(e) {
+    if (e && e.preventDefault) e.preventDefault();
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
   }
@@ -1368,6 +1369,9 @@ function setupTutorialModal() {
   function closeModal() {
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
+    if (window.location.hash === "#tutorial") {
+      history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }
   }
 
   if (openBtn) openBtn.addEventListener("click", openModal);
@@ -1382,6 +1386,14 @@ function setupTutorialModal() {
     if (e.key === "Escape" && modal.classList.contains("active")) {
       closeModal();
     }
+  });
+
+  // Automatically trigger if URL ends with #tutorial or ?tutorial=1
+  if (window.location.hash === "#tutorial" || window.location.search.includes("tutorial")) {
+    setTimeout(openModal, 250);
+  }
+  window.addEventListener("hashchange", () => {
+    if (window.location.hash === "#tutorial") openModal();
   });
 }
 

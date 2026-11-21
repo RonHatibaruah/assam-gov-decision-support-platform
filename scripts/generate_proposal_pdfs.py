@@ -12,7 +12,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, KeepTogether, HRFlowable
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, KeepTogether, HRFlowable, Image as RLImage
 )
 from reportlab.pdfgen import canvas
 
@@ -302,8 +302,8 @@ def build_proposal_pdf():
             Paragraph("<b>Platform:</b> Assam Startup (AISF) NESFIC 2026", styles['MetaKey'])
         ],
         [
-            Paragraph("<b>Live Demo:</b> https://chah-praman.pages.dev/", styles['MetaKey']),
-            Paragraph("<b>Status:</b> Working Prototype Verified", styles['MetaKey'])
+            Paragraph("<b>Live Prototype:</b> https://chah-praman.pages.dev/", styles['MetaKey']),
+            Paragraph("<b>App Tutorial & Guide:</b> https://chah-praman.pages.dev/#tutorial", styles['MetaKey'])
         ]
     ]
     meta_table = Table(meta_data, colWidths=[240, 247])
@@ -401,7 +401,8 @@ def build_proposal_pdf():
     story.append(Paragraph("4. <b>Consumer & Export Inspector Journey:</b> A buyer in London or Tokyo scans the dynamic GS1 QR code on the tea pack, inspecting the leaf-to-cup timeline, estate GPS map, pesticide test report, and blockchain transaction with zero app download.", styles['Body']))
 
     story.append(Paragraph("Working Prototype & Proof of Work Evidence", styles['SubSectionHead']))
-    story.append(Paragraph("A fully operational, high-fidelity working prototype has been engineered and verified live at <b>https://chah-praman.pages.dev/</b> (GitHub: <b>https://github.com/RonHatibaruah/chah-praman</b>):", styles['Body']))
+    story.append(Paragraph("A fully operational, high-fidelity working prototype has been engineered and verified live at <b>https://chah-praman.pages.dev/</b> (Interactive Tutorial & Guide: <b>https://chah-praman.pages.dev/#tutorial</b>; GitHub: <b>https://github.com/RonHatibaruah/chah-praman</b>). Complete architectural schematics, wireframes, and empirical benchmarks are documented in the accompanying 7-page Proof of Work Dossier:", styles['Body']))
+    story.append(Paragraph("• <b>Interactive Platform Tutorial:</b> Header guide modal detailing leaf-to-cup traceability, smallholder benefits, and operational workflows for each user persona.", styles['Bullet']))
     story.append(Paragraph("• <b>Consumer QR Explorer:</b> Instant verification of serialized QR tokens, interactive timeline, printable official certificates, and retail packaging stamps.", styles['Bullet']))
     story.append(Paragraph("• <b>Cadastral Land Parcel WebGIS Map:</b> Micro-survey view rendering Dag polygons (Dag #142 to #147), Periodic Patta tenure, soil pH, and EUDR deforestation compliance.", styles['Bullet']))
     story.append(Paragraph("• <b>STG Field Portal ('চাহ-সেৱা'):</b> Bilingual Assamese/English toggle, live GPS capture against Dag boundaries, and Bluetooth weighbridge synchronization.", styles['Bullet']))
@@ -913,7 +914,7 @@ def build_pow_pdf():
         ],
         [
             Paragraph("<b>Live Prototype:</b> https://chah-praman.pages.dev/", styles['MetaKey']),
-            Paragraph("<b>Verification Status:</b> Fully Built & Tested", styles['MetaKey'])
+            Paragraph("<b>App Tutorial & Guide:</b> https://chah-praman.pages.dev/#tutorial", styles['MetaKey'])
         ]
     ]
     meta_table = Table(pow_meta, colWidths=[240, 247])
@@ -956,160 +957,62 @@ def build_pow_pdf():
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 2: Section 2 Continued: Architecture Box & Technical Pipeline
+    # PAGE 2: Section 2: Architecture & Wireframe 1
     # =========================================================================
-    story.append(Paragraph("ENTERPRISE CLOUD-NATIVE ARCHITECTURE: CHAH-PRAMAN", styles['DocSubtitle']))
-    story.append(Paragraph("Highly Scalable, Zero-Trust Production Deployment Architecture at Assam State Data Centre & Cloudflare Edge", styles['DocTagline']))
+    story.append(Paragraph("2. Live System Architecture & Technical Pipeline", styles['FieldHeading']))
+    story.append(Paragraph("<b>Figure 1: Chah-Praman 4-Tier Cryptographic Architecture & Edge Processing Pipeline</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/fig1_architecture.png"), width=485, height=265))
+    story.append(Spacer(1, 6))
 
-    # Architecture Box Diagram
-    arch_ascii = """+---------------------------------------------------------------------------------------------+
-| TIER 1: EDGE INGRESS & ZERO-TRUST SECURITY                                                  |
-| [Cloudflare DDoS / WAF] <--> [API Gateway / Pages Functions] <--> [OAuth2 / State SSO]      |
-+---------------------------------------------------------------------------------------------+
-                                              |
-+---------------------------------------------------------------------------------------------+
-| TIER 2: CONTAINERIZED MICROSERVICES MESH (SDC / EDGE RUNTIME)                                |
-| [STG Ingestion PWA]  [PPC v16 Audit Engine]  [IoT Telemetry Hub]  [NABL Lab IPFS Pinning]   |
-| (Assamese / English)  (MRL Threshold Gate)   (Withering / VFBD)   (GC-MS/MS Cryptographic)  |
-+---------------------------------------------------------------------------------------------+
-                                              |
-+---------------------------------------------------------------------------------------------+
-| TIER 3: DISTRIBUTED EVENT BUS & IN-MEMORY CACHE                                             |
-| [Apache Kafka Event Stream: raw_weighments, mrl_alerts] <--> [Redis Real-Time State Cache]  |
-+---------------------------------------------------------------------------------------------+
-                                              |
-+---------------------------------------------------------------------------------------------+
-| TIER 4: SPATIO-TEMPORAL PERSISTENCE & OBJECT STORAGE                                        |
-| [PostGIS 16 Cadastral DB]       [IPFS / Arweave Decentralized]  [Immutable Cryptographic]   |
-| (Dharitree Dag/Patta Polygons)   (NABL Test CoAs & Shapefiles)   (SHA-256 Merkle Chaining)  |
-+---------------------------------------------------------------------------------------------+
-                                              |
-+---------------------------------------------------------------------------------------------+
-| TIER 5: EXTERNAL STATUTORY GATEWAYS & BLOCKCHAIN ANCHORING                                  |
-| [Tea Board PPC v16 Rulebook]   [GTAC e-Auction Webhook]   [Polygon / Base L2 Smart Contract]|
-| (FSSAI MRL Regulation Gate)    (ICD Amingaon Handover)    (TeaBatchProvenance.sol Commit)   |
-+---------------------------------------------------------------------------------------------+
-Throughput: >500 Weighments/sec  |  Latency: Sub-Second Audit  |  Gas Reduction: 99.82%  |  SLA: 99.95%"""
-    story.append(Paragraph(arch_ascii.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
-    story.append(Spacer(1, 8))
-
-    story.append(Paragraph("DUAL-SYSTEM RECONCILIATION & DISCREPANCY DETECTION ENGINE", styles['DocSubtitle']))
-    story.append(Paragraph("Automated Cross-Verification Between Textual Jamabandi & Cadastral GIS Vectors • Assam NESFIC-I-08", styles['DocTagline']))
-
-    recon_data = [
-        [Paragraph("DHARITREE TEXTUAL REPOSITORY", styles['TableHead']), Paragraph("CHAH-PRAMAN CROSS-AUDIT KERNEL", styles['TableHead']), Paragraph("BHUDAKSHYA GEOSPATIAL MAPS", styles['TableHead'])],
-        [
-            Paragraph("• Textual Record of Rights (Jamabandi)<br/>• Pattadar KYC & Aadhar Token<br/>• Bigha-Katha-Lesa (BKL) Calculation<br/>• Land Taxonomy (Periodic/Myadi/Khas)<br/>• Touzi Annual Revenue Ledger", styles['TableCell']),
-            Paragraph("<b>Automated Statutory Validation Engine:</b><br/>• Rule 1: Dag Boundary Geo-Fencing<br/>• Rule 2: Area Tolerance Variance ≤ 5%<br/>• Rule 3: EUDR Anti-Deforestation Verification<br/>• Rule 4: Riparian Eco-Buffer Non-Plucking<br/>• Rule 5: Tea Board PPC v16 MRL Screener<br/>• Rule 6: Bluetooth Weighbridge Tare Lock<br/>• Rule 7: Cryptographic Merkle Root Hashing", styles['TableCellBold']),
-            Paragraph("• Cadastral Parcel Polygon (Bhu-Naksha)<br/>• Coordinate Vertices (EPSG:4326 / UTM 46N)<br/>• Calculated Polygon Surface Area<br/>• Sentinel-2 Drone Ortho-Tiles<br/>• Boundary Ridges (Aali) & Drainage", styles['TableCell'])
-        ]
-    ]
-    recon_table = Table(recon_data, colWidths=[155, 177, 155])
-    recon_table.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,0), C_TEAL_DARK),
-        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor("#cbd5e1")),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.white, colors.HexColor("#f8fafc")]),
-        ('TOPPADDING', (0,0), (-1,-1), 4),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
-        ('LEFTPADDING', (0,0), (-1,-1), 5),
-        ('RIGHTPADDING', (0,0), (-1,-1), 5),
-    ]))
-    story.append(recon_table)
+    story.append(Paragraph("<b>Wireframe 1: Executive Analytics Dashboard & Regional Anomaly Audit Console</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/wireframe1_dashboard.png"), width=485, height=265))
 
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 3: Section 3: Wireframes 1 & 2
+    # PAGE 3: Section 3: Wireframes 2 & 3
     # =========================================================================
     story.append(Paragraph("3. Wireframes & User Interface Evidence", styles['FieldHeading']))
-    story.append(Paragraph("The following wireframe diagrams reflect the live, working user interfaces rendered by the deployed web application at https://chah-praman.pages.dev/:", styles['Body']))
+    story.append(Paragraph("The following wireframe diagrams reflect the live, working user interfaces rendered by the deployed web application at https://chah-praman.pages.dev/ (Tutorial & Guide: https://chah-praman.pages.dev/#tutorial):", styles['Body']))
+    story.append(Spacer(1, 2))
+
+    story.append(Paragraph("<b>Wireframe 2: Cadastral WebGIS Estate & Parcel Boundary Inspector</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/wireframe2_cadastral_gis.png"), width=485, height=255))
+    story.append(Spacer(1, 6))
+
+    story.append(Paragraph("<b>Wireframe 3: Small Tea Grower (STG) Mobile Field Survey & Digital Plucking Sheet ('Chah-Sewa')</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/wireframe3_stg_mobile.png"), width=485, height=255))
+
+    story.append(PageBreak())
+
+    # =========================================================================
+    # PAGE 4: Wireframe 4 & Figure 2
+    # =========================================================================
+    story.append(Paragraph("<b>Wireframe 4: Public Consumer Traceability Passport with Merkle Proof & Chemical Certificate</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/wireframe4_consumer_passport.png"), width=485, height=260))
+    story.append(Spacer(1, 6))
+
+    story.append(Paragraph("<b>Figure 2: Deterministic Agrochemical (PPC v16) & Geo-Fence Interceptor Decision Pipeline</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/fig2_ppc_interceptor.png"), width=485, height=260))
+    story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=4, spaceAfter=4))
+
+    story.append(PageBreak())
+
+    # =========================================================================
+    # PAGE 5: Section 4 Benchmark Matrix Table & Performance Charts
+    # =========================================================================
+    story.append(Paragraph("4. Empirical Test Benchmarks on Representative Assam Scenarios", styles['FieldHeading']))
+    story.append(Paragraph("<b>Figure 3: System Performance Benchmarks across 100,000 Simulated Tea Ingestion Events</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/fig3_benchmarks.png"), width=485, height=225))
     story.append(Spacer(1, 4))
 
-    # Wireframe 1
-    story.append(Paragraph("Wireframe 1: Consumer QR Explorer & Official Assam GI Provenance Seal", styles['SubSectionHead']))
-    wf1_text = """+---------------------------------------------------------------------------------------------------+
-| CHAH-PRAMAN (চাহ-প্ৰমাণ)  •  Official Assam GI Provenance Seal (#GI-IN-ASM-TEA-00441)              |
-+---------------------------------------------------------------------------------------------------+
-| [Scan QR Code: QR-ASM26-8894-X82F]                                 [Status: ASSAM GI VERIFIED ✓]  |
-+---------------------------------------------------------------------------------------------------+
-| LEAF-TO-CUP CHRONOLOGICAL PROVENANCE TIMELINE                                                     |
-| [1] HARVEST: Mukund Saikia • Borbhetta Cluster #4 • GPS: 26.7512, 94.2155 • Elev: 96m • TV23     |
-| [2] INTAKE:  Weighbridge WB-JHT-BLF-02 • Gross: 261.0 Kg • Tare: 12.2 Kg • Net Leaf: 248.8 Kg     |
-| [3] FACTORY: Tocklai BLF • Withering Loss: 32.4% • VFBD Drying Temp: 115°C • Grade: CTC BOP      |
-| [4] NABL:    TRA Tocklai Lab TC-5421 • Emamectin: 0.012 ppm • Quinalphos: 0.002 ppm (PASS)       |
-| [5] RETAIL:  GTAC Lot #402 • Exporter Handover • Blockchain Tx: 0x8f3c7e99214b2a65...             |
-+---------------------------------------------------------------------------------------------------+
-| [Export Official Provenance Certificate]     [Print Packaging QR Stamp]     [Award Grower Tip]   |
-+---------------------------------------------------------------------------------------------------+"""
-    story.append(Paragraph(wf1_text.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
-    story.append(Spacer(1, 8))
-
-    # Wireframe 2
-    story.append(Paragraph("Wireframe 2: Cadastral WebGIS Parcel Inspector & EUDR Deforestation Engine", styles['SubSectionHead']))
-    wf2_text = """+---------------------------------------------------------------------------------------------------+
-| CADASTRAL SURVEY CLUSTER: Borbhetta Division (Jorhat West Circle, Mouza Borbhetta)                |
-| Modes: [🗺️ Macro Valley Overview]   [📐 Cadastral Land Parcel Map (দাগ আৰু পট্টা - ACTIVE)]       |
-+----------------------------------------------------+----------------------------------------------+
-| 70% Interactive Cadastral Map View                 | 30% Cadastral Diagnostic Drawer              |
-|                                                    |                                              |
-| +------------------------------------------------+ | SELECTED PARCEL: DAG #142/518                |
-| | Dag #142/518 (2.45 Ha)  | Dag #143/519 (4.10)  | | Patta No: Patta #42 (Periodic / ম্যাদী)     |
-| | Mukund Saikia (Patta 42)| TRA Research Grant   | | Landholder: Mukund Saikia (STG #408)        |
-| | Live GPS Radar Ping ●   | Clonal Foundation    | | Soil Acidity: 4.82 pH (Tocklai Acid Loam)  |
-| |-------------------------+----------------------| | Cultivar: TV23 High Quality Vegetative     |
-| | Dag #146/522 (1.60 Ha)  | Dag #147/523 (2.15)  | | EUDR Deforestation Audit: COMPLIANT ✓     |
-| | Dhekiajuli Stream Buffer| Hiren Baruah Organic | | (Sentinel-2 post-2020: 0% Canopy Loss)     |
-| | [NO PLUCKING - EUDR] ⛔ | Bio-Certified Patta  | |                                            |
-| +------------------------------------------------+ | [Inspect Active Batch ASM-2026-CTC-001 →]    |
-+----------------------------------------------------+----------------------------------------------+"""
-    story.append(Paragraph(wf2_text.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
-
-    story.append(PageBreak())
-
-    # =========================================================================
-    # PAGE 4: Wireframes 3 & 4
-    # =========================================================================
-    story.append(Paragraph("Wireframe 3: STG Field App ('চাহ-সেৱা') & Bluetooth Weighbridge Scale Ingestion", styles['SubSectionHead']))
-    wf3_text = """+---------------------------------------------------------------------------------------------------+
-| CHAH-SEWA (চাহ-সেৱা) • Small Tea Grower Mobile Field Queue • Language: [অসমীয়া / EN]             |
-+---------------------------------------------------------------------------------------------------+
-| 1. Smallholder Selection: Mukund Saikia (Borbhetta Cluster #4, Jorhat) • STG ID: STG-JHT-001      |
-| 2. Cultivar / Clonal Selection: TV23 (High Quality Tocklai Vegetative Clone)                      |
-| 3. Cadastral GPS Geo-Fence: [26.7512, 94.2155]  [📍 Capture GPS] • Verified inside Dag #142/518    |
-| 4. Fresh Leaf Weight: [250.0] Kg • Target Manufacturing: CTC (Crush, Tear, Curl)                  |
-| [🌱 Submit Plucking Log to Ledger] (Works 100% Offline via IndexedDB / SQLite Sync)               |
-+---------------------------------------------------------------------------------------------------+
-| AUTOMATED BLUETOOTH WEIGHBRIDGE INGESTION (Scale ID: WB-JHT-BLF-02)                                |
-| Live Weighbridge Reading: 248.8 Kg  |  Tare: 12.2 Kg  |  Moisture Tare Discount: 0% (Locked)     |
-| [⚡ Sync Weighbridge Receipt to Active Batch] -> Status: Digitally signed & locked into queue      |
-+---------------------------------------------------------------------------------------------------+"""
-    story.append(Paragraph(wf3_text.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
-    story.append(Spacer(1, 8))
-
-    story.append(Paragraph("Wireframe 4: TRA Tocklai Regulatory Command Center & Admin Login Gateway", styles['SubSectionHead']))
-    wf4_text = """+---------------------------------------------------------------------------------------------------+
-| 🔒 TRA TOCKLAI REGULATORY ADMIN GATEWAY                                                           |
-| Institutional access restricted to TRA Tocklai Directorate & Tea Board Compliance Officers       |
-+---------------------------------------------------------------------------------------------------+
-| [🔑 Evaluator Demo Login: admin@tocklai.res.in / tocklai2026]       [⚡ Auto-Fill Demo Login]      |
-| Username: [admin@tocklai.res.in]    Password: [••••••••••••] [👁️]     [🏛️ Authenticate & Enter]    |
-+---------------------------------------------------------------------------------------------------+
-| ACTIVE SESSION: Dr. Ron Hatibaruah (TRA Quality Director) • 2FA Cleared • [🔒 Sign Out]           |
-| Valley Metrics: Total Batches: 6  |  Green Leaf: 2,306.7 Kg  |  Made Tea: 481.5 Kg  |  MRL: 75.0% |
-| Subtabs: [🗺️ Regional Heatmap]  [🛡️ GI Registry Authority]  [🚨 Chemical MRL Alerts]  [🔗 Merkle] |
-| GI Registry Table: ASM-2026-CTC-001 -> AUTHORIZED ✓  |  ASM-2026-FLG-006 -> SUSPENDED ⚠️ (MRL Fail)|
-+---------------------------------------------------------------------------------------------------+"""
-    story.append(Paragraph(wf4_text.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
-    story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=4, spaceAfter=6))
-
-    story.append(Paragraph("4. Empirical Test Benchmarks on Representative Assam Scenarios", styles['FieldHeading']))
-    story.append(Paragraph("The platform was stress-tested across a benchmark suite of 6 authentic Assam tea batches modeling distinct geographic, processing, and compliance typologies:", styles['Body']))
-
-    story.append(PageBreak())
-
-    # =========================================================================
-    # PAGE 5: Section 4 Benchmark Matrix Table
-    # =========================================================================
     bench_data = [
         [Paragraph("Batch ID", styles['TableHead']), Paragraph("Origin Garden & District", styles['TableHead']), Paragraph("Cultivar & Process", styles['TableHead']), Paragraph("Safety & Lab Diagnostics", styles['TableHead']), Paragraph("GI Status", styles['TableHead']), Paragraph("Corrective Action Triggered", styles['TableHead'])],
         [
@@ -1172,8 +1075,12 @@ Throughput: >500 Weighments/sec  |  Latency: Sub-Second Audit  |  Gas Reduction:
         ('RIGHTPADDING', (0,0), (-1,-1), 3),
     ]))
     story.append(bench_table)
-    story.append(Spacer(1, 8))
 
+    story.append(PageBreak())
+
+    # =========================================================================
+    # PAGE 6: Algorithmic Formulations & Automated Test Evidence
+    # =========================================================================
     story.append(Paragraph("5. Algorithmic Formulation of Cryptographic Merkle Aggregation", styles['FieldHeading']))
     story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=2, spaceAfter=6))
     
@@ -1210,67 +1117,25 @@ Throughput: >500 Weighments/sec  |  Latency: Sub-Second Audit  |  Gas Reduction:
         ('RIGHTPADDING', (0,0), (-1,-1), 4),
     ]))
     story.append(gas_table)
+    story.append(Spacer(1, 8))
 
-    story.append(PageBreak())
+    story.append(Paragraph("6. Automated Test Suite Execution Evidence & Edge Deployment", styles['FieldHeading']))
+    story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=2, spaceAfter=4))
 
-    # =========================================================================
-    # PAGE 6: Automated Test Evidence & Verification
-    # =========================================================================
-    story.append(Paragraph("6. Automated Test Suite Execution Evidence (npm test)", styles['FieldHeading']))
-    story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=2, spaceAfter=6))
-
-    test_output = """> @nesfic/api@1.0.0 test
-> node --test
-
-✔ Database seeds correctly with authentic Assam tea batches (0.69ms)
-✔ Consumer QR lookup resolves correctly (0.09ms)
-✔ STG Plucking creates new batch and transitions stages (0.29ms)
-✔ Merkle Tree root generation and anchor calculation (0.11ms)
-✔ Analytics correctly computes regional breakdown (0.20ms)
-✔ Intercepts chemical safety violations and blocks packaging (0.21ms)
-✔ Admin GI revocation and alert feed functions (0.55ms)
-✔ PPC Agrochemical Whitelist returns approved reference compounds (0.08ms)
-✔ HTTP API endpoints respond accurately (8.06ms)
-
-ℹ tests 9 | suites 0 | pass 9 | fail 0 | cancelled 0 | skipped 0 | duration_ms 53.97ms"""
+    test_output = """> @nesfic/api@1.0.0 test: 9 passed, 0 failed, 0 skipped (53.97ms duration)
+✔ Database seeds authentic Assam batches (0.69ms) | ✔ Consumer QR lookup resolves (0.09ms)
+✔ STG Plucking transitions stages (0.29ms) | ✔ Merkle Tree root calculation (0.11ms)
+✔ Chemical safety interceptor blocks packaging (0.21ms) | ✔ Admin GI revocation (0.55ms)
+Deployment: https://chah-praman.pages.dev • Solidity: TeaBatchProvenance.sol (L2 Anchor)"""
     story.append(Paragraph(test_output.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
-    story.append(Spacer(1, 8))
+    story.append(Spacer(1, 6))
 
-    story.append(Paragraph("Cloudflare Serverless Edge & Git Deployment Records", styles['SubSectionHead']))
     dep_text = """• <b>Cloudflare Pages Production URL:</b> <code>https://chah-praman.pages.dev</code>
-    <br/>• <b>Global Edge Latency:</b> < 50ms across 300+ data centers worldwide.
-    <br/>• <b>Serverless Edge Functions:</b> Direct execution of all REST API endpoints via <code>functions/api/[[route]].js</code>.
-    <br/>• <b>GitHub Repository:</b> <code>https://github.com/RonHatibaruah/chah-praman</code> (Branch: <code>main</code>).
-    <br/>• <b>CI/CD Pipeline:</b> Automated testing and deployment workflow configured in <code>.github/workflows/deploy.yml</code>."""
+    <br/>• <b>Interactive Platform Tutorial & Guide:</b> <code>https://chah-praman.pages.dev/#tutorial</code>
+    <br/>• <b>Global Edge Latency:</b> < 50ms across 300+ data centers | <b>API Functions:</b> <code>functions/api/[[route]].js</code>
+    <br/>• <b>GitHub Repository:</b> <code>https://github.com/RonHatibaruah/chah-praman</code> (Branch: <code>main</code>)
+    <br/>• <b>Smart Contract Anchor:</b> <code>TeaBatchProvenance.sol</code> anchored on Ethereum L2 (Polygon/Base)"""
     story.append(Paragraph(dep_text, styles['Body']))
-    story.append(Spacer(1, 8))
-
-    story.append(Paragraph("Solidity Smart Contract Source Listing (TeaBatchProvenance.sol)", styles['SubSectionHead']))
-    sc_code = """// SPDX-License-Identifier: Apache-2.0
-pragma solidity ^0.8.20;
-
-contract TeaBatchProvenance {
-    enum BatchStage { Plucked, CollectionWeighed, FactoryProcessed, LabCertified, AuctionTransferred, RetailPackaged }
-
-    struct Batch {
-        string batchId;
-        string serializedQrCode;
-        BatchStage currentStage;
-        address currentCustodian;
-        bytes32 merkleRoot;
-        bool isGIAuthorized;
-        uint256 createdAt;
-    }
-
-    mapping(string => Batch) public batches;
-    event BatchStageUpdated(string indexed batchId, BatchStage newStage, address indexed updatedBy);
-    event MerkleRootAnchored(bytes32 indexed rootHash, uint256 batchCount, uint256 timestamp);
-
-    function anchorMerkleRoot(bytes32 rootHash, uint256 batchCount) external {
-        emit MerkleRootAnchored(rootHash, batchCount, block.timestamp);
-    }
-}"""
-    story.append(Paragraph(sc_code.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
 
     story.append(PageBreak())
 
@@ -1278,7 +1143,10 @@ contract TeaBatchProvenance {
     # PAGE 7: Section 7: Pilot Validation Plan & Sign-Off Block
     # =========================================================================
     story.append(Paragraph("7. Pilot Validation & Scaling Roadmap", styles['FieldHeading']))
-    story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=2, spaceAfter=6))
+    story.append(Paragraph("<b>Figure 4: 12-Month Phased Rollout & Estate Onboarding Roadmap (Dibrugarh, Jorhat, Golaghat)</b>", styles['SubSectionHead']))
+    story.append(Spacer(1, 2))
+    story.append(RLImage(os.path.join(DOCS_DIR, "assets/fig4_roadmap.png"), width=485, height=155))
+    story.append(Spacer(1, 4))
 
     pilot_box = [
         [Paragraph("<b>PILOT EXECUTION PLAN (90-DAY CIRCLE TRIAL)</b>", styles['TableCellBold'])],
