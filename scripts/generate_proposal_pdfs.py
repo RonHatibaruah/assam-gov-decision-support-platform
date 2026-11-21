@@ -287,7 +287,7 @@ def build_proposal_pdf():
     # =========================================================================
     # PAGE 1: Header Block & Field 1
     # =========================================================================
-    story.append(Paragraph("CHAH-PRAMAN (চাহ-প্ৰমাণ)", styles['DocTitle']))
+    story.append(Paragraph("CHAH-PRAMAN (Assam Tea Digital Provenance)", styles['DocTitle']))
     story.append(Paragraph("Automated Assam Tea Value Chain Traceability & GI Provenance System", styles['DocSubtitle']))
     story.append(Paragraph("Grant Proposal & Technical Solution Submission Document", styles['DocTagline']))
 
@@ -353,10 +353,10 @@ def build_proposal_pdf():
     story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=1, spaceAfter=5))
 
     story.append(Paragraph("Proposed Solution Overview", styles['SubSectionHead']))
-    story.append(Paragraph("<b>Chah-Praman (চাহ-প্ৰমাণ)</b> is an automated, production-tested, end-to-end digital traceability and GI provenance platform engineered specifically for the Assam tea ecosystem under TRA Tocklai guidance. Operating as a decentralized quality assurance layer, it integrates IoT hardware, PostGIS cadastral surveys, and Layer-2 blockchain smart contracts into a unified verification pipeline.", styles['Body']))
+    story.append(Paragraph("<b>Chah-Praman</b> is an automated, production-tested, end-to-end digital traceability and GI provenance platform engineered specifically for the Assam tea ecosystem under TRA Tocklai guidance. Operating as a decentralized quality assurance layer, it integrates IoT hardware, PostGIS cadastral surveys, and Layer-2 blockchain smart contracts into a unified verification pipeline.", styles['Body']))
 
     story.append(Paragraph("Main Modules & Core Functions", styles['SubSectionHead']))
-    story.append(Paragraph("1. <b>Smallholder Mobile App ('চাহ-সেৱা Chah-Sewa'):</b> Offline-First PWA operating in remote gardens via IndexedDB/CRDTs; bilingual Assamese/English interface with voice prompts and iconographic navigation; geo-fenced GPS harvest locking.", styles['Bullet']))
+    story.append(Paragraph("1. <b>Smallholder Mobile App ('Chah-Sewa STG App'):</b> Offline-First PWA operating in remote gardens via IndexedDB/CRDTs; bilingual Assamese/English interface with voice prompts and iconographic navigation; geo-fenced GPS harvest locking.", styles['Bullet']))
     story.append(Paragraph("2. <b>Cadastral GIS Engine (Dharitree / ILRMS):</b> Cross-references harvest GPS with surveyed land revenue parcels (Dag #142 to #147), verifies Periodic Patta tenure, audits EUDR deforestation compliance via Sentinel-2, and enforces non-plucking riparian eco-buffers.", styles['Bullet']))
     story.append(Paragraph("3. <b>Automated IoT Weighbridge Ingestion:</b> Bluetooth BLE and RS232 serial bridges connecting digital collection scales, locking gross, tare, and net weights into digitally signed receipts.", styles['Bullet']))
     story.append(Paragraph("4. <b>Factory Processing Engine:</b> Telemetry integration for withering troughs, fermentation oxidation floors, and VFBD drying chambers (115°C), mapping green leaf to finished CTC/Orthodox grades.", styles['Bullet']))
@@ -405,7 +405,7 @@ def build_proposal_pdf():
     story.append(Paragraph("• <b>Interactive Platform Tutorial:</b> Header guide modal detailing leaf-to-cup traceability, smallholder benefits, and operational workflows for each user persona.", styles['Bullet']))
     story.append(Paragraph("• <b>Consumer QR Explorer:</b> Instant verification of serialized QR tokens, interactive timeline, printable official certificates, and retail packaging stamps.", styles['Bullet']))
     story.append(Paragraph("• <b>Cadastral Land Parcel WebGIS Map:</b> Micro-survey view rendering Dag polygons (Dag #142 to #147), Periodic Patta tenure, soil pH, and EUDR deforestation compliance.", styles['Bullet']))
-    story.append(Paragraph("• <b>STG Field Portal ('চাহ-সেৱা'):</b> Bilingual Assamese/English toggle, live GPS capture against Dag boundaries, and Bluetooth weighbridge synchronization.", styles['Bullet']))
+    story.append(Paragraph("• <b>STG Field Portal ('Chah-Sewa'):</b> Bilingual Assamese/English toggle, live GPS capture against Dag boundaries, and Bluetooth weighbridge synchronization.", styles['Bullet']))
     story.append(Paragraph("• <b>Factory IoT Telemetry Dashboard:</b> Live monitoring of withering troughs, fermentation oxidation, and VFBD drying chambers.", styles['Bullet']))
     story.append(Paragraph("• <b>TRA Command Center:</b> Institutional login gateway (<code>admin@tocklai.res.in</code> / <code>tocklai2026</code>) with live GI revocation and chemical alert feeds.", styles['Bullet']))
     story.append(Paragraph("• <b>Smart Contracts (<code>packages/contracts</code>):</b> <code>TeaRegistry.sol</code> and <code>TeaBatchProvenance.sol</code> audited and deployed.", styles['Bullet']))
@@ -791,7 +791,7 @@ def build_proposal_pdf():
     alt_data = [
         [Paragraph("Dimension", styles['TableHead']), Paragraph("Traditional Manual Status Quo", styles['TableHead']), Paragraph("Chah-Praman Automated Platform", styles['TableHead'])],
         [Paragraph("Tamper Resistance", styles['TableCellBold']), Paragraph("None (Manual pen/paper registers)", styles['TableCell']), Paragraph("<b>Immutable Blockchain (EVM Layer 2)</b>", styles['TableCellBold'])],
-        [Paragraph("Smallholder Access", styles['TableCellBold']), Paragraph("None (Paper chits; high illiteracy barrier)", styles['TableCell']), Paragraph("<b>Offline Assamese/English PWA (চাহ-সেৱা)</b>", styles['TableCellBold'])],
+        [Paragraph("Smallholder Access", styles['TableCellBold']), Paragraph("None (Paper chits; high illiteracy barrier)", styles['TableCell']), Paragraph("<b>Offline Assamese/English PWA (Chah-Sewa)</b>", styles['TableCellBold'])],
         [Paragraph("Weighbridge Arbitrage", styles['TableCellBold']), Paragraph("Pervasive deduction fraud (5%–15%)", styles['TableCell']), Paragraph("<b>Direct Bluetooth Scale Ingestion</b>", styles['TableCellBold'])],
         [Paragraph("Chemical Safety Gate", styles['TableCellBold']), Paragraph("Haphazard bulk testing after blending", styles['TableCell']), Paragraph("<b>Automated TRA PPC v16 / MRL Gatekeeper</b>", styles['TableCellBold'])],
         [Paragraph("Cadastral & EUDR Rules", styles['TableCellBold']), Paragraph("No spatial parcel verification", styles['TableCell']), Paragraph("<b>Dharitree Dag/Patta & Sentinel-2 EUDR Audit</b>", styles['TableCellBold'])],
@@ -878,7 +878,7 @@ def build_proposal_pdf():
     story.append(Paragraph("• <b>Validation Methodology:</b> Track >50,000 kg green leaf from farm GPS polygon to finished CTC tea chests; verify zero tare deduction fraud and 100% receipt transparency; test automated quarantine on simulated MRL hazard batches.", styles['Bullet']))
 
     doc.build(story, canvasmaker=NumberedProposalCanvas)
-    print(f"✓ Proposal PDF generated successfully (12 pages): {PROPOSAL_PDF_PATH}")
+    print(f"[PASS] Proposal PDF generated successfully (12 pages): {PROPOSAL_PDF_PATH}")
 
 
 def build_pow_pdf():
@@ -899,7 +899,7 @@ def build_pow_pdf():
     # PAGE 1: Header Block, Metadata, Section 1 & Section 2 Start
     # =========================================================================
     story.append(Paragraph("PROOF OF WORK & SOLUTION EVIDENCE DOSSIER", styles['DocTitle']))
-    story.append(Paragraph("Chah-Praman (চাহ-প্ৰমাণ) - Assam Tea Value Chain Traceability System", styles['DocSubtitle']))
+    story.append(Paragraph("Chah-Praman - Assam Tea Value Chain Traceability System", styles['DocSubtitle']))
     story.append(Paragraph("Empirical Test Benchmarks, Prototype Architecture & Wireframe Evidence", styles['DocTagline']))
 
     # Metadata Box in Light Blue matching Reference
@@ -931,7 +931,7 @@ def build_pow_pdf():
     story.append(Spacer(1, 6))
 
     story.append(Paragraph("# Proof of Work & Solution Evidence Dossier", styles['DocTagline']))
-    story.append(Paragraph("<b>Chah-Praman (চাহ-প্ৰমাণ): Assam Tea Value Chain Digital Traceability System</b>", styles['SubSectionHead']))
+    story.append(Paragraph("<b>Chah-Praman: Assam Tea Value Chain Digital Traceability System</b>", styles['SubSectionHead']))
     story.append(Paragraph("<b>Submission Category:</b> NESFIC 2026 (Stream 1) - Problem Statement NESFIC-I-08", styles['Body']))
     story.append(Paragraph("<b>Challenge Owners:</b> Tea Research Association (TRA) – Tocklai & DIIS, Govt. of Assam", styles['Body']))
     story.append(Paragraph("<b>Lead Innovator & Applicant:</b> Ron Hatibaruah", styles['Body']))
@@ -946,7 +946,7 @@ def build_pow_pdf():
     story.append(Paragraph("2. Deterministic execution of statutory agrochemical audit rules under the Tea Board Plant Protection Code (PPC v16).", styles['Bullet']))
     story.append(Paragraph("3. Sub-second derivation of the composite Leaf-to-Cup Provenance Score and automated chemical hazard quarantine.", styles['Bullet']))
     story.append(Paragraph("4. Interactive Cadastral WebGIS overlay featuring dynamic polygon styling, Dag & Patta tenure verification, and EUDR anti-deforestation audit badges.", styles['Bullet']))
-    story.append(Paragraph("5. Mobile-first field harvest logging queue for Small Tea Growers (চাহ-সেৱা) with GPS coordinate lock and ground measurement logging.", styles['Bullet']))
+    story.append(Paragraph("5. Mobile-first field harvest logging queue for Small Tea Growers (Chah-Sewa) with GPS coordinate lock and ground measurement logging.", styles['Bullet']))
     story.append(Paragraph("6. Citizen and consumer-facing verification portal generating downloadable, printable official Certificates of Provenance.", styles['Bullet']))
     story.append(Paragraph("7. Super Admin Regulatory Command Console (<code>admin@tocklai.res.in</code>) enabling real-time calibration of statutory rule engine tolerances, GI certification authorization/revocation, dual-system ingestion telemetry, and immutable SHA-256 compliance logs.", styles['Bullet']))
     story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=4, spaceAfter=6))
@@ -1020,7 +1020,7 @@ def build_pow_pdf():
             Paragraph("Borbhetta Cluster #4<br/>(Jorhat District)", styles['TableCell']),
             Paragraph("TV23 Clone<br/>CTC BOP Grade", styles['TableCell']),
             Paragraph("Emamectin: 0.012 ppm<br/>Quinalphos: 0.002 ppm<br/>(All MRL Passed)", styles['TableCell']),
-            Paragraph("<b>AUTHORIZED ✓</b><br/>GI-00441", styles['TableCellBold']),
+            Paragraph("<b>AUTHORIZED [VERIFIED]</b><br/>GI-00441", styles['TableCellBold']),
             Paragraph("Auto-approved for export packaging and GTAC auction transfer.", styles['TableCell'])
         ],
         [
@@ -1028,7 +1028,7 @@ def build_pow_pdf():
             Paragraph("Moran STG Co-Op<br/>(Dibrugarh District)", styles['TableCell']),
             Paragraph("Old China Bush<br/>Orthodox TGFOP1", styles['TableCell']),
             Paragraph("Hexaconazole: 0.035 ppm<br/>Moisture: 3.0%<br/>(NABL Certified)", styles['TableCell']),
-            Paragraph("<b>AUTHORIZED ✓</b><br/>GI-00442", styles['TableCellBold']),
+            Paragraph("<b>AUTHORIZED [VERIFIED]</b><br/>GI-00442", styles['TableCellBold']),
             Paragraph("Fast-tracked for international specialty orthodox consignments.", styles['TableCell'])
         ],
         [
@@ -1036,7 +1036,7 @@ def build_pow_pdf():
             Paragraph("Doom Dooma North<br/>(Tinsukia District)", styles['TableCell']),
             Paragraph("High Yield Stock<br/>Bold CTC BP Grade", styles['TableCell']),
             Paragraph("Thiamethoxam: 0.015 ppm<br/>Moisture: 3.1%<br/>(All MRL Passed)", styles['TableCell']),
-            Paragraph("<b>AUTHORIZED ✓</b><br/>GI-00443", styles['TableCellBold']),
+            Paragraph("<b>AUTHORIZED [VERIFIED]</b><br/>GI-00443", styles['TableCellBold']),
             Paragraph("Approved for commercial bidding at Guwahati Tea Auction Centre.", styles['TableCell'])
         ],
         [
@@ -1044,7 +1044,7 @@ def build_pow_pdf():
             Paragraph("Bokakhat Organic Co.<br/>(Golaghat District)", styles['TableCell']),
             Paragraph("T3E3 Hybrid<br/>Bio Green Tea", styles['TableCell']),
             Paragraph("Zero Synthetic Actives<br/>NPOP Organic Pass<br/>Moisture: 3.4%", styles['TableCell']),
-            Paragraph("<b>AUTHORIZED ✓</b><br/>GI-00444", styles['TableCellBold']),
+            Paragraph("<b>AUTHORIZED [VERIFIED]</b><br/>GI-00444", styles['TableCellBold']),
             Paragraph("Awarded Organic Assam GI seal and direct consumer tipping link.", styles['TableCell'])
         ],
         [
@@ -1052,15 +1052,15 @@ def build_pow_pdf():
             Paragraph("Monabarie Highlands<br/>(Sonitpur District)", styles['TableCell']),
             Paragraph("Sun-Withered Bud<br/>Silver Needle White", styles['TableCell']),
             Paragraph("Zero Pesticide Residue<br/>Moisture: 2.8%<br/>(NABL Certified)", styles['TableCell']),
-            Paragraph("<b>AUTHORIZED ✓</b><br/>GI-00445", styles['TableCellBold']),
+            Paragraph("<b>AUTHORIZED [VERIFIED]</b><br/>GI-00445", styles['TableCellBold']),
             Paragraph("Issued rare artisan certificate for Direct-to-Consumer export vaults.", styles['TableCell'])
         ],
         [
             Paragraph("<b>ASM-2026-FLG-006</b>", styles['TableCellBold']),
             Paragraph("Barak Valley Co-Op<br/>(Cachar District)", styles['TableCell']),
             Paragraph("Unregistered Stock<br/>CTC Pekoe Dust", styles['TableCell']),
-            Paragraph("<font color='#dc2626'><b>Quinalphos: 0.082 ppm</b><br/>(Exceeds 0.01 MRL)<br/>FAIL 🚨</font>", styles['TableCell']),
-            Paragraph("<font color='#dc2626'><b>REVOKED ⛔</b><br/>QUARANTINE</font>", styles['TableCellBold']),
+            Paragraph("<font color='#dc2626'><b>Quinalphos: 0.082 ppm</b><br/>(Exceeds 0.01 MRL)<br/>FAIL [ALERT]</font>", styles['TableCell']),
+            Paragraph("<font color='#dc2626'><b>REVOKED [QUARANTINE]</b><br/>QUARANTINE</font>", styles['TableCellBold']),
             Paragraph("<b>Automatic safety lock:</b> Packaging blocked; lot quarantined at factory bay 3.", styles['TableCell'])
         ]
     ]
@@ -1123,9 +1123,9 @@ def build_pow_pdf():
     story.append(HRFlowable(width="100%", thickness=1, color=C_RULE, spaceBefore=2, spaceAfter=4))
 
     test_output = """> @nesfic/api@1.0.0 test: 9 passed, 0 failed, 0 skipped (53.97ms duration)
-✔ Database seeds authentic Assam batches (0.69ms) | ✔ Consumer QR lookup resolves (0.09ms)
-✔ STG Plucking transitions stages (0.29ms) | ✔ Merkle Tree root calculation (0.11ms)
-✔ Chemical safety interceptor blocks packaging (0.21ms) | ✔ Admin GI revocation (0.55ms)
+[PASS] Database seeds authentic Assam batches (0.69ms) | [PASS] Consumer QR lookup resolves (0.09ms)
+[PASS] STG Plucking transitions stages (0.29ms) | [PASS] Merkle Tree root calculation (0.11ms)
+[PASS] Chemical safety interceptor blocks packaging (0.21ms) | [PASS] Admin GI revocation (0.55ms)
 Deployment: https://chah-praman.pages.dev • Solidity: TeaBatchProvenance.sol (L2 Anchor)"""
     story.append(Paragraph(test_output.replace("\n", "<br/>").replace(" ", "&nbsp;"), styles['CodeBlock']))
     story.append(Spacer(1, 6))
@@ -1199,7 +1199,7 @@ Deployment: https://chah-praman.pages.dev • Solidity: TeaBatchProvenance.sol (
     story.append(d_table)
 
     doc.build(story, canvasmaker=NumberedPoWCanvas)
-    print(f"✓ Proof of Work PDF generated successfully (7 pages): {POW_PDF_PATH}")
+    print(f"[PASS] Proof of Work PDF generated successfully (7 pages): {POW_PDF_PATH}")
 
 
 if __name__ == "__main__":
