@@ -8,7 +8,7 @@ GitHub Repository: https://github.com/RonHatibaruah/chah-praman
 ================================================================================
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 1
+--- FIELD / SECTION ON PAGE 1
 --------------------------------------------------------------------------------
 
 CHAH-PRAMAN (Assam Tea Digital Provenance)
@@ -26,7 +26,7 @@ Field 1: Problem understanding & user workflow
 Submission Word Budget: Word Count: ~448 words / Max: 500 words
 Problem Context & Scale
 Assam produces over 50% of India’s tea output and ~10% of global supply. Over 100,000 Small Tea Growers (STGs) cultivate
->52% of Assam's green leaf output. However, the value chain harbors latent structural vulnerabilities that jeopardize economic
+Greater Than 52% of Assam's green leaf output. However, the value chain harbors latent structural vulnerabilities that jeopardize economic
 resilience, export viability, and the global reputation of the Assam Tea brand. Key anomalies include:
 1. Lack of farm-level origin visibility where green leaves from compliant and non-compliant smallholdings are mixed without
 segregation.
@@ -57,7 +57,7 @@ verifies EUDR zero-deforestation compliance, and restores global trust in the As
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 2
+--- FIELD / SECTION ON PAGE 2
 --------------------------------------------------------------------------------
 
 Field 2: Proposed solution & key features
@@ -99,13 +99,13 @@ Unverifiable paper GI certificates subject to rampant counterfeiting
 Cryptographic GS1 Digital Link dynamic QR codes with
 leaf-to-cup audit
 Prohibitive L1 blockchain gas costs (Rs. 120/record)
-Binary Merkle tree state root aggregation (< Rs. 0.02/batch;
+Binary Merkle tree state root aggregation (Smaller Than Rs. 0.02/batch;
 99.82% savings)
 
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 3
+--- FIELD / SECTION ON PAGE 3
 --------------------------------------------------------------------------------
 
 Field 3: Describe User Journey, Wireframes, Prototype & Proof of Work
@@ -144,7 +144,7 @@ alert feeds.
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 4
+--- FIELD / SECTION ON PAGE 4
 --------------------------------------------------------------------------------
 
 Field 4: Technology & solution architecture
@@ -158,7 +158,7 @@ Technology Stack Specifications
 persistence utilizes IndexedDB with vector clocks/CRDTs for conflict-free reconciliation. Localized Assamese and English
 typography.
 • Application & Ingestion Layer: Node.js (v20+ LTS) modular REST backend with Cloudflare Pages Functions serverless edge
-replication (<50ms global latency). Ingests IoT telemetry from weighbridge scales and factory sensors via MQTT/WebSockets.
+replication (Smaller Than 50ms global latency). Ingests IoT telemetry from weighbridge scales and factory sensors via MQTT/WebSockets.
 • Cadastral Geo-Spatial Engine: PostGIS spatial database executing point-in-polygon checks against Dharitree / ILRMS
 cadastral survey layers to verify plucking coordinates strictly inside certified tea smallholding boundaries.
 • Smart Contracts Layer (Solidity 0.8.20+): TeaRegistry.sol maintains verified stakeholder roles (STG, BLF, Lab, TRAAdmin).
@@ -177,7 +177,7 @@ offline.
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 5
+--- FIELD / SECTION ON PAGE 5
 --------------------------------------------------------------------------------
 
 Field 5: Development methodology & intermediate steps
@@ -212,7 +212,7 @@ Refinement
 (Months 5 - 6)
 • Deploy 8-week pilot at TRA Tocklai Borbhetta Estate (Jorhat) and Moran BLF cluster
 (Dibrugarh).
-• Onboard 250 STGs, tracking >50,000 kg green leaf from plucking to packaged tea.
+• Onboard 250 STGs, tracking Greater Than 50,000 kg green leaf from plucking to packaged tea.
 OUTPUT: Production-Ready Platform & Statewide Scaling Blueprint.
 Intermediate Steps & Key Deliverables
 • Milestone 1.1 - Governance & Rule Formalization: Translate statutory provisions of Tea Board PPC v16 and Assam GI rules
@@ -227,7 +227,7 @@ weighbridge fraud and 100% provenance verification. Deliverable: Pilot Evaluatio
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 6
+--- FIELD / SECTION ON PAGE 6
 --------------------------------------------------------------------------------
 
 Field 6: Development timeline & milestones
@@ -262,7 +262,7 @@ Beta Release Ready
 Month 5
 Field Pilot Execution
 • Roll out 8-week pilot at Borbhetta Estate (Jorhat) and Moran BLF.
-• Track >50,000 kg green leaf across 250 registered STGs.
+• Track Greater Than 50,000 kg green leaf across 250 registered STGs.
 Live Field Verification
 Milestone
 Month 6
@@ -279,7 +279,7 @@ Critical Dependencies
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 7
+--- FIELD / SECTION ON PAGE 7
 --------------------------------------------------------------------------------
 
 Field 7: Data & information requirements
@@ -335,7 +335,7 @@ read-only replication is utilized throughout.
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 8
+--- FIELD / SECTION ON PAGE 8
 --------------------------------------------------------------------------------
 
 Field 8: Team, manpower & expertise
@@ -384,7 +384,7 @@ Critical Specialist Skills
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 9
+--- FIELD / SECTION ON PAGE 9
 --------------------------------------------------------------------------------
 
 Field 9: Testing, validation & evidence
@@ -405,7 +405,7 @@ and matching smart contract event logs bit-for-bit.
 Tier 3: Synthetic Stress Testing
 (Multi-District Scenarios)
 Benchmarking 6 heterogeneous batches across Jorhat, Dibrugarh, Tinsukia, Golaghat, Sonitpur,
-and Cachar. Sub-second batch screening (< 1.8 seconds per 500 records).
+and Cachar. Sub-second batch screening (Smaller Than 1.8 seconds per 500 records).
 Tier 4: Offline PWA & Hardware Sync
 (Simulated Network Drops)
 Testing client IndexedDB persistence during mid-plucking cellular blackouts, confirming zero data
@@ -415,7 +415,7 @@ Proposed Performance & Quality Measures
 2. Weighbridge Ingestion Speed: Automatic capture and receipt generation in under 3 seconds from scale stabilization.
 3. Gas Optimization: Less than 55,000 gas units per on-chain batch state root commit via Merkle tree anchoring (99.82% cost
 reduction).
-4. Consumer Verification Speed: Sub-second dynamic QR page load (< 800ms) on 3G mobile connections globally.
+4. Consumer Verification Speed: Sub-second dynamic QR page load (Smaller Than 800ms) on 3G mobile connections globally.
 Existing Proof of Work & Empirical Evidence
 A working prototype (Chah-Praman) has been fully developed, built, and verified:
 • Clean Batches (ASM-2026-CTC-001 / ORT-002): Correctly verified Assam GI credentials and NABL passing parameters.
@@ -425,7 +425,7 @@ retail packaging and issuing an immediate alert on the TRA Command Center.
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 10
+--- FIELD / SECTION ON PAGE 10
 --------------------------------------------------------------------------------
 
 Field 10: Security, privacy, safety & compliance
@@ -463,7 +463,7 @@ roots.
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 11
+--- FIELD / SECTION ON PAGE 11
 --------------------------------------------------------------------------------
 
 Field 11: Innovation & differentiation
@@ -495,7 +495,7 @@ None (Anonymous black tea packs)
 Interactive Dynamic GIS Provenance Map
 Cost per Transaction
 Prohibitive L1 gas fees (~Rs. 120)
-Merkle Aggregated Roots (< Rs. 0.02/batch)
+Merkle Aggregated Roots (Smaller Than Rs. 0.02/batch)
 Basis of Differentiation & Intellectual Property
 1. Gas-Efficient Merkle Tree Aggregation: Aggregates thousands of off-chain weighbridge events into a binary Merkle tree,
 anchoring only the 32-byte cryptographic root to Layer 2, saving over Rs. 21.4 Crores annually across Assam's 100,000+ STGs.
@@ -509,7 +509,7 @@ prevent vendor lock-in.
 
 
 --------------------------------------------------------------------------------
->>> FIELD / SECTION ON PAGE 12
+--- FIELD / SECTION ON PAGE 12
 --------------------------------------------------------------------------------
 
 Field 12: Resources, risks & pilot validation
@@ -567,7 +567,7 @@ GC-MS/MS labs.
 Proposed 90-Day Pilot Validation Plan
 • Location: TRA Tocklai Experimental Station (Borbhetta Estate, Jorhat) and Moran STG Cooperative (Dibrugarh District).
 • Sample Size: 250 registered Small Tea Growers, 1 commercial Bought Leaf Factory, and 2 collection centers.
-• Validation Methodology: Track >50,000 kg green leaf from farm GPS polygon to finished CTC tea chests; verify zero tare
+• Validation Methodology: Track Greater Than 50,000 kg green leaf from farm GPS polygon to finished CTC tea chests; verify zero tare
 deduction fraud and 100% receipt transparency; test automated quarantine on simulated MRL hazard batches.
 
 

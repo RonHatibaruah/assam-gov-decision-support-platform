@@ -8,7 +8,7 @@ GitHub Repository: https://github.com/RonHatibaruah/chah-praman
 ================================================================================
 
 --------------------------------------------------------------------------------
->>> PROOF OF WORK SECTION - PAGE 1 OF 7
+--- PROOF OF WORK SECTION - PAGE 1 OF 7
 --------------------------------------------------------------------------------
 
 PROOF OF WORK & SOLUTION EVIDENCE DOSSIER
@@ -17,7 +17,7 @@ Empirical Test Benchmarks, Prototype Architecture & Wireframe Evidence
 Challenge ID: NESFIC-I-08 (Stream 1)
 Department: TRA Tocklai & DIIS, Assam
 Lead Applicant: Ron Hatibaruah
-Format: Solution Evidence (PDF < 10 MB)
+Format: Solution Evidence (PDF Smaller Than 10 MB)
 Live Prototype: https://chah-praman.pages.dev/
 App Tutorial & Guide:
 https://chah-praman.pages.dev/#tutorial
@@ -51,7 +51,7 @@ blockchain anchoring.
 
 
 --------------------------------------------------------------------------------
->>> PROOF OF WORK SECTION - PAGE 2 OF 7
+--- PROOF OF WORK SECTION - PAGE 2 OF 7
 --------------------------------------------------------------------------------
 
 2. Live System Architecture & Technical Pipeline
@@ -61,7 +61,7 @@ Wireframe 1: Executive Analytics Dashboard & Regional Anomaly Audit Console
 
 
 --------------------------------------------------------------------------------
->>> PROOF OF WORK SECTION - PAGE 3 OF 7
+--- PROOF OF WORK SECTION - PAGE 3 OF 7
 --------------------------------------------------------------------------------
 
 3. Wireframes & User Interface Evidence
@@ -73,7 +73,7 @@ Wireframe 3: Small Tea Grower (STG) Mobile Field Survey & Digital Plucking Sheet
 
 
 --------------------------------------------------------------------------------
->>> PROOF OF WORK SECTION - PAGE 4 OF 7
+--- PROOF OF WORK SECTION - PAGE 4 OF 7
 --------------------------------------------------------------------------------
 
 Wireframe 4: Public Consumer Traceability Passport with Merkle Proof & Chemical Certificate
@@ -82,7 +82,7 @@ Figure 2: Deterministic Agrochemical (PPC v16) & Geo-Fence Interceptor Decision 
 
 
 --------------------------------------------------------------------------------
->>> PROOF OF WORK SECTION - PAGE 5 OF 7
+--- PROOF OF WORK SECTION - PAGE 5 OF 7
 --------------------------------------------------------------------------------
 
 4. Empirical Test Benchmarks on Representative Assam Scenarios
@@ -194,7 +194,7 @@ bay 3.
 
 
 --------------------------------------------------------------------------------
->>> PROOF OF WORK SECTION - PAGE 6 OF 7
+--- PROOF OF WORK SECTION - PAGE 6 OF 7
 --------------------------------------------------------------------------------
 
 5. Algorithmic Formulation of Cryptographic Merkle Aggregation
@@ -210,39 +210,39 @@ On-Chain Writes
 1 State Root per 5,000 aggregated harvests
 Gas Units per Record
 ~120,000 gas units
-< 25 gas units (amortized)
+Smaller Than 25 gas units (amortized)
 Cost per Plucking Event
 Rs. 120.00 to Rs. 180.00
-< Rs. 0.02 per batch
+Smaller Than Rs. 0.02 per batch
 Annual Valley-Wide Cost (18M
 plucking events)
 Rs. 21,60,00,000 (Rs. 21.6 Crores)
 Rs. 18,000 total (99.82% cost savings)
 6. Automated Test Suite Execution Evidence & Edge Deployment
-> @nesfic/api@1.0.0 test: 9 passed, 0 failed, 0 skipped (53.97ms duration)
+@nesfic/api@1.0.0 test: 9 passed, 0 failed, 0 skipped (53.97ms duration)
 [PASS] Database seeds authentic Assam batches (0.69ms) | [PASS] Consumer QR lookup resolves (0.09ms)
 [PASS] STG Plucking transitions stages (0.29ms) | [PASS] Merkle Tree root calculation (0.11ms)
 [PASS] Chemical safety interceptor blocks packaging (0.21ms) | [PASS] Admin GI revocation (0.55ms)
 Deployment: https://chah-praman.pages.dev • Solidity: TeaBatchProvenance.sol (L2 Anchor)
 • Cloudflare Pages Production URL: https://chah-praman.pages.dev
 • Interactive Platform Tutorial & Guide: https://chah-praman.pages.dev/#tutorial
-• Global Edge Latency: < 50ms across 300+ data centers | API Functions: functions/api/[[route]].js
+• Global Edge Latency: Smaller Than 50ms across 300+ data centers | API Functions: functions/api/[[route]].js
 • GitHub Repository: https://github.com/RonHatibaruah/chah-praman (Branch: main)
 • Smart Contract Anchor: TeaBatchProvenance.sol anchored on Ethereum L2 (Polygon/Base)
 
 
 
 --------------------------------------------------------------------------------
->>> PROOF OF WORK SECTION - PAGE 7 OF 7
+--- PROOF OF WORK SECTION - PAGE 7 OF 7
 --------------------------------------------------------------------------------
 
 7. Pilot Validation & Scaling Roadmap
 Figure 4: 12-Month Phased Rollout & Estate Onboarding Roadmap (Dibrugarh, Jorhat, Golaghat)
 PILOT EXECUTION PLAN (90-DAY CIRCLE TRIAL)
 Target Locations: Borbhetta Tea Estate (Jorhat - TRA Tocklai Station) & Moran STG Cooperative (Dibrugarh District)
-Target Scope: 250 registered Small Tea Growers across 15 collection hubs; 1 commercial BLF; >50,000 kg leaf.
+Target Scope: 250 registered Small Tea Growers across 15 collection hubs; 1 commercial BLF; Greater Than 50,000 kg leaf.
 Success Metrics:
-• >98% true-positive confirmation on weighbridge tare locks (100% elimination of unauthorized deductions)
+• Greater Than 98% true-positive confirmation on weighbridge tare locks (100% elimination of unauthorized deductions)
 • Zero false-positive flags on Grade A clean orthodox tea parcels
 • 100% automated quarantine on chemical MRL violation batches
 • 100% compliance with non-invasive decision support (zero automated land mutation)

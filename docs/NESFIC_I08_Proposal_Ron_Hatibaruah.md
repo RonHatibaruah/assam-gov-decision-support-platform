@@ -14,7 +14,7 @@
 Assam produces over 50% of India’s tea output and ~10% of global supply. However, the value chain suffers from acute structural vulnerabilities that jeopardize economic resilience, export viability, and the global reputation of the Assam Tea brand.
 
 **Primary Beneficiaries & Users:**
-1. **Small Tea Growers (STGs):** Over 100,000 smallholders contributing >52% of total green leaf output in Assam.
+1. **Small Tea Growers (STGs):** Over 100,000 smallholders contributing Greater Than 52% of total green leaf output in Assam.
 2. **Bought Leaf Factories (BLFs) & Estate Processing Units:** ~800 manufacturing units processing green leaves into CTC and Orthodox teas.
 3. **Regulatory & Research Bodies:** Tea Research Association (TRA) Tocklai, Tea Board of India, and FSSAI.
 4. **Guwahati Tea Auction Centre (GTAC) & Export Houses:** Handling lot warehousing, commercial bidding, and global container dispatch.
@@ -59,7 +59,7 @@ We propose **Chah-Praman (চাহ-প্ৰমাণ)**: a comprehensive, prod
    - Automatically locks gross weight, tare deduction, and timestamp into immutable digital intake receipts, eliminating middleman manipulation.
 
 4. **Factory & BLF Processing Engine:**
-   - Real-time IoT sensor telemetry monitoring withering moisture loss (target ~32%), fermentation room humidity (>90%), and Vibro-Fluidized Bed Dryer (VFBD) temperatures (98°C–115°C).
+   - Real-time IoT sensor telemetry monitoring withering moisture loss (target ~32%), fermentation room humidity (Greater Than 90%), and Vibro-Fluidized Bed Dryer (VFBD) temperatures (98°C–115°C).
    - Dynamic batch lineage: maps raw green leaf intake to finished tea grades (CTC: BOP, BP, OF; Orthodox: TGFOP1).
 
 5. **NABL Lab & MRL Quality Gatekeeper:**
@@ -182,12 +182,12 @@ We adopt an **Agile-V Model Hybrid** development methodology, combining rapid it
 The proposed solution will be developed and deployed over a structured **24-week (6-month)** timeline, structured into 6 sequential phases. The initial working prototype is already built, positioning the team for immediate field validation.
 
 ```
-[Phase 1: Requirements & Co-Design]  --> Weeks 1-3
-[Phase 2: Blockchain & Core Backend]  --> Weeks 4-6
-[Phase 3: Offline PWA & IoT Firmware] --> Weeks 7-9
-[Phase 4: Full MVP & Portals]        --> Weeks 10-12  <-- READY FOR LAB VALIDATION
-[Phase 5: Field Pilot (Jorhat/Moran)] --> Weeks 13-18  <-- READY FOR FIELD PILOT
-[Phase 6: VAPT, Audit & Scaling]     --> Weeks 19-24  <-- STATE-WIDE ROLLOUT
+[Phase 1: Requirements & Co-Design]  --Greater Than Weeks 1-3
+[Phase 2: Blockchain & Core Backend]  --Greater Than Weeks 4-6
+[Phase 3: Offline PWA & IoT Firmware] --Greater Than Weeks 7-9
+[Phase 4: Full MVP & Portals]        --Greater Than Weeks 10-12  <-- READY FOR LAB VALIDATION
+[Phase 5: Field Pilot (Jorhat/Moran)] --Greater Than Weeks 13-18  <-- READY FOR FIELD PILOT
+[Phase 6: VAPT, Audit & Scaling]     --Greater Than Weeks 19-24  <-- STATE-WIDE ROLLOUT
 ```
 
 **Key Phases, Milestones & Deliverables:**
@@ -307,7 +307,7 @@ Testing follows a rigorous multi-tier verification strategy covering automated a
 - **Transaction Throughput:** $\ge 500$ concurrent weighbridge requests processed per second with sub-500ms latency.
 - **Weighbridge Ingestion Speed:** Automatic capture and receipt generation in under 3 seconds from scale stabilization.
 - **Gas Optimization:** Less than 55,000 gas units per on-chain batch state root commit via Merkle tree anchoring.
-- **Consumer Verification Speed:** Sub-second dynamic QR page load ($< 800\text{ms}$) on 3G mobile connections globally.
+- **Consumer Verification Speed:** Sub-second dynamic QR page load ($Smaller Than 800\text{ms}$) on 3G mobile connections globally.
 
 **3. Prior Research, Pilots & Existing Evidence:**
 - **Working Prototype Evidence:** A fully functional, production-ready system has already been created in our repository (`Blockchain-nesfic-i-08`), featuring live web portals for all four stakeholders, smart contracts, and pre-seeded authentic batches from Jorhat (Borbhetta cluster) and Dibrugarh (Moran co-op).
@@ -339,7 +339,7 @@ Agricultural data infrastructure touching export supply chains demands military-
 - An intelligent **Geo-Anomaly Detection Engine** monitors scan velocity. If identical serialized QR codes are scanned from distant geographic locations within impossible travel intervals (e.g., Jorhat and Frankfurt simultaneously), the batch is instantly flagged on the TRA Command Center as potential counterfeit tampering.
 
 **4. Food Safety & Regulatory Compliance:**
-- **FSSAI Food Safety Standards:** Enforces statutory moisture ceilings ($< 6.5\%$) and heavy metal limits prior to batch packaging.
+- **FSSAI Food Safety Standards:** Enforces statutory moisture ceilings ($Smaller Than 6.5\%$) and heavy metal limits prior to batch packaging.
 - **Tea Board Plant Protection Code (PPC):** Hardcoded whitelist logic blocks intake if unapproved pesticides are entered.
 - **EU Maximum Residue Limit (MRL) Alignment:** Dynamic laboratory comparison against European Commission Regulation No 396/2005, providing pre-export clearance certification to prevent port rejections.
 
@@ -411,7 +411,7 @@ The pilot will be executed in a structured 8-week deployment across two distinct
    - *Location:* Moran Small Tea Growers Cooperative & partner Bought Leaf Factory (Dibrugarh District).
    - *Cohort:* 250 registered Small Tea Growers, 1 commercial BLF, and 2 collection centers.
    - *Validation Metrics:*
-     - 100% of green leaf intake ($>50,000\text{ kg}$) tracked digitally from farm GPS polygon to finished CTC tea chests.
+     - 100% of green leaf intake ($Greater Than 50,000\text{ kg}$) tracked digitally from farm GPS polygon to finished CTC tea chests.
      - Zero data loss or transaction conflicts during intentional network cutoffs.
      - 100% grower receipt transparency with verified elimination of unauthorized tare deductions.
      - Final production batches affixed with dynamic serialized QR codes, validated by TRA Tocklai officers using the central command dashboard.
