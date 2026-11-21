@@ -14,8 +14,8 @@
     "dev:api": "npm run --workspace=apps/api dev",
     "dev:web": "npm run --workspace=apps/web dev",
     "build:cloudflare": "echo '✅ Cloudflare Pages assets ready at apps/web/public'",
-    "deploy:cloudflare": "npx wrangler pages deploy apps/web/public --project-name=nesfic-d36-decision-support",
-    "dev:cloudflare": "npx wrangler pages dev apps/web/public"
+    "deploy:cloudflare": "npm --prefix apps/web run deploy:cloudflare 2>/dev/null || (cd apps/web && npx wrangler pages deploy public --project-name=assam-gov-decision-support)",
+    "dev:cloudflare": "cd apps/web && npx wrangler pages dev public"
   },
   "keywords": [
     "nesfic-d-36",
