@@ -3,7 +3,7 @@
 ### Grant Proposal & Technical Solution Submission Document
 **Problem Statement ID:** NESFIC-D-36 (Government Track)  
 **Challenge Owner:** Assam Administrative Staff College (AASC) & Department of Innovation, Incubation and Startups (DIIS), Government of Assam  
-**Lead Applicant:** Ron Hatibaruah (`ron.hatibaruah@gmail.com`)  
+**Lead Applicant:** Chandan Kumar Sonowal  
 **Platform Initiative:** North East Seva First Innovation Challenge (NESFIC 2026), Assam Innovation & Startup Foundation (AISF)  
 **Live Production Prototype:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)  
 **Interactive Application Tutorial:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)  
@@ -244,7 +244,7 @@ The platform’s efficacy relies on authoritative, verified government legal doc
 *Word Count: ~382 words (Max: 500 words)*
 
 ### Team Composition & Domain Roles
-1. **Lead Applicant & Principal Architect: Ron Hatibaruah**
+1. **Lead Applicant & Principal Architect: Chandan Kumar Sonowal**
    - *Role:* Solution Architect, Lead Full-Stack Engineer, and AI Systems Designer.
    - *Responsibilities:* End-to-end platform design, RAG pipeline implementation, deterministic guardrail architecture, edge deployment on Cloudflare, and Node.js backend development.
    - *Relevant Experience:* Architect of the working production prototype deployed at `assam-gov-decision-support.pages.dev`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
@@ -429,4 +429,4 @@ The grant funding (₹40 Lakhs problem statement grant under NESFIC 2026) is str
 - **Product / Website URL:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)
 - **Demo / Product Video URL / Interactive Tutorial:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)
 - **GitHub Source Code Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)
-- **Upload Proof of Work / Solution Evidence File:** `docs/NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf`
+- **Upload Proof of Work / Solution Evidence File:** `docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf` (also available as `docs/NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf`)

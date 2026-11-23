@@ -8,6 +8,7 @@ Matches the exact visual styling, structure, and page budget of the reference PD
 
 import os
 import sys
+import shutil
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -18,8 +19,10 @@ from reportlab.pdfgen import canvas
 
 DOCS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs")
 ASSETS_DIR = os.path.join(DOCS_DIR, "assets")
-PROPOSAL_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proposal_Ron_Hatibaruah.pdf")
-POW_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf")
+PROPOSAL_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proposal_Chandan_Kumar_Sonowal.pdf")
+POW_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf")
+PROPOSAL_PDF_LEGACY = os.path.join(DOCS_DIR, "NESFIC_D36_Proposal_Ron_Hatibaruah.pdf")
+POW_PDF_LEGACY = os.path.join(DOCS_DIR, "NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf")
 
 # Brand Colors (Assam Government & AASC Imperial Navy Palette)
 C_NAVY_DARK = colors.HexColor("#0f2942")     # Imperial Navy
@@ -59,7 +62,7 @@ class NumberedCanvas(canvas.Canvas):
             self.setFont("Helvetica", 8)
             self.setFillColor(C_MUTED)
             self.drawString(54, 804, "Government of Assam • Assam Administrative Staff College (AASC) • NESFIC-D-36")
-            self.drawRightString(541, 804, "Decision Support Platform — Ron Hatibaruah")
+            self.drawRightString(541, 804, "Decision Support Platform — Chandan Kumar Sonowal")
             self.setStrokeColor(colors.HexColor("#e2e8f0"))
             self.setLineWidth(0.5)
             self.line(54, 797, 541, 797)
@@ -70,7 +73,7 @@ class NumberedCanvas(canvas.Canvas):
         self.setStrokeColor(colors.HexColor("#e2e8f0"))
         self.setLineWidth(0.5)
         self.line(54, 46, 541, 46)
-        self.drawString(54, 34, "NESFIC 2026 Proposal • Problem NESFIC-D-36 • Applicant: Ron Hatibaruah")
+        self.drawString(54, 34, "NESFIC 2026 Proposal • Problem NESFIC-D-36 • Applicant: Chandan Kumar Sonowal")
         page_str = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(541, 34, page_str)
         self.restoreState()
@@ -220,6 +223,14 @@ def get_styles():
     return styles
 
 
+def get_asset(base_name):
+    """Returns optimal JPEG if available for compact PDF size, else PNG."""
+    jpg = os.path.join(ASSETS_DIR, base_name + ".jpg")
+    if os.path.exists(jpg):
+        return jpg
+    return os.path.join(ASSETS_DIR, base_name + ".png")
+
+
 def build_proposal_pdf():
     """Generates the 12-page official grant proposal PDF matching reference style."""
     os.makedirs(DOCS_DIR, exist_ok=True)
@@ -247,7 +258,7 @@ def build_proposal_pdf():
             Paragraph("<b>Challenge Owner:</b> Assam Administrative Staff College & DIIS", styles['MetaKey'])
         ],
         [
-            Paragraph("<b>Lead Applicant:</b> Ron Hatibaruah (ron.hatibaruah@gmail.com)", styles['MetaKey']),
+            Paragraph("<b>Lead Applicant:</b> Chandan Kumar Sonowal", styles['MetaKey']),
             Paragraph("<b>Platform:</b> Assam Startup (AISF) NESFIC 2026", styles['MetaKey'])
         ],
         [
@@ -268,7 +279,7 @@ def build_proposal_pdf():
     story.append(Paragraph("Field 1: Problem understanding & user workflow", styles['FieldHeading']))
     
     # Graphic Banner: Paradigm Shift
-    fig_paradigm = os.path.join(ASSETS_DIR, "d36_fig_paradigm_shift.png")
+    fig_paradigm = get_asset("d36_fig_paradigm_shift")
     if os.path.exists(fig_paradigm):
         story.append(RLImage(fig_paradigm, width=485, height=200))
         story.append(Spacer(1, 3))
@@ -306,7 +317,7 @@ def build_proposal_pdf():
     story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#e2e8f0"), spaceBefore=3, spaceAfter=4))
 
     story.append(Paragraph("Field 2: Proposed solution & key features", styles['FieldHeading']))
-    fig_rules = os.path.join(ASSETS_DIR, "d36_fig_rules_taxonomy.png")
+    fig_rules = get_asset("d36_fig_rules_taxonomy")
     if os.path.exists(fig_rules):
         story.append(RLImage(fig_rules, width=485, height=195))
         story.append(Spacer(1, 3))
@@ -353,7 +364,7 @@ def build_proposal_pdf():
     # =========================================================================
     # PAGE 4: Field 3 (cont)
     # =========================================================================
-    fig_w1 = os.path.join(ASSETS_DIR, "d36_wireframe1_assistant.png")
+    fig_w1 = get_asset("d36_wireframe1_assistant")
     if os.path.exists(fig_w1):
         story.append(RLImage(fig_w1, width=485, height=210))
         story.append(Spacer(1, 3))
@@ -392,7 +403,7 @@ def build_proposal_pdf():
     story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#e2e8f0"), spaceBefore=3, spaceAfter=4))
 
     story.append(Paragraph("Field 4: Technology & solution architecture", styles['FieldHeading']))
-    fig_arch = os.path.join(ASSETS_DIR, "d36_fig_architecture.png")
+    fig_arch = get_asset("d36_fig_architecture")
     if os.path.exists(fig_arch):
         story.append(RLImage(fig_arch, width=485, height=210))
         story.append(Spacer(1, 3))
@@ -589,14 +600,14 @@ def build_proposal_pdf():
     story.append(Paragraph("<i>Submission Word Budget: Word Count: ~382 words / Max: 500 words</i>", styles['WordBudget']))
     story.append(Paragraph("Team Leadership & Composition", styles['SubSectionHead']))
     story.append(Paragraph(
-        "Led by Ron Hatibaruah, the project team brings together specialized domain expertise in NLP language models, Assam civil service rules, and enterprise GovTech architecture.",
+        "Led by Chandan Kumar Sonowal, the project team brings together specialized domain expertise in NLP language models, Assam civil service rules, and enterprise GovTech architecture.",
         styles['Body']
     ))
 
     t_data_team = [
         [Paragraph("<b>ROLE & DESIGNATION</b>", styles['TableHead']), Paragraph("<b>CORE EXPERTISE & RESPONSIBILITY</b>", styles['TableHead'])],
         [
-            Paragraph("<b>Ron Hatibaruah</b><br/>Lead Architect", styles['TableCellBold']),
+            Paragraph("<b>Chandan Kumar Sonowal</b><br/>Lead Architect", styles['TableCellBold']),
             Paragraph("Full-stack systems architecture, RAG retrieval engineering, deterministic guardrails, and cloud deployment. Deep domain knowledge of Assam digital governance.", styles['TableCell'])
         ],
         [
@@ -640,7 +651,7 @@ def build_proposal_pdf():
     story.append(t_team2)
 
     story.append(Paragraph("Roles & Responsibilities by Development Phase", styles['SubSectionHead']))
-    story.append(Paragraph("1. <b>Lead Architect (Ron Hatibaruah) [All Phases - Full Time]:</b> Directs algorithmic modeling, RAG engineering, compliance with NESFIC USPR guidelines, and overall pilot execution.", styles['Bullet']))
+    story.append(Paragraph("1. <b>Lead Architect (Chandan Kumar Sonowal) [All Phases - Full Time]:</b> Directs algorithmic modeling, RAG engineering, compliance with NESFIC USPR guidelines, and overall pilot execution.", styles['Bullet']))
     story.append(Paragraph("2. <b>Senior NLP Engineer [Months 1-5 - Full Time]:</b> Owns hybrid retrieval engine, legal clause chunking, vector embeddings, and RAG Triad benchmark suite.", styles['Bullet']))
     story.append(Paragraph("3. <b>Full-Stack Developer [Months 2-6 - Full Time]:</b> Builds responsive frontend interfaces (Assistant, Note-Sheet Drafter, Admin Center) and develops edge REST APIs.", styles['Bullet']))
     story.append(Paragraph("4. <b>Civil Service Legal Advisor [Months 1, 3, 5 - Part Time / Advisory]:</b> Ensures deterministic scoring rules mirror the Assam Services Pension Rules 1969, FR & SR, and MOP.", styles['Bullet']))
@@ -860,7 +871,9 @@ def build_proposal_pdf():
     story.append(Paragraph("• <b>Validation KPIs:</b> >95% officer satisfaction rating; 100% audit log compliance; official sign-off for Secretariat commissioning.", styles['Bullet']))
 
     doc.build(story, canvasmaker=NumberedCanvas)
+    shutil.copyfile(PROPOSAL_PDF_PATH, PROPOSAL_PDF_LEGACY)
     print(f"✅ Generated 12-Page Proposal PDF: {PROPOSAL_PDF_PATH} ({os.path.getsize(PROPOSAL_PDF_PATH)} bytes)")
+    print(f"   (Also synchronized to: {PROPOSAL_PDF_LEGACY})")
 
 
 def build_pow_pdf():
@@ -890,7 +903,7 @@ def build_pow_pdf():
             Paragraph("<b>Department:</b> AASC, ARTD, STCCD, PPGD, ASSAC", styles['MetaKey'])
         ],
         [
-            Paragraph("<b>Lead Applicant:</b> Ron Hatibaruah (ron.hatibaruah@gmail.com)", styles['MetaKey']),
+            Paragraph("<b>Lead Applicant:</b> Chandan Kumar Sonowal", styles['MetaKey']),
             Paragraph("<b>Format:</b> Solution Evidence (PDF &lt; 10 MB)", styles['MetaKey'])
         ],
         [
@@ -928,12 +941,12 @@ def build_pow_pdf():
     # =========================================================================
     # PAGE 2: Architecture & Wireframes Intro
     # =========================================================================
-    fig_arch = os.path.join(ASSETS_DIR, "d36_fig_architecture.png")
+    fig_arch = get_asset("d36_fig_architecture")
     if os.path.exists(fig_arch):
         story.append(RLImage(fig_arch, width=485, height=265))
         story.append(Spacer(1, 4))
 
-    fig_paradigm = os.path.join(ASSETS_DIR, "d36_fig_paradigm_shift.png")
+    fig_paradigm = get_asset("d36_fig_paradigm_shift")
     if os.path.exists(fig_paradigm):
         story.append(RLImage(fig_paradigm, width=485, height=265))
         story.append(Spacer(1, 4))
@@ -946,13 +959,13 @@ def build_pow_pdf():
     # PAGE 3: Wireframe 1 & Wireframe 2
     # =========================================================================
     story.append(Paragraph("Wireframe 1: Civil Service Rules & Knowledge Assistant", styles['SubSectionHead']))
-    fig_w1 = os.path.join(ASSETS_DIR, "d36_wireframe1_assistant.png")
+    fig_w1 = get_asset("d36_wireframe1_assistant")
     if os.path.exists(fig_w1):
         story.append(RLImage(fig_w1, width=485, height=260))
         story.append(Spacer(1, 6))
 
     story.append(Paragraph("Wireframe 2: Secretariat Note-Sheet Drafter (MOP 2.5-Inch Margin Compliance)", styles['SubSectionHead']))
-    fig_w2 = os.path.join(ASSETS_DIR, "d36_wireframe2_notesheet.png")
+    fig_w2 = get_asset("d36_wireframe2_notesheet")
     if os.path.exists(fig_w2):
         story.append(RLImage(fig_w2, width=485, height=260))
         story.append(Spacer(1, 4))
@@ -962,7 +975,7 @@ def build_pow_pdf():
     # PAGE 4: Wireframe 3 / Taxonomy & Benchmarks Header
     # =========================================================================
     story.append(Paragraph("Wireframe 3: 5-Vector Statutory Rules Taxonomy & Cryptographic Fingerprinting", styles['SubSectionHead']))
-    fig_tax = os.path.join(ASSETS_DIR, "d36_fig_rules_taxonomy.png")
+    fig_tax = get_asset("d36_fig_rules_taxonomy")
     if os.path.exists(fig_tax):
         story.append(RLImage(fig_tax, width=485, height=260))
         story.append(Spacer(1, 6))
@@ -1105,7 +1118,7 @@ def build_pow_pdf():
     # =========================================================================
     # PAGE 7: Math Formulation, Table, Pilot & Sign-Off
     # =========================================================================
-    fig_math = os.path.join(ASSETS_DIR, "d36_fig_math_formulation.png")
+    fig_math = get_asset("d36_fig_math_formulation")
     if os.path.exists(fig_math):
         story.append(RLImage(fig_math, width=485, height=210))
         story.append(Spacer(1, 4))
@@ -1147,12 +1160,14 @@ def build_pow_pdf():
     story.append(Spacer(1, 4))
 
     story.append(Paragraph("<b>Sign-Off &amp; Applicant Attribution</b>", styles['SubSectionHead']))
-    story.append(Paragraph("• <b>Prepared By:</b> Ron Hatibaruah (ron.hatibaruah@gmail.com)", styles['Body']))
-    story.append(Paragraph("• <b>Lead Solutions Architect &amp; Innovator</b>", styles['Body']))
+    story.append(Paragraph("• <b>Prepared By:</b> Chandan Kumar Sonowal", styles['Body']))
+    story.append(Paragraph("• <b>Lead Solutions Architect &amp; Lead Applicant:</b> Chandan Kumar Sonowal", styles['Body']))
     story.append(Paragraph("• <b>Initiative:</b> Assam Innovation &amp; Startup Foundation (AISF) / NESFIC 2026", styles['Body']))
 
     doc.build(story, canvasmaker=NumberedCanvas)
+    shutil.copyfile(POW_PDF_PATH, POW_PDF_LEGACY)
     print(f"✅ Generated 7-Page Proof of Work PDF: {POW_PDF_PATH} ({os.path.getsize(POW_PDF_PATH)} bytes)")
+    print(f"   (Also synchronized to: {POW_PDF_LEGACY})")
 
 
 if __name__ == "__main__":

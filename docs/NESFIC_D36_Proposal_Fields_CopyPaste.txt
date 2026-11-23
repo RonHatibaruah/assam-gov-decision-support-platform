@@ -1,7 +1,7 @@
 ================================================================================
 NESFIC 2026 PROPOSAL: COPY-PASTE TEXT VERSION (FIELDS 1 TO 12)
 Problem Statement: NESFIC-D-36 (Trusted Government Knowledge, Rules & Document Assistant)
-Lead Applicant: Ron Hatibaruah (ron.hatibaruah@gmail.com)
+Lead Applicant: Chandan Kumar Sonowal
 Live Platform URL: https://assam-gov-decision-support.pages.dev
 Interactive Tutorial URL: https://assam-gov-decision-support.pages.dev/#tutorial
 GitHub Repository: https://github.com/RonHatibaruah/assam-gov-decision-support-platform
@@ -252,7 +252,7 @@ Word Budget: 0 / 500 words (Target: ~420 words)
 Team Composition, Roles & Domain Expertise:
 The project is driven by a multidisciplinary team combining deep expertise in artificial intelligence, civic-tech engineering, administrative governance, and cloud infrastructure.
 
-1. Lead Applicant & Principal Architect: Ron Hatibaruah
+1. Lead Applicant & Principal Architect: Chandan Kumar Sonowal
 • Role: Solution Architect, Lead Full-Stack Engineer, and AI Systems Designer.
 • Responsibilities: End-to-end platform design, RAG pipeline implementation, deterministic guardrail architecture, edge deployment on Cloudflare, and Node.js backend development.
 • Relevant Experience: Architect of the working production prototype deployed at `assam-gov-decision-support.pages.dev`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
@@ -429,7 +429,7 @@ https://assam-gov-decision-support.pages.dev/#tutorial
 https://github.com/RonHatibaruah/assam-gov-decision-support-platform
 
 4. Upload Proof of Work / Solution Evidence (PDF only · Max 10 MB):
-File to Upload: docs/NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf
+File to Upload: docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf (or docs/NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf)
 Summary of PDF Content:
 - Working Prototype Architecture & Live Cloudflare Deployment Evidence
 - Automated Test Suite Execution Reports (9/9 Unit Tests Passing)

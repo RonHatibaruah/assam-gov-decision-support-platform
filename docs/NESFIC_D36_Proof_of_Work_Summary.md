@@ -1,7 +1,7 @@
 # NESFIC-D-36 Proof of Work & Solution Evidence Document
 ## Assam Government Decision Support Platform
 ### Trusted Government Knowledge, Rules & Document Assistant
-**Applicant:** Ron Hatibaruah (`ron.hatibaruah@gmail.com`)  
+**Lead Applicant:** Chandan Kumar Sonowal  
 **Challenge Track:** Government Track (Generative AI & Language Tools / Governance & Administration)  
 **Sponsoring Bodies:** Assam Administrative Staff College (AASC) & DIIS, Government of Assam  
 **Live Production URL:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)  
