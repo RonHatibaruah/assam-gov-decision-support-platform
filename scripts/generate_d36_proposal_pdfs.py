@@ -789,27 +789,27 @@ def build_proposal_pdf():
     story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#e2e8f0"), spaceBefore=4, spaceAfter=4))
 
     story.append(Paragraph("Field 12: Resources, risks & pilot validation", styles['FieldHeading']))
-    story.append(Paragraph("<i>Submission Word Budget: Word Count: ~466 words / Max: 500 words</i>", styles['WordBudget']))
+    story.append(Paragraph("<i>Submission Word Budget: Word Count: ~446 words / Max: 500 words</i>", styles['WordBudget']))
     story.append(PageBreak())
 
     # =========================================================================
     # PAGE 12: Field 12 (finish)
     # =========================================================================
-    story.append(Paragraph("Indicative Resource & Budget Allocation (Rs. 20 Lakh - Rs. 40 Lakh Tier)", styles['SubSectionHead']))
+    story.append(Paragraph("Indicative Resource & Budget Allocation (Rs. 40 Lakh Problem Statement Grant)", styles['SubSectionHead']))
     story.append(Paragraph(
-        "The proposed budget is structured to maximize engineering deliverables, field pilot validation, and departmental capacity building:",
+        "The proposed ₹40 Lakhs grant is strategically allocated to prioritize core technical engineering (₹20 Lakhs / 50%) while securing sovereign cloud infrastructure, OCR digitization, and multi-departmental field pilot validation:",
         styles['Body']
     ))
 
     t_data_budget = [
         [Paragraph("<b>BUDGET HEAD</b>", styles['TableHead']), Paragraph("<b>ESTIMATED COST</b>", styles['TableHead']), Paragraph("<b>ALLOCATION FOCUS</b>", styles['TableHead'])],
-        [Paragraph("High-Resolution OCR & Gazette Digitization", styles['TableCellBold']), Paragraph("Rs. 9,50,000", styles['TableCell']), Paragraph("Scanning, cleaning, and bilingual OCR extraction of 50 years of Gazettes", styles['TableCell'])],
-        [Paragraph("Sovereign Cloud & ASDC Infrastructure", styles['TableCellBold']), Paragraph("Rs. 11,50,000", styles['TableCell']), Paragraph("Assam SDC server setup, vector databases, and CERT-In security audits", styles['TableCell'])],
-        [Paragraph("Specialized Engineering & AI Manpower", styles['TableCellBold']), Paragraph("Rs. 13,00,000", styles['TableCell']), Paragraph("Full-time NLP engineer, full-stack GovTech developer, and Lead Architect", styles['TableCell'])],
-        [Paragraph("Legal & Civil Service Domain Advisory", styles['TableCellBold']), Paragraph("Rs. 4,00,000", styles['TableCell']), Paragraph("Retired ACS officers for ground-truth rule verification & MOP alignment", styles['TableCell'])],
-        [Paragraph("Pilot Training & Workshops (AASC/ASSAC)", styles['TableCellBold']), Paragraph("Rs. 4,00,000", styles['TableCell']), Paragraph("Induction batch workshops, user handbooks, and video tutorial production", styles['TableCell'])],
-        [Paragraph("Contingency & Operational Travel", styles['TableCellBold']), Paragraph("Rs. 3,00,000", styles['TableCell']), Paragraph("Field validation travel between Dispur Secretariat, Khanapara & Bigyan Bhawan", styles['TableCell'])],
-        [Paragraph("<b>TOTAL ESTIMATED BUDGET</b>", styles['TableCellBold']), Paragraph("<b>Rs. 38,00,000</b>", styles['TableCellBold']), Paragraph("<b>Within Rs. 40 Lakh Grant Ceiling (NESFIC 2026)</b>", styles['TableCellBold'])],
+        [Paragraph("Technical Engineering Team", styles['TableCellBold']), Paragraph("Rs. 20,00,000", styles['TableCell']), Paragraph("Lead AI Architect, Senior NLP Engineer, Full-Stack GovTech Dev, QA Specialist (50.0%)", styles['TableCell'])],
+        [Paragraph("Sovereign Cloud & ASDC Infrastructure", styles['TableCellBold']), Paragraph("Rs. 6,50,000", styles['TableCell']), Paragraph("Assam SDC server setup, vector databases, and CERT-In security audits (16.25%)", styles['TableCell'])],
+        [Paragraph("High-Resolution OCR & Gazette Digitization", styles['TableCellBold']), Paragraph("Rs. 5,50,000", styles['TableCell']), Paragraph("Scanning, cleaning, and bilingual OCR extraction of 50 years of Gazettes (13.75%)", styles['TableCell'])],
+        [Paragraph("Legal & Civil Service Domain Advisory", styles['TableCellBold']), Paragraph("Rs. 3,00,000", styles['TableCell']), Paragraph("Retired ACS officers for ground-truth rule verification & MOP alignment (7.5%)", styles['TableCell'])],
+        [Paragraph("Pilot Training & Workshops (AASC/ASSAC)", styles['TableCellBold']), Paragraph("Rs. 3,00,000", styles['TableCell']), Paragraph("Induction batch workshops, user handbooks, and video tutorial production (7.5%)", styles['TableCell'])],
+        [Paragraph("Contingency & Operational Travel", styles['TableCellBold']), Paragraph("Rs. 2,00,000", styles['TableCell']), Paragraph("Field validation travel between Dispur Secretariat, Khanapara & Bigyan Bhawan (5.0%)", styles['TableCell'])],
+        [Paragraph("<b>TOTAL ESTIMATED BUDGET</b>", styles['TableCellBold']), Paragraph("<b>Rs. 40,00,000</b>", styles['TableCellBold']), Paragraph("<b>100% Allocation of Rs. 40 Lakh Grant (NESFIC 2026)</b>", styles['TableCellBold'])],
     ]
     t_budget = Table(t_data_budget, colWidths=[150, 95, 242])
     t_budget.setStyle(TableStyle([

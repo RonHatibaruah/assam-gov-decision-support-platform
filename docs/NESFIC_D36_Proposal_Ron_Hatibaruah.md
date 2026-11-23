@@ -379,14 +379,28 @@ Existing administrative workflows rely either on slow manual physical archives o
 ---
 
 ## Field 12: Resources, Risks & Pilot Validation
-*Word Count: ~466 words (Max: 500 words)*
+*Word Count: ~446 words (Max: 500 words)*
 
 ### Development Resources & Cost Drivers
-The grant funding (up to ₹40 Lakhs under NESFIC 2026) will be strategically allocated across four key operational drivers:
-1. **High-Resolution Digitization & OCR Pipeline (25%):** Scanning, indexing, and annotating 50 years of Assam Gazettes, service rulebooks, and departmental circulars.
-2. **Sovereign Compute & Edge Infrastructure (30%):** Setting up local inference servers, vector databases, and testbeds inside the Assam State Data Centre (SDC).
-3. **Specialized Engineering & Domain Manpower (35%):** Full-time NLP engineers, legal domain consultants (retired ACS officers), and security auditors.
-4. **Pilot Deployment & Training at AASC/ASSAC (10%):** Workshops, user handbooks, video tutorials, and feedback evaluation sessions.
+The grant funding (₹40 Lakhs problem statement grant under NESFIC 2026) is strategically allocated to prioritize core technical engineering while securing infrastructure, digitization, and field pilot validation:
+1. **Technical Engineering Team (50.0% / ₹20,00,000):** Dedicated full-time engineering manpower across 12 months, including Lead AI/GovTech Architect, Senior NLP Specialist, Full-Stack Platform Developer, and Security/QA Engineer responsible for dense-sparse RAG architecture, zero-hallucination guardrails, and Secretariat drafting engines.
+2. **Sovereign Cloud & ASDC Infrastructure (16.25% / ₹6,50,000):** Assam State Data Centre (ASDC) on-premise compute provisioning, Cloudflare edge hosting, high-performance pgvector/Vectorize storage, TLS 1.3/mTLS encryption, and CERT-In empanelled cybersecurity audit certification.
+3. **High-Resolution Digitization & OCR Pipeline (13.75% / ₹5,50,000):** Ingestion, multi-pass adaptive binarization, bilingual optical character recognition (OCR), and semantic chunking of 50 years of Assam Gazettes, service rulebooks, and departmental circulars.
+4. **Legal & Civil Service Domain Advisory (7.5% / ₹3,00,000):** Honorarium for retired Assam Civil Service (ACS) officers, Secretariat Section Officers, and legal experts conducting ground-truth verification and MOP note-sheet alignment.
+5. **Pilot Deployment & User Training at AASC/ASSAC (7.5% / ₹3,00,000):** Hands-on training modules for 120 ACS probationers at AASC Khanapara, ASSAC GIS/drone team workshops, user handbooks, and video tutorials.
+6. **Contingency & Operational Travel (5.0% / ₹2,00,000):** Field validation visits across Dispur Secretariat, Khanapara, and Bigyan Bhawan, plus operational and audit contingencies.  
+*Total Budget:* **₹40,00,000 (100% of NESFIC Grant)**.
+
+### Indicative Resource & Budget Allocation Matrix
+| Budget Head | Estimated Cost | % Share | Allocation Focus & Key Deliverables |
+| :--- | :---: | :---: | :--- |
+| **Technical Engineering Team** | **₹20,00,000** | **50.0%** | Full-time Lead AI Architect, Senior NLP Engineer, Full-Stack GovTech Dev, QA Specialist |
+| **Sovereign Cloud & ASDC Infrastructure** | **₹6,50,000** | **16.25%** | Assam SDC server setup, vector databases (pgvector), Cloudflare edge, and CERT-In security audits |
+| **High-Resolution OCR & Digitization** | **₹5,50,000** | **13.75%** | Scanning, cleaning, and bilingual OCR extraction of 50 years of Gazettes & circulars |
+| **Legal & Civil Service Domain Advisory** | **₹3,00,000** | **7.5%** | Retired ACS officers for ground-truth rule verification & MOP alignment |
+| **Pilot Training & Workshops (AASC/ASSAC)** | **₹3,00,000** | **7.5%** | Induction batch workshops, user handbooks, and video tutorial production |
+| **Contingency & Operational Travel** | **₹2,00,000** | **5.0%** | Field validation travel between Dispur Secretariat, Khanapara & Bigyan Bhawan |
+| **TOTAL ESTIMATED BUDGET** | **₹40,00,000** | **100.0%** | **Full Allocation of ₹40 Lakh Grant (NESFIC 2026)** |
 
 ### Key Project Risks & Proactive Mitigations
 - **Risk 1: Legacy Scanned Gazette Quality:** Decades-old gazettes may feature blurred text, torn edges, or degraded ink.  
