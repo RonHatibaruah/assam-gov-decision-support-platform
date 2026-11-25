@@ -34,7 +34,7 @@ C_TEXT_WHITE = "#ffffff"
 C_TEXT_MUTED = "#64748b"
 C_TEXT_DARK = "#0f172a"
 
-def draw_browser_chrome(ax, title, url="https://assam-gov-decision-support.pages.dev"):
+def draw_browser_chrome(ax, title, url="https://assam-gov-decision-support.coolmindslab.com"):
     rect_bar = patches.Rectangle((0, 0.93), 1, 0.07, transform=ax.transAxes, facecolor="#0f2942", zorder=10)
     ax.add_patch(rect_bar)
     ax.add_patch(patches.Circle((0.02, 0.965), 0.007, transform=ax.transAxes, facecolor="#ef4444", zorder=11))

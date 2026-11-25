@@ -15,7 +15,7 @@ The application is completely configured and optimized for zero-cost, high-speed
    ```
 2. Follow the terminal prompt to log into your Cloudflare account (if not already authenticated).
 3. Cloudflare will publish the site and provide a permanent global live URL:
-   `https://assam-gov-decision-support.pages.dev`
+   `https://assam-gov-decision-support.coolmindslab.com` (also accessible via Cloudflare Pages origin `https://assam-gov-decision-support.pages.dev`)
 
 ---
 

@@ -6,8 +6,8 @@
 **Lead Applicant:** Sambit Mohanty  
 **Organization:** Cool Minds Lab  
 **Platform Initiative:** North East Seva First Innovation Challenge (NESFIC 2026), Assam Innovation & Startup Foundation (AISF)  
-**Live Production Prototype:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)  
-**Interactive Application Tutorial:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)  
+**Live Production Prototype:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)  
+**Interactive Application Tutorial:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)  
 **Open-Source GitHub Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)  
 
 ---
@@ -22,7 +22,7 @@
 | **Bilingual Capability** | Simultaneous English and Assamese (অসমীয়া) official administrative language support |
 | **Secretariat Drafter** | Automated generation of Secretariat Note-Sheets (with statutory 2.5-inch margins for officer remarks under MOP), formal Office Memorandums, and RTI replies |
 | **Governance Suite** | 5-Module Admin Control Center: Ingestion & SHA-256 Indexer, Rule Precedence Graph, Real-Time Audit Stream, 5-Tier RBAC, and RAG Triad Benchmarking (0.98 Composite Score) |
-| **Operational Evidence** | Live global deployment on Cloudflare Edge (`assam-gov-decision-support.pages.dev`) with sub-85ms latency and 9/9 passing automated unit tests |
+| **Operational Evidence** | Live global deployment on Cloudflare Edge (`assam-gov-decision-support.coolmindslab.com`) with sub-85ms latency and 9/9 passing automated unit tests |
 
 ---
 
@@ -96,8 +96,8 @@ The Assam Government Decision Support Platform is an enterprise-grade, sovereign
 
 ### Working Prototype & Proof of Work Artifacts
 A fully functional, battle-tested production prototype has been developed, tested, and deployed to public edge infrastructure:
-- **Live Web Portal:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)
-- **Interactive Platform Tutorial:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)
+- **Live Web Portal:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)
+- **Interactive Platform Tutorial:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)
 - **Public GitHub Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)
 - **Automated Test Suite:** 9 comprehensive unit and integration tests passing with 100% success (`npm test`), verifying accurate clause retrieval, superannuation age lookup (FR 56), bilingual translation, and zero-hallucination refusal.
 
@@ -248,7 +248,7 @@ The platform’s efficacy relies on authoritative, verified government legal doc
 1. **Lead Applicant & Principal Architect: Sambit Mohanty (Cool Minds Lab)**
    - *Role:* Solution Architect, Lead Full-Stack Engineer, and AI Systems Designer.
    - *Responsibilities:* End-to-end platform design, RAG pipeline implementation, deterministic guardrail architecture, edge deployment on Cloudflare, and Node.js backend development.
-   - *Relevant Experience:* Architect of the working production prototype deployed at `assam-gov-decision-support.pages.dev`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
+   - *Relevant Experience:* Architect of the working production prototype deployed at `assam-gov-decision-support.coolmindslab.com`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
 
 2. **NLP / RAG Specialist & Knowledge Engineer (1 Full-Time Equivalent):**
    - *Expertise:* Dense-sparse retrieval architectures, vector embeddings, chunking methodologies for legal and statutory texts, and multi-lingual language models.
@@ -313,7 +313,7 @@ graph TD
    To test safety under adversarial conditions, the system was subjected to 100 fictitious, out-of-domain administrative queries (e.g., *"What is the subsidy for private rocket launchpads on the moon?"*). In 100% of cases, the deterministic guardrail intercepted the query, issuing a standardized safe refusal: *"No authoritative Assam Government notification or Service Rule matched this query with verified citations. To prevent AI hallucinations, the platform refuses to generate ungrounded claims."*
 
 4. **Evidence from Live Production Prototype:**
-   - Public Edge Deployment: Verified live at `https://assam-gov-decision-support.pages.dev`.
+   - Public Edge Deployment: Verified live at `https://assam-gov-decision-support.coolmindslab.com`.
    - Sub-second response times verified across global networks.
    - Open-source codebase with clean git history and reproducible build artifacts available at `https://github.com/RonHatibaruah/assam-gov-decision-support-platform`.
 
@@ -427,8 +427,8 @@ The grant funding (₹40 Lakhs problem statement grant under NESFIC 2026) is str
 
 ## Supporting Material & Links
 
-- **Product / Website URL:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)
-- **Demo / Product Video URL / Interactive Tutorial:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)
+- **Product / Website URL:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)
+- **Demo / Product Video URL / Interactive Tutorial:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)
 - **GitHub Source Code Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)
 - **Upload Proof of Work / Solution Evidence File:** `docs/NESFIC_D36_Proof_of_Work_Sambit_Mohanty.pdf` (also available as `docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf`)
 

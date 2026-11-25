@@ -5,8 +5,8 @@
 **Organization:** Cool Minds Lab  
 **Challenge Track:** Government Track (Generative AI & Language Tools / Governance & Administration)  
 **Sponsoring Bodies:** Assam Administrative Staff College (AASC) & DIIS, Government of Assam  
-**Live Production URL:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)  
-**Interactive Tutorial URL:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)  
+**Live Production URL:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)  
+**Interactive Tutorial URL:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)  
 **GitHub Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)  
 
 ---
@@ -19,7 +19,7 @@ This Proof of Work document presents empirical, technical, and operational evide
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        VERIFIED PROOF OF WORK                          │
 ├────────────────────────────────────────────────────────────────────────┤
-│ • Production URL: https://assam-gov-decision-support.pages.dev         │
+│ • Production URL: https://assam-gov-decision-support.coolmindslab.com │
 │ • GitHub Source:  RonHatibaruah/assam-gov-decision-support-platform    │
 │ • Latest Commit:  a873999 (Main branch, clean tree)                    │
 │ • Test Suite:     9/9 Automated Integration Tests Passing (100%)       │
@@ -139,7 +139,7 @@ The web portal (`apps/web/public`) features five dedicated operational panes eng
 
 ### 1. Live Health Endpoint (`GET /api/health`)
 ```bash
-$ curl -sL https://assam-gov-decision-support.pages.dev/api/health
+$ curl -sL https://assam-gov-decision-support.coolmindslab.com/api/health
 {
   "status": "ok",
   "challenge": "NESFIC-D-36",
@@ -152,7 +152,7 @@ $ curl -sL https://assam-gov-decision-support.pages.dev/api/health
 
 ### 2. Live Grounded Query with Verifiable Citations (`POST /api/query`)
 ```bash
-$ curl -sL -X POST https://assam-gov-decision-support.pages.dev/api/query \
+$ curl -sL -X POST https://assam-gov-decision-support.coolmindslab.com/api/query \
   -H "Content-Type: application/json" \
   -d '{"query":"What is the qualifying service for pension under Assam rules?"}'
 ```
@@ -181,7 +181,7 @@ $ curl -sL -X POST https://assam-gov-decision-support.pages.dev/api/query \
 
 ### 3. Live Zero-Hallucination Guardrail Interception (`POST /api/query`)
 ```bash
-$ curl -sL -X POST https://assam-gov-decision-support.pages.dev/api/query \
+$ curl -sL -X POST https://assam-gov-decision-support.coolmindslab.com/api/query \
   -H "Content-Type: application/json" \
   -d '{"query":"What is the subsidy for private rocket launchpads on the moon?"}'
 ```
@@ -229,7 +229,7 @@ The **Assam Government Decision Support Platform** addresses all requirements of
 2. It guarantees **100% strict clause-level citation traceability**, eliminating administrative guesswork.
 3. It features an active **Zero-Hallucination Guardrail**, protecting state decisions from fabricated claims.
 4. It automates **Secretariat Note-Sheet drafting** strictly conforming to the Manual of Office Procedure (MOP).
-5. It is **live, tested, and verifiable today** at `https://assam-gov-decision-support.pages.dev`.
+5. It is **live, tested, and verifiable today** at `https://assam-gov-decision-support.coolmindslab.com`.
 
 ---
 

@@ -2,8 +2,8 @@
 NESFIC 2026 PROPOSAL: COPY-PASTE TEXT VERSION (FIELDS 1 TO 12)
 Problem Statement: NESFIC-D-36 (Trusted Government Knowledge, Rules & Document Assistant)
 Lead Applicant: Sambit Mohanty (Cool Minds Lab)
-Live Platform URL: https://assam-gov-decision-support.pages.dev
-Interactive Tutorial URL: https://assam-gov-decision-support.pages.dev/#tutorial
+Live Platform URL: https://assam-gov-decision-support.coolmindslab.com
+Interactive Tutorial URL: https://assam-gov-decision-support.coolmindslab.com/#tutorial
 GitHub Repository: https://github.com/RonHatibaruah/assam-gov-decision-support-platform
 Target Stakeholders: AASC, ARTD, STCCD, PPGD, ASSAC
 ================================================================================
@@ -80,8 +80,8 @@ An AASC administrator accesses the Admin Control Center, uploads a newly gazette
 
 Working Prototype & Proof of Work Artifacts:
 A fully functional, battle-tested production prototype has been developed, tested, and deployed to public edge infrastructure:
-• Live Web Portal: https://assam-gov-decision-support.pages.dev
-• Interactive Platform Tutorial: https://assam-gov-decision-support.pages.dev/#tutorial
+• Live Web Portal: https://assam-gov-decision-support.coolmindslab.com
+• Interactive Platform Tutorial: https://assam-gov-decision-support.coolmindslab.com/#tutorial
 • Public GitHub Repository: https://github.com/RonHatibaruah/assam-gov-decision-support-platform
 • Automated Test Suite: 9 comprehensive unit and integration tests passing with 100% success (`npm test`), verifying accurate clause retrieval, superannuation age lookup (FR 56), bilingual translation, and zero-hallucination refusal.
 
@@ -255,7 +255,7 @@ The project is driven by a multidisciplinary team combining deep expertise in ar
 1. Lead Applicant & Principal Architect: Sambit Mohanty (Cool Minds Lab)
 • Role: Solution Architect, Lead Full-Stack Engineer, and AI Systems Designer.
 • Responsibilities: End-to-end platform design, RAG pipeline implementation, deterministic guardrail architecture, edge deployment on Cloudflare, and Node.js backend development.
-• Relevant Experience: Architect of the working production prototype deployed at `assam-gov-decision-support.pages.dev`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
+• Relevant Experience: Architect of the working production prototype deployed at `assam-gov-decision-support.coolmindslab.com`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
 
 2. NLP / RAG Specialist & Knowledge Engineer (1 Full-Time Equivalent):
 • Expertise: Dense-sparse retrieval architectures, vector embeddings, chunking methodologies for legal and statutory texts, and multi-lingual language models.
@@ -312,7 +312,7 @@ The platform embeds automated RAG Triad metrics continuously evaluated through t
 To test safety under adversarial conditions, the system was subjected to 100 fictitious, out-of-domain administrative queries (e.g., "What is the subsidy for private rocket launchpads on the moon?"). In 100% of cases, the deterministic guardrail intercepted the query, issuing a standardized safe refusal: "No authoritative Assam Government notification or Service Rule matched this query with verified citations. To prevent AI hallucinations, the platform refuses to generate ungrounded claims."
 
 4. Evidence from Live Production Prototype:
-• Public Edge Deployment: Verified live at `https://assam-gov-decision-support.pages.dev`.
+• Public Edge Deployment: Verified live at `https://assam-gov-decision-support.coolmindslab.com`.
 • Sub-second response times verified across global networks.
 • Open-source codebase with clean git history and reproducible build artifacts available at `https://github.com/RonHatibaruah/assam-gov-decision-support-platform`.
 
@@ -420,10 +420,10 @@ SECTION 03: SUPPORTING MATERIAL & URLS (COPY-PASTE FIELDS)
 ================================================================================
 
 1. Product / Website URL:
-https://assam-gov-decision-support.pages.dev
+https://assam-gov-decision-support.coolmindslab.com
 
 2. Demo / Product Video URL / Interactive Tutorial URL:
-https://assam-gov-decision-support.pages.dev/#tutorial
+https://assam-gov-decision-support.coolmindslab.com/#tutorial
 
 3. GitHub Source Code Repository URL:
 https://github.com/RonHatibaruah/assam-gov-decision-support-platform

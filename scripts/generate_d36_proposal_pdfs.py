@@ -273,7 +273,7 @@ def build_proposal_pdf():
             Paragraph("<b>Platform:</b> Assam Startup (AISF) NESFIC 2026", styles['MetaKey'])
         ],
         [
-            Paragraph("<b>Live Demo:</b> https://assam-gov-decision-support.pages.dev/", styles['MetaKey']),
+            Paragraph("<b>Live Demo:</b> https://assam-gov-decision-support.coolmindslab.com/", styles['MetaKey']),
             Paragraph("<b>Status:</b> Working Prototype Verified (100% Tests Pass)", styles['MetaKey'])
         ]
     ]
@@ -396,10 +396,10 @@ def build_proposal_pdf():
     ))
     story.append(Paragraph("Working Prototype & Proof of Work Evidence", styles['SubSectionHead']))
     story.append(Paragraph(
-        "A fully functional, high-fidelity proof-of-work prototype has been developed, tested, and verified live at <b>https://assam-gov-decision-support.pages.dev/</b> using authentic Assam administrative data models:",
+        "A fully functional, high-fidelity proof-of-work prototype has been developed, tested, and verified live at <b>https://assam-gov-decision-support.coolmindslab.com/</b> using authentic Assam administrative data models:",
         styles['Body']
     ))
-    story.append(Paragraph("• <b>Live Web Portal:</b> https://assam-gov-decision-support.pages.dev | <b>Interactive Tutorial:</b> /#tutorial", styles['Bullet']))
+    story.append(Paragraph("• <b>Live Web Portal:</b> https://assam-gov-decision-support.coolmindslab.com | <b>Interactive Tutorial:</b> /#tutorial", styles['Bullet']))
     story.append(Paragraph("• <b>GitHub Repository:</b> https://github.com/RonHatibaruah/assam-gov-decision-support-platform", styles['Bullet']))
     story.append(Paragraph("• <b>Automated Test Suite:</b> 9 comprehensive integration tests passing with 100% success (`npm test`).", styles['Bullet']))
     story.append(PageBreak())
@@ -693,7 +693,7 @@ def build_proposal_pdf():
         ],
         [
             Paragraph("<b>Tier 4: Live Edge Validation</b>", styles['TableCellBold']),
-            Paragraph("Deployed on Cloudflare Pages (assam-gov-decision-support.pages.dev) delivering sub-85ms latency across global edge nodes.", styles['TableCell'])
+            Paragraph("Deployed on Cloudflare Edge (assam-gov-decision-support.coolmindslab.com) delivering sub-85ms latency across global edge nodes.", styles['TableCell'])
         ],
     ]
     t_test = Table(t_data_testing, colWidths=[150, 337])
@@ -926,7 +926,7 @@ def build_pow_pdf():
             Paragraph("<b>Format:</b> Solution Evidence (PDF &lt; 10 MB)", styles['MetaKey'])
         ],
         [
-            Paragraph("<b>Live Prototype:</b> https://assam-gov-decision-support.pages.dev/", styles['MetaKey']),
+            Paragraph("<b>Live Prototype:</b> https://assam-gov-decision-support.coolmindslab.com/", styles['MetaKey']),
             Paragraph("<b>Verification Status:</b> Fully Built &amp; Tested (100% Pass)", styles['MetaKey'])
         ]
     ]
