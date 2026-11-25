@@ -1,7 +1,7 @@
 ================================================================================
 NESFIC 2026 PROPOSAL: COPY-PASTE TEXT VERSION (FIELDS 1 TO 12)
 Problem Statement: NESFIC-D-36 (Trusted Government Knowledge, Rules & Document Assistant)
-Lead Applicant: Chandan Kumar Sonowal
+Lead Applicant: Sambit Mohanty (Cool Minds Lab)
 Live Platform URL: https://assam-gov-decision-support.pages.dev
 Interactive Tutorial URL: https://assam-gov-decision-support.pages.dev/#tutorial
 GitHub Repository: https://github.com/RonHatibaruah/assam-gov-decision-support-platform
@@ -252,7 +252,7 @@ Word Budget: 0 / 500 words (Target: ~420 words)
 Team Composition, Roles & Domain Expertise:
 The project is driven by a multidisciplinary team combining deep expertise in artificial intelligence, civic-tech engineering, administrative governance, and cloud infrastructure.
 
-1. Lead Applicant & Principal Architect: Chandan Kumar Sonowal
+1. Lead Applicant & Principal Architect: Sambit Mohanty (Cool Minds Lab)
 • Role: Solution Architect, Lead Full-Stack Engineer, and AI Systems Designer.
 • Responsibilities: End-to-end platform design, RAG pipeline implementation, deterministic guardrail architecture, edge deployment on Cloudflare, and Node.js backend development.
 • Relevant Experience: Architect of the working production prototype deployed at `assam-gov-decision-support.pages.dev`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
@@ -429,11 +429,19 @@ https://assam-gov-decision-support.pages.dev/#tutorial
 https://github.com/RonHatibaruah/assam-gov-decision-support-platform
 
 4. Upload Proof of Work / Solution Evidence (PDF only · Max 10 MB):
-File to Upload: docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf (or docs/NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf)
+File to Upload: docs/NESFIC_D36_Proof_of_Work_Sambit_Mohanty.pdf (also accessible as docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf)
 Summary of PDF Content:
 - Working Prototype Architecture & Live Cloudflare Deployment Evidence
 - Automated Test Suite Execution Reports (9/9 Unit Tests Passing)
 - RAG Triad Benchmarks (Context Relevance 99.1%, Groundedness 98.4%, Citation Coverage 100%)
 - UI Wireframe Screenshots: Knowledge Assistant, Citation Docket, Note-Sheet Drafter, Rules Explorer, Admin Control Center
 - Pilot Blueprints for Assam Administrative Staff College (AASC) & ASSAC
+================================================================================
+
+================================================================================
+STATUTORY DISCLAIMER & COPYRIGHT NOTICE
+================================================================================
+Disclaimer: This proposal and associated platform represent an advanced AI-assisted decision support system prototype engineered for the NESFIC-D-36 Challenge by Cool Minds Lab (Lead Applicant: Sambit Mohanty). All administrative recommendations, suggested draft note-sheets, and rule interpretations are advisory and remain subject to statutory verification and final approval by competent Government of Assam authorities in accordance with the Assam Services Rules and Manual of Office Procedure (MOP).
+
+Copyright: © 2026 Cool Minds Lab. All rights reserved.
 ================================================================================

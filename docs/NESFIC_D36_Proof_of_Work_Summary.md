@@ -1,7 +1,8 @@
 # NESFIC-D-36 Proof of Work & Solution Evidence Document
 ## Assam Government Decision Support Platform
 ### Trusted Government Knowledge, Rules & Document Assistant
-**Lead Applicant:** Chandan Kumar Sonowal  
+**Lead Applicant:** Sambit Mohanty  
+**Organization:** Cool Minds Lab  
 **Challenge Track:** Government Track (Generative AI & Language Tools / Governance & Administration)  
 **Sponsoring Bodies:** Assam Administrative Staff College (AASC) & DIIS, Government of Assam  
 **Live Production URL:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)  
@@ -229,3 +230,11 @@ The **Assam Government Decision Support Platform** addresses all requirements of
 3. It features an active **Zero-Hallucination Guardrail**, protecting state decisions from fabricated claims.
 4. It automates **Secretariat Note-Sheet drafting** strictly conforming to the Manual of Office Procedure (MOP).
 5. It is **live, tested, and verifiable today** at `https://assam-gov-decision-support.pages.dev`.
+
+---
+
+## 8. Statutory Disclaimer & Copyright Notice
+
+**Disclaimer:** This Proof of Work document and associated platform represent an advanced AI-assisted decision support system prototype engineered for the NESFIC-D-36 Challenge by **Cool Minds Lab** (Lead Applicant: **Sambit Mohanty**). All administrative recommendations, suggested draft note-sheets, and rule interpretations are advisory and remain subject to statutory verification and final approval by competent Government of Assam authorities in accordance with the Assam Services Rules and Manual of Office Procedure (MOP).
+
+**Copyright:** © 2026 **Cool Minds Lab**. All rights reserved.

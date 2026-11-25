@@ -3,7 +3,8 @@
 ### Grant Proposal & Technical Solution Submission Document
 **Problem Statement ID:** NESFIC-D-36 (Government Track)  
 **Challenge Owner:** Assam Administrative Staff College (AASC) & Department of Innovation, Incubation and Startups (DIIS), Government of Assam  
-**Lead Applicant:** Chandan Kumar Sonowal  
+**Lead Applicant:** Sambit Mohanty  
+**Organization:** Cool Minds Lab  
 **Platform Initiative:** North East Seva First Innovation Challenge (NESFIC 2026), Assam Innovation & Startup Foundation (AISF)  
 **Live Production Prototype:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)  
 **Interactive Application Tutorial:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)  
@@ -244,7 +245,7 @@ The platform’s efficacy relies on authoritative, verified government legal doc
 *Word Count: ~382 words (Max: 500 words)*
 
 ### Team Composition & Domain Roles
-1. **Lead Applicant & Principal Architect: Chandan Kumar Sonowal**
+1. **Lead Applicant & Principal Architect: Sambit Mohanty (Cool Minds Lab)**
    - *Role:* Solution Architect, Lead Full-Stack Engineer, and AI Systems Designer.
    - *Responsibilities:* End-to-end platform design, RAG pipeline implementation, deterministic guardrail architecture, edge deployment on Cloudflare, and Node.js backend development.
    - *Relevant Experience:* Architect of the working production prototype deployed at `assam-gov-decision-support.pages.dev`, author of the open-source GitHub codebase with 100% test coverage, and experienced in GovTech software delivery.
@@ -429,4 +430,12 @@ The grant funding (₹40 Lakhs problem statement grant under NESFIC 2026) is str
 - **Product / Website URL:** [https://assam-gov-decision-support.pages.dev](https://assam-gov-decision-support.pages.dev)
 - **Demo / Product Video URL / Interactive Tutorial:** [https://assam-gov-decision-support.pages.dev/#tutorial](https://assam-gov-decision-support.pages.dev/#tutorial)
 - **GitHub Source Code Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)
-- **Upload Proof of Work / Solution Evidence File:** `docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf` (also available as `docs/NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf`)
+- **Upload Proof of Work / Solution Evidence File:** `docs/NESFIC_D36_Proof_of_Work_Sambit_Mohanty.pdf` (also available as `docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf`)
+
+---
+
+## Statutory Disclaimer & Copyright Notice
+
+**Disclaimer:** This proposal and associated platform represent an advanced AI-assisted decision support system prototype engineered for the NESFIC-D-36 Challenge by **Cool Minds Lab** (Lead Applicant: **Sambit Mohanty**). All administrative recommendations, suggested draft note-sheets, and rule interpretations are advisory and remain subject to statutory verification and final approval by competent Government of Assam authorities in accordance with the Assam Services Rules and Manual of Office Procedure (MOP).
+
+**Copyright:** © 2026 **Cool Minds Lab**. All rights reserved.

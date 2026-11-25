@@ -19,8 +19,10 @@ from reportlab.pdfgen import canvas
 
 DOCS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs")
 ASSETS_DIR = os.path.join(DOCS_DIR, "assets")
-PROPOSAL_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proposal_Chandan_Kumar_Sonowal.pdf")
-POW_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf")
+PROPOSAL_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proposal_Sambit_Mohanty.pdf")
+POW_PDF_PATH = os.path.join(DOCS_DIR, "NESFIC_D36_Proof_of_Work_Sambit_Mohanty.pdf")
+PROPOSAL_PDF_CHANDAN = os.path.join(DOCS_DIR, "NESFIC_D36_Proposal_Chandan_Kumar_Sonowal.pdf")
+POW_PDF_CHANDAN = os.path.join(DOCS_DIR, "NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf")
 PROPOSAL_PDF_LEGACY = os.path.join(DOCS_DIR, "NESFIC_D36_Proposal_Ron_Hatibaruah.pdf")
 POW_PDF_LEGACY = os.path.join(DOCS_DIR, "NESFIC_D36_Proof_of_Work_Ron_Hatibaruah.pdf")
 
@@ -62,7 +64,7 @@ class NumberedCanvas(canvas.Canvas):
             self.setFont("Helvetica", 8)
             self.setFillColor(C_MUTED)
             self.drawString(54, 804, "Government of Assam • Assam Administrative Staff College (AASC) • NESFIC-D-36")
-            self.drawRightString(541, 804, "Decision Support Platform — Chandan Kumar Sonowal")
+            self.drawRightString(541, 804, "Decision Support Platform — Sambit Mohanty (Cool Minds Lab)")
             self.setStrokeColor(colors.HexColor("#e2e8f0"))
             self.setLineWidth(0.5)
             self.line(54, 797, 541, 797)
@@ -73,7 +75,7 @@ class NumberedCanvas(canvas.Canvas):
         self.setStrokeColor(colors.HexColor("#e2e8f0"))
         self.setLineWidth(0.5)
         self.line(54, 46, 541, 46)
-        self.drawString(54, 34, "NESFIC 2026 Proposal • Problem NESFIC-D-36 • Applicant: Chandan Kumar Sonowal")
+        self.drawString(54, 34, "NESFIC 2026 Proposal • Problem NESFIC-D-36 • Applicant: Sambit Mohanty • © 2026 Cool Minds Lab")
         page_str = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(541, 34, page_str)
         self.restoreState()
@@ -218,6 +220,15 @@ def get_styles():
             leading=12,
             textColor=C_NAVY_DARK,
             alignment=1
+        ),
+        'DisclaimerText': ParagraphStyle(
+            'DisclaimerText',
+            parent=base['Normal'],
+            fontName='Helvetica',
+            fontSize=6.5,
+            leading=8.5,
+            textColor=C_MUTED,
+            spaceAfter=2
         )
     }
     return styles
@@ -258,7 +269,7 @@ def build_proposal_pdf():
             Paragraph("<b>Challenge Owner:</b> Assam Administrative Staff College & DIIS", styles['MetaKey'])
         ],
         [
-            Paragraph("<b>Lead Applicant:</b> Chandan Kumar Sonowal", styles['MetaKey']),
+            Paragraph("<b>Lead Applicant:</b> Sambit Mohanty (Cool Minds Lab)", styles['MetaKey']),
             Paragraph("<b>Platform:</b> Assam Startup (AISF) NESFIC 2026", styles['MetaKey'])
         ],
         [
@@ -600,14 +611,14 @@ def build_proposal_pdf():
     story.append(Paragraph("<i>Submission Word Budget: Word Count: ~382 words / Max: 500 words</i>", styles['WordBudget']))
     story.append(Paragraph("Team Leadership & Composition", styles['SubSectionHead']))
     story.append(Paragraph(
-        "Led by Chandan Kumar Sonowal, the project team brings together specialized domain expertise in NLP language models, Assam civil service rules, and enterprise GovTech architecture.",
+        "Led by Sambit Mohanty (Cool Minds Lab), the project team brings together specialized domain expertise in NLP language models, Assam civil service rules, and enterprise GovTech architecture.",
         styles['Body']
     ))
 
     t_data_team = [
         [Paragraph("<b>ROLE & DESIGNATION</b>", styles['TableHead']), Paragraph("<b>CORE EXPERTISE & RESPONSIBILITY</b>", styles['TableHead'])],
         [
-            Paragraph("<b>Chandan Kumar Sonowal</b><br/>Lead Architect", styles['TableCellBold']),
+            Paragraph("<b>Sambit Mohanty</b><br/>Lead Architect (Cool Minds Lab)", styles['TableCellBold']),
             Paragraph("Full-stack systems architecture, RAG retrieval engineering, deterministic guardrails, and cloud deployment. Deep domain knowledge of Assam digital governance.", styles['TableCell'])
         ],
         [
@@ -651,7 +662,7 @@ def build_proposal_pdf():
     story.append(t_team2)
 
     story.append(Paragraph("Roles & Responsibilities by Development Phase", styles['SubSectionHead']))
-    story.append(Paragraph("1. <b>Lead Architect (Chandan Kumar Sonowal) [All Phases - Full Time]:</b> Directs algorithmic modeling, RAG engineering, compliance with NESFIC USPR guidelines, and overall pilot execution.", styles['Bullet']))
+    story.append(Paragraph("1. <b>Lead Architect (Sambit Mohanty, Cool Minds Lab) [All Phases - Full Time]:</b> Directs algorithmic modeling, RAG engineering, compliance with NESFIC USPR guidelines, and overall pilot execution.", styles['Bullet']))
     story.append(Paragraph("2. <b>Senior NLP Engineer [Months 1-5 - Full Time]:</b> Owns hybrid retrieval engine, legal clause chunking, vector embeddings, and RAG Triad benchmark suite.", styles['Bullet']))
     story.append(Paragraph("3. <b>Full-Stack Developer [Months 2-6 - Full Time]:</b> Builds responsive frontend interfaces (Assistant, Note-Sheet Drafter, Admin Center) and develops edge REST APIs.", styles['Bullet']))
     story.append(Paragraph("4. <b>Civil Service Legal Advisor [Months 1, 3, 5 - Part Time / Advisory]:</b> Ensures deterministic scoring rules mirror the Assam Services Pension Rules 1969, FR & SR, and MOP.", styles['Bullet']))
@@ -869,11 +880,19 @@ def build_proposal_pdf():
     story.append(Paragraph("• <b>Pilot 1: Assam Administrative Staff College (AASC) Khanapara:</b> 120 ACS probationers during Foundation Training. Target: 80% reduction in rule research time; 100% citation accuracy across 50 simulated cases; zero hallucinations.", styles['Bullet']))
     story.append(Paragraph("• <b>Pilot 2: Assam State Space Application Centre (ASSAC) Bigyan Bhawan:</b> Drone survey approvals and riverine erosion spatial layer requests. Target: 90% faster parameter compliance verification; zero data leakage.", styles['Bullet']))
     story.append(Paragraph("• <b>Validation KPIs:</b> >95% officer satisfaction rating; 100% audit log compliance; official sign-off for Secretariat commissioning.", styles['Bullet']))
+    story.append(Spacer(1, 3))
+    story.append(Paragraph("<b>Statutory Disclaimer &amp; Attribution Notice</b>", styles['SubSectionHead']))
+    story.append(Paragraph(
+        "<b>Statutory Disclaimer:</b> The NESFIC-D-36 Decision Support Platform functions strictly as an advisory administrative assistive tool for verification against gazetted rules. All recommendations, checklists, and note-sheet drafts require independent human review, formal validation, and statutory sign-off by competent government authorities.<br/>"
+        "<b>Lead Applicant:</b> Sambit Mohanty | <b>Organization &amp; Copyright:</b> © 2026 Cool Minds Lab. All rights reserved.",
+        styles['DisclaimerText']
+    ))
 
     doc.build(story, canvasmaker=NumberedCanvas)
+    shutil.copyfile(PROPOSAL_PDF_PATH, PROPOSAL_PDF_CHANDAN)
     shutil.copyfile(PROPOSAL_PDF_PATH, PROPOSAL_PDF_LEGACY)
     print(f"✅ Generated 12-Page Proposal PDF: {PROPOSAL_PDF_PATH} ({os.path.getsize(PROPOSAL_PDF_PATH)} bytes)")
-    print(f"   (Also synchronized to: {PROPOSAL_PDF_LEGACY})")
+    print(f"   (Also synchronized to: {PROPOSAL_PDF_CHANDAN} and {PROPOSAL_PDF_LEGACY})")
 
 
 def build_pow_pdf():
@@ -903,7 +922,7 @@ def build_pow_pdf():
             Paragraph("<b>Department:</b> AASC, ARTD, STCCD, PPGD, ASSAC", styles['MetaKey'])
         ],
         [
-            Paragraph("<b>Lead Applicant:</b> Chandan Kumar Sonowal", styles['MetaKey']),
+            Paragraph("<b>Lead Applicant:</b> Sambit Mohanty (Cool Minds Lab)", styles['MetaKey']),
             Paragraph("<b>Format:</b> Solution Evidence (PDF &lt; 10 MB)", styles['MetaKey'])
         ],
         [
@@ -1160,14 +1179,17 @@ def build_pow_pdf():
     story.append(Spacer(1, 4))
 
     story.append(Paragraph("<b>Sign-Off &amp; Applicant Attribution</b>", styles['SubSectionHead']))
-    story.append(Paragraph("• <b>Prepared By:</b> Chandan Kumar Sonowal", styles['Body']))
-    story.append(Paragraph("• <b>Lead Solutions Architect &amp; Lead Applicant:</b> Chandan Kumar Sonowal", styles['Body']))
+    story.append(Paragraph("• <b>Prepared By:</b> Sambit Mohanty", styles['Body']))
+    story.append(Paragraph("• <b>Lead Solutions Architect &amp; Lead Applicant:</b> Sambit Mohanty (Cool Minds Lab)", styles['Body']))
+    story.append(Paragraph("• <b>Organization &amp; Copyright:</b> © 2026 Cool Minds Lab. All rights reserved.", styles['Body']))
     story.append(Paragraph("• <b>Initiative:</b> Assam Innovation &amp; Startup Foundation (AISF) / NESFIC 2026", styles['Body']))
+    story.append(Paragraph("• <b>Statutory Notice:</b> Advisory assistive tool only; all recommendations subject to official validation and statutory sign-off by competent government authorities.", styles['DisclaimerText']))
 
     doc.build(story, canvasmaker=NumberedCanvas)
+    shutil.copyfile(POW_PDF_PATH, POW_PDF_CHANDAN)
     shutil.copyfile(POW_PDF_PATH, POW_PDF_LEGACY)
     print(f"✅ Generated 7-Page Proof of Work PDF: {POW_PDF_PATH} ({os.path.getsize(POW_PDF_PATH)} bytes)")
-    print(f"   (Also synchronized to: {POW_PDF_LEGACY})")
+    print(f"   (Also synchronized to: {POW_PDF_CHANDAN} and {POW_PDF_LEGACY})")
 
 
 if __name__ == "__main__":
