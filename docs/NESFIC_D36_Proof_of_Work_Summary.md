@@ -7,7 +7,7 @@
 **Sponsoring Bodies:** Assam Administrative Staff College (AASC) & DIIS, Government of Assam  
 **Live Production URL:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)  
 **Interactive Tutorial URL:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)  
-**GitHub Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)  
+**GitHub Repository:** [https://github.com/ssahooitis/NESFIC-D36](https://github.com/ssahooitis/NESFIC-D36)  
 
 ---
 
@@ -20,7 +20,7 @@ This Proof of Work document presents empirical, technical, and operational evide
 │                        VERIFIED PROOF OF WORK                          │
 ├────────────────────────────────────────────────────────────────────────┤
 │ • Production URL: https://assam-gov-decision-support.coolmindslab.com │
-│ • GitHub Source:  RonHatibaruah/assam-gov-decision-support-platform    │
+│ • GitHub Source:  ssahooitis/NESFIC-D36                                │
 │ • Latest Commit:  a873999 (Main branch, clean tree)                    │
 │ • Test Suite:     9/9 Automated Integration Tests Passing (100%)       │
 │ • RAG Triad:      Context: 99.1% | Grounded: 98.4% | Citation: 100%   │

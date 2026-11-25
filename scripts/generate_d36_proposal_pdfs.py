@@ -400,7 +400,7 @@ def build_proposal_pdf():
         styles['Body']
     ))
     story.append(Paragraph("• <b>Live Web Portal:</b> https://assam-gov-decision-support.coolmindslab.com | <b>Interactive Tutorial:</b> /#tutorial", styles['Bullet']))
-    story.append(Paragraph("• <b>GitHub Repository:</b> https://github.com/RonHatibaruah/assam-gov-decision-support-platform", styles['Bullet']))
+    story.append(Paragraph("• <b>GitHub Repository:</b> https://github.com/ssahooitis/NESFIC-D36", styles['Bullet']))
     story.append(Paragraph("• <b>Automated Test Suite:</b> 9 comprehensive integration tests passing with 100% success (`npm test`).", styles['Bullet']))
     story.append(PageBreak())
 

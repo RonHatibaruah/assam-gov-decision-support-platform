@@ -8,7 +8,7 @@
 **Platform Initiative:** North East Seva First Innovation Challenge (NESFIC 2026), Assam Innovation & Startup Foundation (AISF)  
 **Live Production Prototype:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)  
 **Interactive Application Tutorial:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)  
-**Open-Source GitHub Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)  
+**Open-Source GitHub Repository:** [https://github.com/ssahooitis/NESFIC-D36](https://github.com/ssahooitis/NESFIC-D36)  
 
 ---
 
@@ -98,7 +98,7 @@ The Assam Government Decision Support Platform is an enterprise-grade, sovereign
 A fully functional, battle-tested production prototype has been developed, tested, and deployed to public edge infrastructure:
 - **Live Web Portal:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)
 - **Interactive Platform Tutorial:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)
-- **Public GitHub Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)
+- **Public GitHub Repository:** [https://github.com/ssahooitis/NESFIC-D36](https://github.com/ssahooitis/NESFIC-D36)
 - **Automated Test Suite:** 9 comprehensive unit and integration tests passing with 100% success (`npm test`), verifying accurate clause retrieval, superannuation age lookup (FR 56), bilingual translation, and zero-hallucination refusal.
 
 ### UI Wireframe Architecture (5 Main Tabs)
@@ -315,7 +315,7 @@ graph TD
 4. **Evidence from Live Production Prototype:**
    - Public Edge Deployment: Verified live at `https://assam-gov-decision-support.coolmindslab.com`.
    - Sub-second response times verified across global networks.
-   - Open-source codebase with clean git history and reproducible build artifacts available at `https://github.com/RonHatibaruah/assam-gov-decision-support-platform`.
+   - Open-source codebase with clean git history and reproducible build artifacts available at `https://github.com/ssahooitis/NESFIC-D36`.
 
 ---
 
@@ -429,7 +429,7 @@ The grant funding (₹40 Lakhs problem statement grant under NESFIC 2026) is str
 
 - **Product / Website URL:** [https://assam-gov-decision-support.coolmindslab.com](https://assam-gov-decision-support.coolmindslab.com)
 - **Demo / Product Video URL / Interactive Tutorial:** [https://assam-gov-decision-support.coolmindslab.com/#tutorial](https://assam-gov-decision-support.coolmindslab.com/#tutorial)
-- **GitHub Source Code Repository:** [https://github.com/RonHatibaruah/assam-gov-decision-support-platform](https://github.com/RonHatibaruah/assam-gov-decision-support-platform)
+- **GitHub Source Code Repository:** [https://github.com/ssahooitis/NESFIC-D36](https://github.com/ssahooitis/NESFIC-D36)
 - **Upload Proof of Work / Solution Evidence File:** `docs/NESFIC_D36_Proof_of_Work_Sambit_Mohanty.pdf` (also available as `docs/NESFIC_D36_Proof_of_Work_Chandan_Kumar_Sonowal.pdf`)
 
 ---

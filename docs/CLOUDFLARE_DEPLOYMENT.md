@@ -23,7 +23,7 @@ The application is completely configured and optimized for zero-cost, high-speed
 
 1. Push this repository to GitHub under your repository name (`assam-gov-decision-support-platform`).
 2. Log into the [Cloudflare Dashboard](https://dash.cloudflare.com/) and go to **Workers & Pages** $\rightarrow$ **Create Application** $\rightarrow$ **Pages** $\rightarrow$ **Connect to Git**.
-3. Select your repository `RonHatibaruah/assam-gov-decision-support-platform` and configure the build settings:
+3. Select your repository `ssahooitis/NESFIC-D36` and configure the build settings:
    - **Project Name:** `assam-gov-decision-support` (or your choice)
    - **Production Branch:** `main`
    - **Framework Preset:** `None`
